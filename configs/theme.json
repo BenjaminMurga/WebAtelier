@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "settings": {
+    "appearanceTools": true,
+    "useRootPaddingAwareAlignments": true,
+    "color": {
+      "custom": false,
+      "customDuotone": false,
+      "customGradient": false,
+      "defaultGradients": false,
+      "defaultPalette": false,
+      "gradients": [],
+      "palette": [
+        { "name": "Carbon Ink", "slug": "ink-primary", "color": "#1D1D1F" },
+        { "name": "Neutral Slate", "slug": "ink-secondary", "color": "#515154" },
+        { "name": "Alabaster Surface", "slug": "surface-primary", "color": "#FBFBFD" },
+        { "name": "Stone Elevated", "slug": "surface-secondary", "color": "#F5F5F7" },
+        { "name": "Obsidian Dark", "slug": "surface-dark", "color": "#000000" },
+        { "name": "Editorial Solid Accent", "slug": "brand-accent", "color": "#0066CC" },
+        { "name": "Hairline Border", "slug": "border-hairline", "color": "#D2D2D7" }
+      ]
+    },
+    "layout": {
+      "contentSize": "760px",
+      "wideSize": "1280px"
+    },
+    "typography": {
+      "fluid": true,
+      "fontSizes": [
+        { "name": "Caption", "slug": "caption", "size": "0.8125rem", "fluid": false },
+        { "name": "Body", "slug": "body", "size": "1.0625rem", "fluid": { "min": "1rem", "max": "1.0625rem" } },
+        { "name": "Lead", "slug": "lead", "size": "1.375rem", "fluid": { "min": "1.1875rem", "max": "1.375rem" } },
+        { "name": "H3", "slug": "h3", "size": "1.75rem", "fluid": { "min": "1.375rem", "max": "1.75rem" } },
+        { "name": "H2", "slug": "h2", "size": "2.75rem", "fluid": { "min": "1.875rem", "max": "2.75rem" } },
+        { "name": "H1", "slug": "h1", "size": "4.25rem", "fluid": { "min": "2.5rem", "max": "4.25rem" } }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--surface-primary)",
+      "text": "var(--wp--preset--color--ink-primary)"
+    },
+    "elements": {
+      "heading": {
+        "color": {
+          "text": "var(--wp--preset--color--ink-primary)",
+          "gradient": "none"
+        },
+        "typography": {
+          "fontWeight": "600",
+          "lineHeight": "1.08",
+          "letterSpacing": "-0.03em"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+name: Anti-AI & Skill Integrity Gate
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-skill:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check required modular files exist
+        run: |
+          required_files=(
+            "SKILL.md"
+            "references/source-inventory.md"
+            "references/apple-design.md"
+            "references/wordpress.md"
+            "references/anti-ai-design.md"
+            "references/motion-3d.md"
+            "references/seo.md"
+            "references/aeo-geo.md"
+            "references/design-system.md"
+            "references/accessibility-performance.md"
+            "references/quality-assurance.md"
+            "configs/theme.json"
+            "styles/anti-ai-reset-and-tokens.css"
+            "scripts/anti-ai-dom-auditor.js"
+          )
+          for file in "${required_files[@]}"; do
+            if [ ! -f "$file" ]; then
+              echo "Error: Falta el archivo obligatorio $file"
+              exit 1
+            fi
+          done
+
+      - name: Validate WordPress theme.json & Auditor JS Syntax
+        run: |
+          npm run audit:syntax
+          npm run validate:theme-json

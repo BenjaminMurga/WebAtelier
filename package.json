@@ -1,0 +1,23 @@
+{
+  "name": "apple-wp-premium-web-skill",
+  "version": "2.0.0",
+  "description": "Skill profesional de diseño web premium (Apple Design + WordPress + Motion/3D + Anti-AI Design + SEO/AEO/GEO)",
+  "type": "module",
+  "scripts": {
+    "audit:syntax": "node --check scripts/anti-ai-dom-auditor.js",
+    "validate:theme-json": "node -e \"const fs = require('fs'); JSON.parse(fs.readFileSync('configs/theme.json', 'utf8')); console.log('theme.json válido');\""
+  },
+  "keywords": [
+    "ai-skill",
+    "apple-design",
+    "wordpress",
+    "full-site-editing",
+    "anti-ai-design",
+    "gsap",
+    "threejs",
+    "seo",
+    "aeo",
+    "geo"
+  ],
+  "license": "MIT"
+}
