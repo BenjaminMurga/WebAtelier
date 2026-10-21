@@ -14,6 +14,7 @@
     "audit:screen": "node scripts/audit-screen.js index.html",
     "audit:syntax": "node --check scripts/anti-ai-dom-auditor.js",
     "test": "node scripts/test-auditor.js",
+    "update": "node scripts/update-skill.js",
     "validate:theme-json": "node -e \"const fs = require('fs'); JSON.parse(fs.readFileSync('configs/theme.json', 'utf8')); console.log('theme.json válido');\""
   },
   "keywords": [

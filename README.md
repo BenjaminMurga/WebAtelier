@@ -176,6 +176,11 @@ node scripts/audit-screen.js https://sitio-de-tu-cliente.com
 
 # 6. Ejecutar tests del auditor Anti-AI:
 npm test
+
+# 7. Actualizar la Skill cuando se publiquen mejoras en GitHub:
+npm run update
+# o directamente:
+git pull origin main
 ```
 
 ---
