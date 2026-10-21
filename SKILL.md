@@ -12,6 +12,10 @@ repository: https://github.com/BenjaminMurga/WebAtelier
 triggers:
   - web-atelier
   - webatelier
+  - brainstorming
+  - concepción creativa
+  - ideación web
+  - diseño conceptual
   - diseño web premium
   - rediseño de sitio web
   - desarrollo WordPress
@@ -80,7 +84,11 @@ Resuelve cualquier conflicto técnico o visual aplicando estrictamente este orde
 ---
 
 ## 4. Flujo Operativo Obligatorio (10 Fases)
-1. **Fase 1: Comprensión.** Analiza objetivos de negocio, público, identidad de marca, restricciones y factores de forma requeridos (Móvil, PC, TV).
+1. **Fase 1: Comprensión & Brainstorming de Atelier (`references/design-brainstorming.md`).**
+   - Aplica el protocolo de concepción creativa: preguntas de calibración (una por mensaje), exploración del universo visual (Apple Minimalist, Swiss, Nordic, Luxury), nivel de interactividad 3D y factores de forma.
+   - Aplica el **Desafío Anti-Cliché** para evitar estructuras genéricas de IA (ej. cambiar 3 cajitas iguales por Bento Grids asimétricos).
+   - Clasifica la solicitud en uno de los tres caminos: **Spike Visual/3D**, **Bounded (Sección)** o **Architectural (Proyecto Completo)**.
+   - **Hard Gate Obligatorio:** Detente y obtén la aprobación explícita del usuario sobre el enfoque conceptual o la especificación (`DESIGN-SPEC.md`) antes de escribir código de producción.
 2. **Fase 2: Investigación.** Consulta `references/source-inventory.md` y los módulos temáticos pertinentes.
 3. **Fase 3: Dirección de Arte.** Establece la paleta de tokens semánticos (regla 60-30-10) y la composición editorial.
 4. **Fase 4: Arquitectura.** Estructura el DOM con etiquetas semánticas HTML5 (`header`, `nav`, `main`, `section`, `article`), eliminando sopas de divs.

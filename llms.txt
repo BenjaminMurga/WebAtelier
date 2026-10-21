@@ -9,7 +9,8 @@
 
 ## Pilares Fundamentales de WebAtelier
 
-1. **Filosofía Apple HIG:** Claridad visual, deferencia hacia el contenido, profundidad espacial mediante Liquid Glass (`backdrop-filter: blur(20px)`), curvatura continua ($n=4$), radios concéntricos y física de resortes (*spring physics*).
+1. **Brainstorming y Concepción Creativa:** Descubrimiento guiado de la identidad visual (Apple Minimalist, Swiss Typography, Nordic Organic, Warm Luxury), desafío a los clichés de IA, clasificación en 3 caminos de ejecución (Spike, Bounded, Architectural) y aprobación obligatoria del usuario (*Hard Gate*) antes de programar (`references/design-brainstorming.md`).
+2. **Filosofía Apple HIG:** Claridad visual, deferencia hacia el contenido, profundidad espacial mediante Liquid Glass (`backdrop-filter: blur(20px)`), curvatura continua ($n=4$), radios concéntricos y física de resortes (*spring physics*).
 2. **Blindaje Anti-AI Design:** Detección y erradicación estricta de las huellas de IA (degradados morado-azul en titulares, `background-clip: text`, halos neón, palabras en cursiva solitaria, badges "AI-Powered", sopa de divs y vocabulario cliché).
 3. **Diseño Adaptable Universal (3 Dimensiones):**
    - Móviles y tabletas (0–767px): Mobile-first, áreas táctiles de 44×44px, cero dependencia de hover y cabecera limpia con Menú Drawer accesible.
