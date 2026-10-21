@@ -47,3 +47,4 @@ jobs:
         run: |
           npm run audit:syntax
           npm run validate:theme-json
+          npm test
