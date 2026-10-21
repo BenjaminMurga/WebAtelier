@@ -56,7 +56,7 @@ Detección, prevención y eliminación sistemática de los vicios visuales, estr
 
 ### Pilar 3: Diseño Adaptable Universal (Responsive en 3 Dimensiones)
 El código debe adaptarse nativamente a tres factores de forma y métodos de entrada:
-1. **Móviles y Tabletas (0px – 767px):** Filosofía Mobile-First, zonas táctiles mínimas de 44×44px y cero dependencia de eventos *hover*.
+1. **Móviles y Tabletas (0px – 767px):** Filosofía Mobile-First, zonas táctiles mínimas de 44×44px, cero dependencia de eventos *hover*, cabecera limpia sin saturación horizontal y Menú Drawer accesible obligatorio con *backdrop-filter*.
 2. **PC y Laptops (1024px – 1440px+):** CSS Grid dinámico (`repeat(auto-fit, minmax(280px, 1fr))`), flexbox y navegación por puntero.
 3. **Smart TV / Apple TV / Android TV (1080p y 4K a 3 metros / 10-foot UI):** Navegación estricta por D-Pad (control remoto) con foco `:focus-visible` aumentado y de alto contraste, tipografía agrandada para lectura desde el sofá y cero dependencia de ratón o tacto.
 

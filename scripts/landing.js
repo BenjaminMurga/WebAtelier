@@ -1,26 +1,110 @@
 /**
  * WebAtelier - Landing Page Interactive Engine
- * Handles appearance toggles, live auditor demo, and copy-to-clipboard interactions.
+ * Handles mobile hamburger drawer, appearance toggles, and live DOM auditor demo.
  */
 import { runAntiAiAndQualityAudit } from './anti-ai-dom-auditor.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Selector de Esquema Cromático (Claro / Oscuro / Automático)
+  // ==========================================================================
+  // 1. Menú de Hamburguesa Móvil y Drawer Accesible
+  // ==========================================================================
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileDrawer = document.getElementById('mobile-drawer');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  function openDrawer() {
+    if (!menuToggle || !mobileDrawer) return;
+    menuToggle.classList.add('is-active');
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', 'Cerrar menú de navegación');
+    mobileDrawer.classList.add('is-open');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('drawer-open');
+  }
+
+  function closeDrawer() {
+    if (!menuToggle || !mobileDrawer) return;
+    menuToggle.classList.remove('is-active');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'Abrir menú de navegación');
+    mobileDrawer.classList.remove('is-open');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('drawer-open');
+  }
+
+  if (menuToggle && mobileDrawer) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileDrawer.classList.contains('is-open');
+      if (isOpen) {
+        closeDrawer();
+      } else {
+        openDrawer();
+      }
+    });
+
+    // Cerrar el drawer automáticamente al pulsar cualquier enlace de navegación
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    // Cerrar el drawer con la tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
+        closeDrawer();
+      }
+    });
+  }
+
+  // ==========================================================================
+  // 2. Selectores de Tema Cromático (Desktop, Drawer y Botón Rápido Móvil)
+  // ==========================================================================
   const themeToggles = document.querySelectorAll('[data-set-theme]');
+  const mobileQuickThemeBtn = document.getElementById('mobile-theme-btn');
+
+  function applyTheme(theme) {
+    if (theme === 'auto') {
+      document.documentElement.removeAttribute('data-theme');
+    } else {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+    // Sincronizar todos los botones de tema activos en desktop y drawer
+    themeToggles.forEach(b => {
+      if (b.getAttribute('data-set-theme') === theme) {
+        b.classList.add('active');
+      } else {
+        b.classList.remove('active');
+      }
+    });
+  }
+
   themeToggles.forEach(btn => {
     btn.addEventListener('click', () => {
       const targetTheme = btn.getAttribute('data-set-theme');
-      if (targetTheme === 'auto') {
-        document.documentElement.removeAttribute('data-theme');
-      } else {
-        document.documentElement.setAttribute('data-theme', targetTheme);
-      }
-      themeToggles.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      applyTheme(targetTheme);
     });
   });
 
-  // 2. Selector de Tamaño de Fuente Ergonómico
+  // Botón rápido en la barra móvil: alterna entre claro y oscuro
+  if (mobileQuickThemeBtn) {
+    mobileQuickThemeBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      let nextTheme = 'dark';
+      if (currentTheme === 'dark' || (!currentTheme && isSystemDark)) {
+        nextTheme = 'light';
+      } else {
+        nextTheme = 'dark';
+      }
+      applyTheme(nextTheme);
+    });
+  }
+
+  // ==========================================================================
+  // 3. Selectores de Tamaño de Fuente Ergonómico
+  // ==========================================================================
   const fontToggles = document.querySelectorAll('[data-set-font]');
   fontToggles.forEach(btn => {
     btn.addEventListener('click', () => {
@@ -32,12 +116,19 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         document.documentElement.style.fontSize = '';
       }
-      fontToggles.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      fontToggles.forEach(b => {
+        if (b.getAttribute('data-set-font') === size) {
+          b.classList.add('active');
+        } else {
+          b.classList.remove('active');
+        }
+      });
     });
   });
 
-  // 3. Demostración Interactiva del Auditor en Vivo
+  // ==========================================================================
+  // 4. Demostración Interactiva del Auditor en Vivo
+  // ==========================================================================
   const consoleOutput = document.getElementById('auditor-output');
   const btnRunBad = document.getElementById('btn-audit-bad');
   const btnRunGood = document.getElementById('btn-audit-good');
@@ -74,9 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     btnRunGood.addEventListener('click', () => {
-      consoleOutput.innerHTML = '<div style="color:var(--text-tertiary); padding: 8px 0;">Analizando DOM bajo estándar WebAtelier...</div>';
+      consoleOutput.innerHTML = '<div style="color:var(--text-tertiary); padding: 8px 0;">Analizando DOM vivo de WebAtelier...</div>';
       setTimeout(() => {
-        // En este caso auditamos directamente el documento vivo de la propia landing page
         const result = runAntiAiAndQualityAudit(document);
         renderAuditOutput(result, 'Caso: Landing Page WebAtelier (En Vivo)');
       }, 150);
@@ -120,7 +210,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  // 4. Copiar Comandos al Portapapeles
+  // ==========================================================================
+  // 5. Copiar Comandos de Instalación al Portapapeles
+  // ==========================================================================
   document.querySelectorAll('.terminal-copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       const textToCopy = btn.getAttribute('data-copy');

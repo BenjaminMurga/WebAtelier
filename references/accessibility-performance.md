@@ -6,9 +6,12 @@ La Skill impone al agente considerar no solo móviles y computadores, sino tambi
 
 ### 1.1 Móviles y Tabletas (0px – 767px)
 * **Estrategia Mobile-First Obligatoria:** Los estilos base se escriben para pantallas compactas y se enriquecen progresivamente mediante `@media (min-width: ...)`.
+* **Arquitectura de Cabecera Móvil y Menú Drawer Obligatorio:**
+  * Queda estrictamente prohibido forzar botones de texto extensos, selectores de tema completos o enlaces secundarios en la misma fila horizontal que el logo en pantallas `< 880px`.
+  * La cabecera móvil debe mantenerse limpia: Logotipo a la izquierda y máximo 2 controles compactos (ícono táctil de 44×44px y botón de menú de hamburguesa).
+  * Los enlaces de navegación, selectores de lectura y acciones secundarias deben desplegarse en un **Menú Drawer accesible** con fondo difuminado (*Liquid Glass*), bloqueo de scroll del fondo (`body.drawer-open`), cierre automático al hacer clic en un enlace y cierre con la tecla `Escape`.
 * **Ergonomía Táctil:** Controles interactivos con un área de contacto mínima garantizada de **44×44 px**.
 * **Cero Dependencia de Hover:** Los estados `:hover` son inexistentes en pantallas táctiles; toda información crítica debe ser visible sin requerir el paso del puntero.
-* **Navegación:** Barras inferiores (*bottom navigation*) o menús desplegables accesibles.
 
 ### 1.2 PC, Laptops y Monitores Panorámicos (1024px – 1440px+)
 * **Composición Bidimensional:** Estructura basada en **CSS Grid** dinámico combinado con **Flexbox**:

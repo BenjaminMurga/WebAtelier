@@ -8,7 +8,7 @@
   --bg-main: #fbfbfd;              /* 60% Dominante: Fondo limpio */
   --bg-surface: #f5f5f7;           /* 30% Secundario: Módulos y Bento */
   --bg-surface-elevated: #ffffff;    /* Superficie en primer plano */
-  --bg-overlay: rgba(255, 255, 255, 0.85);
+  --bg-overlay: rgba(251, 251, 253, 0.88);
 
   --text-primary: #1d1d1f;         /* Sólido, contraste > 12:1 */
   --text-secondary: #515154;       /* Contraste > 5.5:1 (WCAG AA superado) */
@@ -32,6 +32,7 @@
   --space-2: 8px;
   --space-3: 12px;
   --space-4: 16px;
+  --space-5: 20px;
   --space-6: 24px;
   --space-8: 32px;
   --space-10: 40px;
@@ -43,8 +44,8 @@
   --font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
 
-  --font-display: clamp(1.85rem, 7vw + 0.5rem, 4.25rem);
-  --font-h2: clamp(1.5rem, 4vw + 0.5rem, 2.75rem);
+  --font-display: clamp(1.85rem, 6.5vw + 0.5rem, 4.25rem);
+  --font-h2: clamp(1.5rem, 3.8vw + 0.5rem, 2.75rem);
   --font-h3: clamp(1.2rem, 2vw + 0.5rem, 1.75rem);
   --font-lead: clamp(1.05rem, 1.2vw + 0.8rem, 1.35rem);
   --font-body: clamp(0.95rem, 0.4vw + 0.85rem, 1.0625rem);
@@ -58,7 +59,7 @@
   /* 1.5 Física de Resortes */
   --ease-apple-spring: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-apple-press: cubic-bezier(0.2, 0, 0, 1);
-  --duration-normal: 220ms;
+  --duration-normal: 240ms;
 }
 
 @media (min-width: 768px) {
@@ -74,7 +75,7 @@
     --bg-main: #000000;
     --bg-surface: #111113;
     --bg-surface-elevated: #1d1d1f;
-    --bg-overlay: rgba(20, 20, 22, 0.85);
+    --bg-overlay: rgba(18, 18, 20, 0.88);
 
     --text-primary: #f5f5f7;
     --text-secondary: #a1a1a6;
@@ -94,7 +95,7 @@
   --bg-main: #000000;
   --bg-surface: #111113;
   --bg-surface-elevated: #1d1d1f;
-  --bg-overlay: rgba(20, 20, 22, 0.85);
+  --bg-overlay: rgba(18, 18, 20, 0.88);
 
   --text-primary: #f5f5f7;
   --text-secondary: #a1a1a6;
@@ -113,7 +114,7 @@
   --bg-main: #fbfbfd;
   --bg-surface: #f5f5f7;
   --bg-surface-elevated: #ffffff;
-  --bg-overlay: rgba(255, 255, 255, 0.85);
+  --bg-overlay: rgba(251, 251, 253, 0.88);
 
   --text-primary: #1d1d1f;
   --text-secondary: #515154;
@@ -156,6 +157,11 @@ body {
   overflow-x: hidden;
   position: relative;
   width: 100%;
+}
+
+/* Bloqueo de scroll cuando el drawer móvil está abierto */
+body.drawer-open {
+  overflow: hidden;
 }
 
 /* Prohibición Estricta de Degradados y Recortes en Titulares */
@@ -230,7 +236,7 @@ p {
 }
 
 /* ==========================================================================
-   4. Cabecera con Arquitectura Mobile-First
+   4. Cabecera Mobile-First con Liquid Glass y Menú de Hamburguesa
    ========================================================================== */
 .site-header {
   position: sticky;
@@ -248,14 +254,14 @@ p {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: var(--space-3) var(--space-4);
+  padding: 10px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-2);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 880px) {
   .header-container {
     padding: var(--space-3) var(--space-6);
     gap: var(--space-4);
@@ -284,8 +290,9 @@ p {
   font-weight: 600;
 }
 
-/* Navegación de Escritorio Oculta en Móviles para evitar colapso */
-.site-nav {
+/* Navegación y Acciones de Escritorio (Ocultas en pantallas < 880px) */
+.site-nav,
+.header-actions-desktop {
   display: none;
 }
 
@@ -313,16 +320,223 @@ p {
   .nav-link:hover {
     color: var(--text-primary);
   }
+
+  .header-actions-desktop {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
 }
 
-.header-actions {
+/* Acciones Móviles (Solo visibles en pantallas < 880px) */
+.header-actions-mobile {
   display: flex;
   align-items: center;
   gap: var(--space-2);
   flex-shrink: 0;
 }
 
-/* Controles Ergonómicos de Lectura */
+@media (min-width: 880px) {
+  .header-actions-mobile {
+    display: none;
+  }
+}
+
+/* Botón de Cambio Rápido de Tema Móvil */
+.theme-icon-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 44px; /* Ergonomía táctil */
+  min-width: 44px;
+  transition: background-color var(--duration-normal) ease, transform 140ms var(--ease-apple-press);
+}
+
+.theme-icon-btn:hover {
+  background: var(--bg-surface-elevated);
+}
+
+.theme-icon-btn:active {
+  transform: scale(0.92);
+}
+
+/* Botón de Menú de Hamburguesa con Animación a X */
+.menu-toggle-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  transition: background-color var(--duration-normal) ease, transform 140ms var(--ease-apple-press);
+}
+
+.menu-toggle-btn:hover {
+  background: var(--bg-surface-elevated);
+}
+
+.menu-toggle-btn:active {
+  transform: scale(0.92);
+}
+
+.hamburger-box {
+  width: 20px;
+  height: 12px;
+  position: relative;
+  display: block;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 1px;
+}
+
+.hamburger-inner,
+.hamburger-inner::after {
+  width: 20px;
+  height: 2px;
+  background-color: var(--text-primary);
+  border-radius: 2px;
+  position: absolute;
+  transition: transform 220ms var(--ease-apple-spring), top 220ms var(--ease-apple-spring);
+}
+
+.hamburger-inner::after {
+  content: '';
+  top: 8px;
+  left: 0;
+}
+
+/* Transformación de Hamburguesa a X cuando está abierto */
+.menu-toggle-btn.is-active .hamburger-inner {
+  top: 5px;
+  transform: rotate(45deg);
+}
+
+.menu-toggle-btn.is-active .hamburger-inner::after {
+  top: 0;
+  transform: rotate(-90deg);
+}
+
+/* ==========================================================================
+   5. Menú Drawer Desplegable Móvil (Full-bleed Overlay)
+   ========================================================================== */
+.mobile-drawer {
+  position: fixed;
+  top: 61px; /* Justo debajo del header */
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 61px);
+  background: var(--bg-overlay);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  border-bottom: 1px solid var(--border-hairline);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 220ms ease, transform 240ms var(--ease-apple-spring);
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.mobile-drawer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+@media (min-width: 880px) {
+  .mobile-drawer {
+    display: none !important;
+  }
+}
+
+.drawer-inner {
+  padding: var(--space-6) var(--space-5);
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.mobile-nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.mobile-nav-link {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-hairline);
+  transition: color var(--duration-normal) ease;
+}
+
+.mobile-nav-link:active {
+  color: var(--accent);
+}
+
+.drawer-divider {
+  height: 1px;
+  background: var(--border-hairline);
+  width: 100%;
+}
+
+.drawer-controls-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.drawer-section-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-tertiary);
+}
+
+.reading-controls-drawer {
+  display: flex;
+  background: var(--bg-surface);
+  padding: 3px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-hairline);
+  width: 100%;
+}
+
+.reading-controls-drawer .btn-toggle {
+  flex: 1;
+  padding: 8px 0;
+  font-size: 0.85rem;
+  min-height: 38px;
+}
+
+.drawer-cta {
+  margin-top: var(--space-3);
+}
+
+/* ==========================================================================
+   6. Controles Ergonómicos de Escritorio
+   ========================================================================== */
 .reading-controls {
   display: flex;
   align-items: center;
@@ -336,8 +550,8 @@ p {
   background: transparent;
   border: none;
   color: var(--text-secondary);
-  padding: 4px 8px;
-  font-size: 0.75rem;
+  padding: 4px 10px;
+  font-size: 0.8rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   cursor: pointer;
@@ -349,20 +563,13 @@ p {
   transition: background-color var(--duration-normal) ease, color var(--duration-normal) ease;
 }
 
-@media (min-width: 480px) {
-  .btn-toggle {
-    padding: 4px 10px;
-    font-size: 0.8rem;
-  }
-}
-
 .btn-toggle.active {
   background: var(--bg-surface-elevated);
   color: var(--text-primary);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-/* Botones Base con Ergonomía Táctil (Mínimo 44px) */
+/* Botones Base con Ergonomía Táctil */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -370,23 +577,16 @@ p {
   gap: var(--space-2);
   background: var(--accent);
   color: var(--accent-text);
-  padding: 10px 18px;
+  padding: 12px 22px;
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   border: none;
   cursor: pointer;
   min-height: 44px;
   white-space: nowrap;
   transition: background-color 160ms ease, transform var(--duration-normal) var(--ease-apple-press);
-}
-
-@media (min-width: 768px) {
-  .btn-primary {
-    padding: 12px 24px;
-    font-size: 0.95rem;
-  }
 }
 
 .btn-primary:hover {
@@ -404,23 +604,16 @@ p {
   gap: var(--space-2);
   background: var(--bg-surface);
   color: var(--text-primary);
-  padding: 10px 18px;
+  padding: 12px 22px;
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.92rem;
   border: 1px solid var(--border-hairline);
   cursor: pointer;
   min-height: 44px;
   white-space: nowrap;
   transition: background-color 160ms ease, transform var(--duration-normal) var(--ease-apple-press);
-}
-
-@media (min-width: 768px) {
-  .btn-secondary {
-    padding: 12px 24px;
-    font-size: 0.95rem;
-  }
 }
 
 .btn-secondary:hover {
@@ -432,7 +625,7 @@ p {
 }
 
 /* ==========================================================================
-   5. Estructura de Secciones Mobile-First
+   7. Estructura de Secciones Mobile-First
    ========================================================================== */
 .section-wrapper {
   width: 100%;
@@ -533,7 +726,7 @@ p {
 }
 
 /* ==========================================================================
-   6. Grilla Bento Mobile-First (1 Columna en móvil -> 12 Columnas en desktop)
+   8. Grilla Bento Mobile-First (1 Columna en móvil -> 12 Columnas en desktop)
    ========================================================================== */
 .bento-grid {
   display: grid;
@@ -638,7 +831,7 @@ p {
 }
 
 /* ==========================================================================
-   7. Auditor Interactivo Mobile-First
+   9. Auditor Interactivo Mobile-First
    ========================================================================== */
 .auditor-console {
   background: var(--bg-surface-elevated);
@@ -784,7 +977,7 @@ p {
 }
 
 /* ==========================================================================
-   8. Terminal y Guía de Instalación Mobile-First (Cero Desbordamiento)
+   10. Terminal y Guía de Instalación Mobile-First
    ========================================================================== */
 .terminal-block {
   background: var(--bg-surface-elevated);
@@ -852,7 +1045,7 @@ p {
 }
 
 /* ==========================================================================
-   9. Pie de Página Mobile-First
+   11. Pie de Página Mobile-First
    ========================================================================== */
 .site-footer {
   border-top: 1px solid var(--border-hairline);
@@ -917,7 +1110,7 @@ p {
 }
 
 /* ==========================================================================
-   10. Respeto Estricto a prefers-reduced-motion
+   12. Respeto Estricto a prefers-reduced-motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
