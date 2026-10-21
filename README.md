@@ -92,17 +92,20 @@ cp -r WebAtelier ~/.agents/skills/web-atelier
 
 The agent will automatically discover **`web-atelier`** and consult the `references/` directory via progressive disclosure based on the user's task.
 
-### 2. Local Validation / Pruebas Locales
+### 2. Local Validation & Screen Audit / Pruebas Locales y Auditoría de Pantalla
 
 ```bash
+# Inspección visual de pantalla en 4 factores de forma (Headless Chromium)
+bun run audit:screen
+
+# Auditar cualquier URL externa o local en tiempo real:
+bun scripts/audit-screen.js https://sitio-de-tu-cliente.com
+
 # Ejecutar suite de pruebas de detección Anti-AI
 npm test
 
 # Validar esquema de theme.json para WordPress
 npm run validate:theme-json
-
-# Comprobar sintaxis de scripts
-npm run audit:syntax
 ```
 
 ---
