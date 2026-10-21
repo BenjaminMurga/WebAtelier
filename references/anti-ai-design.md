@@ -40,6 +40,7 @@ El aspecto "hecho con IA" no se debe a un único elemento, sino a la acumulació
 16. **Espaciados Inconsistentes y Desiguales:** Márgenes arbitrarios (ej. 24px, 28px, 32px en la misma página). Toda separación debe derivar de un ritmo modular fijo (base 4px/8px: `--space-1` a `--space-16`).
 17. **Sopa de Divs (*Div Soup*):** Ausencia de etiquetas semánticas HTML5 reales, anidando docenas de `<div>` sin `<header>`, `<nav>`, `<main>`, `<section>`, `<article>` ni `<footer>`.
 18. **Metaetiquetas de Constructores Automáticos:** Huellas en el `<head>` que delatan plataformas automáticas (`<meta name="generator" content="Framer / Wix / 10Web / Durable">`).
+19. **Cabeceras Móviles Saturadas y Desbordamiento:** Forzar barras de navegación de escritorio, múltiples botones de texto o selectores horizontales en pantallas móviles (< 880px) provocando que se corten los botones hacia la derecha. Toda cabecera móvil debe usar obligatoriamente un menú de hamburguesa limpio con panel drawer accesible.
 
 ---
 

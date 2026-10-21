@@ -83,7 +83,7 @@ Resuelve cualquier conflicto técnico o visual aplicando estrictamente este orde
 2. **Fase 2: Investigación.** Consulta `references/source-inventory.md` y los módulos temáticos pertinentes.
 3. **Fase 3: Dirección de Arte.** Establece la paleta de tokens semánticos (regla 60-30-10) y la composición editorial.
 4. **Fase 4: Arquitectura.** Estructura el DOM con etiquetas semánticas HTML5 (`header`, `nav`, `main`, `section`, `article`), eliminando sopas de divs.
-5. **Fase 5: Diseño del Sistema.** Define escalas matemáticas con `clamp()`, grillas Bento asimétricas y radios concéntricos ($n=4$).
+5. **Fase 5: Diseño del Sistema.** Define escalas matemáticas con `clamp()`, grillas Bento asimétricas, radios concéntricos ($n=4$) y arquitectura de cabecera limpia con Menú de Hamburguesa y Drawer accesible con *Liquid Glass* obligatorio para móviles (< 880px).
 6. **Fase 6: Desarrollo WordPress & Frontend.** Implementa Block Themes nativos, `theme.json` v3, la Interactivity API y saneamiento riguroso.
 7. **Fase 7: Motion & 3D.** Integra animaciones fluidas GSAP y modelos 3D con descarte obligatorio de recursos VRAM y `prefers-reduced-motion`.
 8. **Fase 8: Optimización Universal.** Ejecuta controles técnicos de SEO, AEO, GEO, accesibilidad WCAG 2.2 AA y navegación por teclado / D-Pad.

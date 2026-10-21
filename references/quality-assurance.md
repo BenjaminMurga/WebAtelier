@@ -41,3 +41,4 @@ Cualquier entrega que incurra en uno de los siguientes fallos **no será aprobad
 2. **Uso de Emojis como Iconografía:** Reemplazar iconos vectoriales por emojis (`📊`, `🚀`, `✨`) en titulares o tarjetas principales.
 3. **Bloqueo de Accesibilidad:** Carencia de navegación por teclado, ausencia de foco visible o uso de enlaces vacíos `javascript:void(0)`.
 4. **Residuos Críticos de Plantilla:** Menús duplicados en el DOM, cadenas de idioma mezcladas o tokens de formateo PHP impresos en pantalla.
+5. **Desbordamiento o Cabecera Cortada en Móviles:** Cualquier diseño cuya barra superior se corte horizontalmente en pantallas móviles (< 880px) por falta de un menú de hamburguesa con panel drawer accesible.

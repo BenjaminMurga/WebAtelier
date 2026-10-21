@@ -6,12 +6,88 @@ La Skill impone al agente considerar no solo móviles y computadores, sino tambi
 
 ### 1.1 Móviles y Tabletas (0px – 767px)
 * **Estrategia Mobile-First Obligatoria:** Los estilos base se escriben para pantallas compactas y se enriquecen progresivamente mediante `@media (min-width: ...)`.
-* **Arquitectura de Cabecera Móvil y Menú Drawer Obligatorio:**
-  * Queda estrictamente prohibido forzar botones de texto extensos, selectores de tema completos o enlaces secundarios en la misma fila horizontal que el logo en pantallas `< 880px`.
+* **Arquitectura de Cabecera Móvil y Menú de Hamburguesa (Drawer Obligatorio):**
+  * Queda estrictamente prohibido forzar botones de texto extensos, selectores de tema completos o listas de navegación en la misma fila horizontal que el logo en pantallas `< 880px`.
   * La cabecera móvil debe mantenerse limpia: Logotipo a la izquierda y máximo 2 controles compactos (ícono táctil de 44×44px y botón de menú de hamburguesa).
   * Los enlaces de navegación, selectores de lectura y acciones secundarias deben desplegarse en un **Menú Drawer accesible** con fondo difuminado (*Liquid Glass*), bloqueo de scroll del fondo (`body.drawer-open`), cierre automático al hacer clic en un enlace y cierre con la tecla `Escape`.
 * **Ergonomía Táctil:** Controles interactivos con un área de contacto mínima garantizada de **44×44 px**.
 * **Cero Dependencia de Hover:** Los estados `:hover` son inexistentes en pantallas táctiles; toda información crítica debe ser visible sin requerir el paso del puntero.
+
+#### 1.1.1 Patrón Canónico de Código: Menú de Hamburguesa y Drawer
+Todo desarrollo web generado por la Skill debe implementar este patrón exacto:
+
+```html
+<!-- Cabecera Móvil Limpia -->
+<header class="site-header">
+  <div class="header-container">
+    <a href="/" class="brand-identity">MiMarca</a>
+
+    <!-- Navegación Escritorio (oculta en móvil) -->
+    <nav class="site-nav-desktop" aria-label="Navegación principal">
+      <ul class="nav-links">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botón de Hamburguesa Móvil (oculto en escritorio >= 880px) -->
+    <button type="button" class="menu-toggle-btn" id="menu-toggle" aria-expanded="false" aria-controls="mobile-drawer" aria-label="Abrir menú de navegación">
+      <span class="hamburger-box"><span class="hamburger-inner"></span></span>
+    </button>
+  </div>
+
+  <!-- Panel Desplegable (Drawer) con Liquid Glass -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <div class="drawer-inner">
+      <nav class="mobile-nav" aria-label="Menú móvil">
+        <ul class="mobile-nav-links">
+          <li><a href="#servicios" class="mobile-nav-link">Servicios</a></li>
+          <li><a href="#contacto" class="mobile-nav-link">Contacto</a></li>
+        </ul>
+      </nav>
+      <div class="drawer-cta">
+        <a href="#contacto" class="btn-primary" style="width: 100%;">Solicitar Presupuesto</a>
+      </div>
+    </div>
+  </div>
+</header>
+```
+
+```css
+/* Estilos del Menú Drawer con Difuminado */
+.site-nav-desktop { display: none; }
+@media (min-width: 880px) {
+  .site-nav-desktop { display: flex; }
+  .menu-toggle-btn, .mobile-drawer { display: none !important; }
+}
+
+.mobile-drawer {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 60px);
+  background: var(--bg-overlay);
+  backdrop-filter: blur(25px) saturate(180%);
+  -webkit-backdrop-filter: blur(25px) saturate(180%);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 220ms ease, transform 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  z-index: 999;
+}
+
+.mobile-drawer.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+body.drawer-open {
+  overflow: hidden; /* Evita que el fondo se mueva mientras el menú está abierto */
+}
+```
 
 ### 1.2 PC, Laptops y Monitores Panorámicos (1024px – 1440px+)
 * **Composición Bidimensional:** Estructura basada en **CSS Grid** dinámico combinado con **Flexbox**:
