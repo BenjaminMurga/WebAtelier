@@ -241,4 +241,46 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ==========================================================================
+  // 7. Playground Interactivo de Capacidades & Comparador Visual Before/After
+  // ==========================================================================
+  const playgroundTabs = document.querySelectorAll('.playground-tab-btn');
+  const playgroundPanels = document.querySelectorAll('.playground-panel');
+
+  playgroundTabs.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-tab');
+      playgroundTabs.forEach(b => b.classList.remove('active'));
+      playgroundPanels.forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) targetPanel.classList.add('active');
+    });
+  });
+
+  const btnToggleBad = document.getElementById('toggle-state-bad');
+  const btnToggleGood = document.getElementById('toggle-state-good');
+  const previewCard = document.getElementById('live-preview-card');
+  const previewNotes = document.getElementById('preview-notes-text');
+
+  if (btnToggleBad && btnToggleGood && previewCard) {
+    btnToggleBad.addEventListener('click', () => {
+      previewCard.className = 'preview-card-display state-ai-bad';
+      btnToggleBad.classList.add('active', 'is-bad');
+      btnToggleGood.classList.remove('active', 'is-good');
+      if (previewNotes) {
+        previewNotes.innerHTML = '<span style="color: var(--danger-solid); font-weight: 700;">Huellas de IA Detectadas:</span> Degradado violeta/rosa en titular, sombra de brillo neón artificial, emoji en titular y botón brillante sin contraste.';
+      }
+    });
+
+    btnToggleGood.addEventListener('click', () => {
+      previewCard.className = 'preview-card-display state-atelier-good';
+      btnToggleGood.classList.add('active', 'is-good');
+      btnToggleBad.classList.remove('active', 'is-bad');
+      if (previewNotes) {
+        previewNotes.innerHTML = '<span style="color: var(--success-solid); font-weight: 700;">Estándar WebAtelier:</span> Tipografía sólida con color de alto contraste, tracking negativo calibrado, iconografía vectorial SVG limpia y sombras por capas.';
+      }
+    });
+  }
 });

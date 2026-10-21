@@ -88,6 +88,60 @@ WebAtelier/
 
 ---
 
+## What WebAtelier Does Exactly / ¿Qué Hace WebAtelier Exactamente?
+
+WebAtelier acts as a coordinated team: **Digital Art Director + Senior WordPress Engineer + 3D/Motion Choreographer + Anti-AI Gate Auditor + GEO/SEO Consultant**. Here is what it executes depending on your prompt:
+
+| Your Goal / Tu Objetivo | What WebAtelier Executes / Lo que Ejecuta la Skill | Primary Modules Used |
+| :--- | :--- | :--- |
+| **New Website / Landing Page** | Starts with **Creative Brainstorming** (Fase 1), establishes your brand vibe (Apple, Swiss, Nordic, Luxury), applies the 60-30-10 color rule, builds asymmetric Bento grids, and writes semantic HTML5 with zero AI clichés. | `design-brainstorming.md`<br>`apple-design.md`<br>`design-system.md` |
+| **Audit an Existing Website** | Scans any URL in **4 real device viewports** (Mobile 375px, 414px, Tablet 768px, PC 1280px) using headless Chromium. Identifies text cuts, overflow bugs, and 19 AI fingerprints. | `audit-screen.js`<br>`anti-ai-design.md`<br>`quality-assurance.md` |
+| **Clean Up AI-Slop / Redesign** | Strips purple-blue gradients from headings, removes emoji icons, fixes broken heading jumps (H1 $\rightarrow$ H4), replaces div soup with HTML5 semantic tags, and eliminates generic SaaS cards. | `anti-ai-design.md`<br>`anti-ai-dom-auditor.js`<br>`ui-polish-interactions.md` |
+| **WordPress Block Themes / FSE** | Generates native Block Themes with `theme.json` v3, registers custom Block Patterns, implements the native WordPress *Interactivity API*, and applies strict PHP escaping (`esc_html`, `wp_kses_post`). | `wordpress.md`<br>`theme.json`<br>`accessibility-performance.md` |
+| **3D & Interactive Experiences** | Integrates Three.js / WebGL / WebGPU scenes (such as real-time 360° product material configurators), 3D perspective card tilt, and guarantees VRAM cleanup (`dispose()`) and off-screen pause. | `motion-3d.md`<br>`landing-3d.js` |
+| **Mobile-Native Touch Experience** | Solves the iOS 100vh toolbar jump (`100dvh`), kills grey tap flash, fixes sticky hover on touchscreens, eliminates iPhone input auto-zoom (16px base), and designs clean drawer menus. | `mobile-native-touch.md`<br>`accessibility-performance.md` |
+| **Generative AI Visibility (GEO / LLMO)** | Optimizes your site so ChatGPT, Perplexity, Gemini, and Claude cite your content: creates `llms.txt`, permissive AI `robots.txt`, structured JSON-LD schemas, and Citable-First content. | `aeo-geo.md`<br>`llms.txt`<br>`robots.txt` |
+
+---
+
+## Reference Modules Deep-Dive / Los 13 Módulos de Referencia
+
+When an agent loads WebAtelier, it queries these modules via **progressive disclosure** as needed:
+
+1. **`references/design-brainstorming.md`:** 4-dimension discovery (purpose, visual vibe, 3D level, screen factors), Anti-AI Cliché Challenge, and hard-gates before implementation.
+2. **`references/apple-design.md`:** Apple HIG philosophy (Clarity, Deference, Depth), squircle math ($n=4$), continuous curvature, concentric radii ($R_{inner} = R_{outer} - \text{Padding}$), and spring physics.
+3. **`references/anti-ai-design.md`:** Full catalog of 19 AI fingerprints, strict heading gradient bans, and automated DOM audit criteria.
+4. **`references/mobile-native-touch.md`:** Mobile-native platform fixes: `100dvh`, iOS safe area insets, tap highlight elimination, sticky hover gates, and input zoom fixes.
+5. **`references/ui-polish-interactions.md`:** Emil Kowalski's design engineering framework: Before/After review rubric, layered ambient multi-stop shadows, button-in-button nested architecture, and native View Transitions API.
+6. **`references/design-system.md`:** Inseparable semantic token pairs, strict 60-30-10 chromatic rule, `clamp()` fluid scales, and widescreen optical centering rules.
+7. **`references/motion-3d.md`:** Real-time 3D architecture (WebGL/WebGPU, Three.js, R3F, Spline), 360° product configurators, VRAM disposal (`dispose()`), and ScrollTrigger with `prefers-reduced-motion`.
+8. **`references/accessibility-performance.md`:** Universal Responsive across 3 dimensions (Mobile 44px, PC grid, Smart TV D-Pad focus), WCAG 2.2 AA checklists, and video embed facade patterns.
+9. **`references/wordpress.md`:** Native Full Site Editing (FSE), `theme.json` v3, Block Patterns registration, Interactivity API, and template debt elimination.
+10. **`references/seo.md`:** Strict H1–H6 sequential hierarchy, Schema.org JSON-LD templates (`NewsArticle`, `BreadcrumbList`, `Organization`), and taxonomy hygiene.
+11. **`references/aeo-geo.md`:** Answer Engine & Generative Engine Optimization (GEO/LLMO): `llms.txt`, AI bot `robots.txt`, Citable-First 2–4 sentence answers, and Wikidata `sameAs` entity reconciliation.
+12. **`references/quality-assurance.md`:** 18-dimension evaluation rubric and CRITICAL_REJECT acceptance criteria.
+13. **`references/source-inventory.md`:** Empirical evidence base analyzing 54 real-world production web sources and documented anti-patterns.
+
+---
+
+## Prompt Cookbook / Recetario de Prompts para tu Agente
+
+Copy and paste these exact prompts into **Pi, Cursor, Claude Code, or Codex** to unleash WebAtelier:
+
+### 1. Diseñar una Landing Page Editorial desde Cero
+> *"Actúa bajo la Skill WebAtelier. Inicia con la Fase 1 de Brainstorming para conceptualizar una landing page de alta gama para [tu proyecto/producto]. Calibra el universo estético entre Minimalismo Apple y Editorial Suizo, define la regla 60-30-10 y preséntame la especificación de diseño antes de escribir código."*
+
+### 2. Auditar y Eliminar Huellas de IA de una Web Existente
+> *"Usa WebAtelier para auditar esta página web [HTML o URL]. Revisa las 19 huellas de IA (degradados en titulares, emojis en H1, sopa de divs, badges artificiales), ejecuta la herramienta `scripts/audit-screen.js` en 4 pantallas para verificar que no haya desbordamiento horizontal y entrégame la versión refactorizada."*
+
+### 3. Crear un Componente o Tema para WordPress FSE
+> *"Bajo las directrices de WebAtelier, crea un Block Pattern de Gutenberg para una grilla Bento asimétrica (8/4 columnas) utilizando tokens de `theme.json` v3, radios concéntricos matemáticos y la Interactivity API para el filtrado en el cliente sin recargar la página."*
+
+### 4. Optimizar una Web para Motores de IA (GEO & LLMO)
+> *"Aplica las directrices GEO/LLMO de WebAtelier a mi sitio web: genera el archivo `llms.txt` canónico en Markdown, configura las reglas de `robots.txt` para GPTBot y PerplexityBot, estructura el contenido con la regla Citable-First y añade marcado JSON-LD con Wikidata sameAs."*
+
+---
+
 ## Installation & Usage / Instalación y Uso
 
 ### 1. In your AI Agent Environment (Pi, Claude, Cursor)
