@@ -1,27 +1,41 @@
-# Sistema Profesional de Diseño, UX, CRO y Copywriting
+# Sistema Profesional de Diseño: Tokens Semánticos, Regla 60-30-10 y Contraste WCAG
 
-## 1. Tokens de Diseño en CSS Custom Properties
+## 1. Contrato de Tokens Semánticos y Parejas Inseparables
 
-El sistema de diseño centraliza todos los valores visuales en variables estandarizadas, garantizando coherencia matemática y facilidad de mantenimiento:
+Para evitar que los agentes improvisen colores hexadecimales o generen combinaciones ilegibles (como texto gris sobre fondo negro), el sistema establece **pares de tokens semánticos** donde el color del texto está matemáticamente ligado al fondo de su contenedor:
 
 ```css
 :root {
-  /* 1.1 Paleta Cromática Sólida (Cero Degradados en Texto) */
-  --ink-primary: #1d1d1f;
-  --ink-secondary: #515154;
-  --ink-tertiary: #86868b;
-  --ink-inverted: #f5f5f7;
+  /* ==========================================================================
+     1.1 Fondos y Superficies (Neutros Estables)
+     ========================================================================== */
+  --bg-main: #fbfbfd;           /* 60% Dominante: Fondo de página claro */
+  --bg-surface: #f5f5f7;        /* 30% Secundario: Tarjetas y contenedores */
+  --bg-surface-elevated: #ffffff; /* Superficie en primer plano */
+  --bg-overlay: rgba(255, 255, 255, 0.75);
 
-  --surface-primary: #fbfbfd;
-  --surface-secondary: #f5f5f7;
-  --surface-card: #ffffff;
-  --surface-overlay: rgba(255, 255, 255, 0.8);
+  /* ==========================================================================
+     1.2 Parejas Semánticas de Texto (Vinculadas a sus fondos)
+     ========================================================================== */
+  --text-primary: #1d1d1f;      /* Contraste > 12:1 sobre --bg-main */
+  --text-secondary: #515154;    /* Contraste > 5.5:1 (WCAG AA superado) */
+  --text-tertiary: #86868b;     /* Solo metadatos y etiquetas secundarias */
 
-  --brand-solid: #0066cc;
-  --brand-hover: #0077ed;
+  /* ==========================================================================
+     1.3 Color de Acento Único (10% de la Composición)
+     ========================================================================== */
+  --accent: #0066cc;            /* Botones primarios, enlaces e interacción */
+  --accent-hover: #0077ed;
+  --accent-text: #ffffff;       /* Texto obligatorio sobre --accent */
+
+  /* ==========================================================================
+     1.4 Bordes y Separaciones Hairline
+     ========================================================================== */
   --border-hairline: rgba(29, 29, 31, 0.08);
 
-  /* 1.2 Ritmo Modular de Espaciado (Base 4px/8px) */
+  /* ==========================================================================
+     1.5 Ritmo Modular de Espaciado (Base 4px / 8px)
+     ========================================================================== */
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -31,7 +45,9 @@ El sistema de diseño centraliza todos los valores visuales en variables estanda
   --space-12: 48px;
   --space-16: 64px;
 
-  /* 1.3 Escala Tipográfica Fluida con clamp() */
+  /* ==========================================================================
+     1.6 Escala Tipográfica Fluida Matemática con clamp()
+     ========================================================================== */
   --font-display: clamp(2.5rem, 5vw + 1rem, 4.25rem);    /* H1 */
   --font-h2:      clamp(1.875rem, 3vw + 0.75rem, 2.75rem); /* H2 */
   --font-h3:      clamp(1.375rem, 1.5vw + 0.75rem, 1.75rem); /* H3 */
@@ -39,29 +55,26 @@ El sistema de diseño centraliza todos los valores visuales en variables estanda
   --font-body:    clamp(1rem, 0.4vw + 0.9rem, 1.0625rem);
   --font-caption: 0.8125rem;
 
-  /* 1.4 Medida Óptima de Lectura Editorial */
-  --content-measure: 68ch;
-  --content-wide: 1280px;
-
-  /* 1.5 Geometría y Radios Concéntricos */
+  /* Geometría de Radios */
   --radius-outer: 24px;
   --radius-inner: calc(var(--radius-outer) - var(--space-4));
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --ink-primary: #f5f5f7;
-    --ink-secondary: #a1a1a6;
-    --ink-tertiary: #6e6e73;
-    --ink-inverted: #1d1d1f;
+    --bg-main: #000000;           /* Fondo negro absoluto Apple */
+    --bg-surface: #111113;        /* Superficie oscura profunda */
+    --bg-surface-elevated: #1d1d1f;
+    --bg-overlay: rgba(29, 29, 31, 0.78);
 
-    --surface-primary: #000000;
-    --surface-secondary: #111113;
-    --surface-card: #1d1d1f;
-    --surface-overlay: rgba(29, 29, 31, 0.8);
+    --text-primary: #f5f5f7;      /* Blanco roto de alto contraste */
+    --text-secondary: #a1a1a6;
+    --text-tertiary: #6e6e73;
 
-    --brand-solid: #2997ff;
-    --brand-hover: #47a6ff;
+    --accent: #2997ff;            /* Azul vibrante accesible en modo oscuro */
+    --accent-hover: #47a6ff;
+    --accent-text: #ffffff;
+
     --border-hairline: rgba(245, 245, 247, 0.12);
   }
 }
@@ -69,47 +82,30 @@ El sistema de diseño centraliza todos los valores visuales en variables estanda
 
 ---
 
-## 2. Controles de Preferencia de Lectura (Inspirados en Wikipedia)
+## 2. Regla Cromática Global 60-30-10
 
-Para publicaciones extensas o portales de consulta, la interfaz ofrece al lector controles ergonómicos directos:
+Para garantizar que el sitio mantenga una personalidad consistente de principio a fin, el agente debe aplicar la regla 60-30-10 en cada página:
 
-```html
-<aside class="appearance-controls" aria-label="Ajustes de Lectura">
-  <fieldset class="control-group">
-    <legend class="sr-only">Tamaño de Texto</legend>
-    <button type="button" class="btn-toggle" data-set-font="small">A-</button>
-    <button type="button" class="btn-toggle active" data-set-font="standard">A</button>
-    <button type="button" class="btn-toggle" data-set-font="large">A+</button>
-  </fieldset>
-
-  <fieldset class="control-group">
-    <legend class="sr-only">Ancho de Contenido</legend>
-    <button type="button" class="btn-toggle active" data-set-width="standard">Estándar</button>
-    <button type="button" class="btn-toggle" data-set-width="wide">Ancho</button>
-  </fieldset>
-</aside>
-```
-
-```css
-/* Adaptación dinámica según preferencia del lector */
-body[data-font-size="small"] { font-size: 92%; }
-body[data-font-size="standard"] { font-size: 100%; }
-body[data-font-size="large"] { font-size: 112%; }
-
-body[data-content-width="standard"] .editorial-content { max-width: 68ch; }
-body[data-content-width="wide"] .editorial-content { max-width: 90ch; }
-```
+1. **60% Dominante:** Fondos unificados con `--bg-main` que proporcionan la atmósfera limpia y aireada.
+2. **30% Secundario:** Tarjetas, grillas Bento, barras de navegación y estructuras con `--bg-surface`.
+3. **10% Acento:** Reservado **exclusivamente** para botones de llamada a la acción primarios, enlaces activos e indicadores de estado interactivos con `--accent`. Prohibido usar `--accent` como fondo de secciones enteras.
 
 ---
 
-## 3. Principios de UX, CRO y Copywriting Editorial
+## 3. Ley de Contraste y Prohibición de Colores Hardcodeados
 
-1. **UX Táctil y de Escritorio Coherente:**
-   * Garantizar zonas interactivas de al menos `44x44 px`.
-   * Eliminar modales intrusivos de terceros con cuentas regresivas forzadas (como temporizadores de 10 segundos).
-   * Eliminar instrucciones obsoletas como exigir "doble clic" para abrir elementos en entornos táctiles.
-2. **CRO sin Fricción:**
-   * Formulario de contacto con etiquetas visibles, validación nativa HTML5, indicador de privacidad y botón de envío claro (`<button type="submit">Enviar Solicitud</button>`).
-3. **Copywriting de Alta Credibilidad:**
-   * Sustituir generalidades vacías por propuestas de valor concretas.
-   * Revisión ortográfica de toda la interfaz para prevenir erratas graves de digitalización que minan la confianza del usuario.
+1. **Prohibición de Valores Hardcodeados:**
+   Queda terminantemente prohibido usar códigos hexadecimales directos (`color: #fff`, `background: #000`) dentro de las reglas de los componentes. Todo elemento debe consumir los tokens semánticos del sistema.
+2. **Cumplimiento WCAG 2.2 Nivel AA:**
+   * Texto normal: Relación de contraste mínima de **4.5:1** respecto a su superficie contenedora.
+   * Texto grande ($\ge 24\text{px}$ o $\ge 18.5\text{px}$ negrita): Contraste mínimo de **3:1**.
+   * Controles interactivos y bordes de formulario: Contraste mínimo de **3:1** contra el fondo adyacente.
+
+---
+
+## 4. Controles de Preferencia de Lectura (Inspirados en Wikipedia)
+
+Para portales de contenido extenso o documentación técnica, la interfaz debe ofrecer selectores accesibles de apariencia:
+* Selector de tamaño de texto (`small`, `standard`, `large`).
+* Selector de ancho de contenido (`standard` [68ch] vs `wide` [90ch]).
+* Selector de esquema cromático (`auto`, `light`, `dark`).

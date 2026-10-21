@@ -1,150 +1,55 @@
-# Filosofía Visual: Principios de Apple Design Aplicados a la Web
+# Filosofía Visual: Principios de Apple Design (HIG) Aplicados a la Web
 
-## 1. Fundamentos de Dirección de Arte
-Apple Design en la web no consiste en emular la interfaz de iOS o macOS, sino en aplicar los principios de ingeniería visual, rigor compositivo y deferencia absoluta hacia el contenido que caracterizan a los productos de Cupertino.
+## 1. Los Tres Pilares Filosóficos de Apple (HIG)
 
-1. **Claridad Visual y Jerarquía Tipográfica:** La tipografía conduce la lectura mediante contrastes nítidos de tamaño, peso y espaciado, utilizando colores sólidos de alto contraste y prescindiendo de decoraciones superfluas.
-2. **Deferencia hacia el Contenido:** La interfaz actúa como un marco silencioso y preciso que realza el producto, los datos o la narrativa editorial sin competir mediante efectos estridentes.
-3. **Profundidad Espacial y Capas:** Uso sutil de elevación, cambios tonales de superficie (`#FBFBFD` vs `#F5F5F7` en modo claro; `#000000` vs `#1D1D1F` en modo oscuro) y bordes finos de `1px` para organizar información compleja con orden geométrico.
-
----
-
-## 2. Especificación Matemática: Curvatura Continua y Radios Concéntricos
-
-### 2.1 Curvatura Continua (Superelipse / Squircle)
-Las esquinas redondeadas estándar de CSS (`border-radius`) producen discontinuidades de curvatura tangencial en el punto de transición de la recta a la curva. Apple emplea curvas de Lamé con exponente $n \approx 4$ (curvatura continua G2).
-
-En CSS moderno, esto se aproxima combinando `corner-shape: squircle` (donde haya soporte) o mediante la fórmula de radio concéntrico anidado para contenedores con elementos hijos:
-
-$$R_{\text{interno}} = \max(0, \, R_{\text{externo}} - \text{Padding})$$
-
-```css
-/* Implementación de Radios Concéntricos Coherentes */
-.bento-card {
-  --card-padding: 24px;
-  --card-radius-outer: 28px;
-  
-  padding: var(--card-padding);
-  border-radius: var(--card-radius-outer);
-  background: var(--surface-card);
-  border: 1px solid var(--border-hairline);
-}
-
-.bento-card__media {
-  /* Radio concéntrico exacto: 28px - 24px = 4px (o mínimo proporcional) */
-  border-radius: calc(var(--card-radius-outer) - var(--card-padding));
-  overflow: hidden;
-}
-```
+Apple basa la arquitectura de sus interfaces en tres principios rectores:
+1. **Claridad (Clarity):** El texto es nítido y legible en cualquier resolución, la iconografía es inequívoca y cada elemento en pantalla tiene un propósito funcional o narrativo definido. La decoración superflua se elimina para dirigir la atención hacia el mensaje.
+2. **Deferencia (Deference):** La interfaz es sutil, silenciosa y se retira al fondo para que el contenido sea el protagonista absoluto. La interfaz existe para servir a la tarea del usuario, no para presumir capacidad gráfica.
+3. **Profundidad (Depth):** Uso de planos Z coherentes, materiales translúcidos y movimiento físico que ayudan a comprender la posición jerárquica dentro del sistema digital.
 
 ---
 
-## 3. Física de Microinteracciones y Transiciones Naturales
+## 2. Anatomía de la Sensación de "Limpieza"
 
-El movimiento en interfaces Apple no utiliza curvas predeterminadas mecánicas (`ease-in-out` estándar). Se rige por sistemas de masa, rigidez y amortiguación (*spring physics*):
-
-| Perfil de Movimiento | Rigidez (*Stiffness*) | Amortiguación (*Damping*) | Masa (*Mass*) | Equivalente CSS / Curva Cúbica |
-| :--- | :--- | :--- | :--- | :--- |
-| **Microinteracción / Pulsación** | 500 | 35 | 0.8 | `cubic-bezier(0.2, 0, 0, 1)` |
-| **Aparición de Módulos / Bento** | 300 | 30 | 1.0 | `cubic-bezier(0.16, 1, 0.3, 1)` |
-| **Transición de Lámina / Modal** | 220 | 28 | 1.2 | `cubic-bezier(0.25, 1, 0.5, 1)` |
-
-```css
-:root {
-  --ease-apple-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-apple-press: cubic-bezier(0.2, 0, 0, 1);
-  --duration-interaction: 240ms;
-}
-
-.apple-interactive-button {
-  transform: scale(1);
-  transition: transform var(--duration-interaction) var(--ease-apple-press),
-              background-color 180ms ease;
-  will-change: transform;
-}
-
-.apple-interactive-button:active {
-  transform: scale(0.975);
-}
-```
+* **Espacio Negativo Intencionado:** La simplicidad no es un lienzo vacío; es una organización rigurosa donde cada elemento se gana su posición. El espacio alrededor de los módulos evita la fatiga cognitiva y aporta aire editorial.
+* **Jerarquía Tipográfica Estricta:** La tipografía lleva el peso visual de la interfaz. Se emplean escalas matemáticas precisas con contrastes limpios de peso (Regular vs. Semibold) y tracking negativo para grandes tamaños:
+  * `H1`: `-0.035em`
+  * `H2`: `-0.025em`
+  * `H3`: `-0.015em`
+  * `Cuerpo`: `0em` a `+0.01em`
+* **Redacción Concisa y Directiva:** Microcopy breve, directo y estructurado en torno a acciones que el usuario comprende de inmediato, empleando verbos claros y evitando oraciones subordinadas innecesarias.
 
 ---
 
-## 4. Arquitectura de Bento Grids Editoriales
+## 3. Anatomía de la Sensación "Premium"
 
-La grilla Bento organiza propositions de valor y contenidos multidimensionales en módulos rectangulares asimétricos con jerarquía evidente:
-
-```css
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-/* Módulo Destacado Principal (Hero Feature) */
-.bento-item--hero {
-  grid-column: span 8;
-  min-height: 480px;
-}
-
-/* Módulo Lateral de Datos / Métrica */
-.bento-item--stat {
-  grid-column: span 4;
-  min-height: 480px;
-}
-
-/* Módulos Secundarios de Soporte */
-.bento-item--third {
-  grid-column: span 4;
-  min-height: 320px;
-}
-
-.bento-item--half {
-  grid-column: span 6;
-  min-height: 380px;
-}
-
-@media (max-width: 960px) {
-  .bento-item--hero,
-  .bento-item--stat,
-  .bento-item--third,
-  .bento-item--half {
-    grid-column: span 12;
-    min-height: auto;
+* **Materiales y Translucidez (*Liquid Glass*):** Los controles de navegación y paneles flotantes se separan del contenido mediante capas traslúcidas que difuminan el fondo con *blur* y *vibrancy*, aportando profundidad sin restar legibilidad:
+  ```css
+  .apple-liquid-glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
   }
-}
-```
 
----
-
-## 5. Profundidad, Materiales y Bordes Hairline
-
-Apple utiliza materiales translúcidos (*vibrancy*) combinados con bordes ultra-finos para separar planos en el eje Z sin saturar la vista con sombras pesadas:
-
-```css
-.apple-glass-surface {
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.04),
-              0 1px 2px 0 rgba(0, 0, 0, 0.02);
-}
-
-@media (prefers-color-scheme: dark) {
-  .apple-glass-surface {
-    background: rgba(29, 29, 31, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+  @media (prefers-color-scheme: dark) {
+    .apple-liquid-glass {
+      background: rgba(29, 29, 31, 0.78);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
   }
-}
-```
+  ```
+* **Uso Semántico y Moderado del Color:** A diferencia de interfaces recargadas con gradientes, Apple mantiene los fondos y estructuras en tonos estrictamente neutros, reservando el color de acento único (`var(--accent)`) exclusivamente para llamadas a la acción e interactividad activa.
+* **Adaptabilidad Total (Light & Dark Mode):** Los contrastes y sombras se recalculan dinámicamente según el esquema del usuario, garantizando legibilidad bajo cualquier condición de iluminación ambiental.
 
 ---
 
-## 6. Prohibición de Imitación Parasitaria de Marca
-- Queda prohibido el uso de la tipografía comercial propietaria *SF Pro* en sitios de terceros no autorizados por Apple; en su lugar, se utilizan fuentes abiertas de alto rigor tipográfico como **Inter**, **Geist** o **Plus Jakarta Sans**, configuradas con *tracking* y *kerning* milimétricos.
-- Queda prohibido copiar logotipos, marcas comerciales o nombres de producto de Apple. Se extrae la disciplina de diseño, no su identidad comercial.
+## 4. Rapidez, Fluidez y Artesanía del Detalle (*Craft*)
+
+* **Movimiento con Propósito y Física de Resortes (*Spring Physics*):** El movimiento responde a la acción del usuario con transiciones basadas en masa, rigidez y amortiguación:
+  * *Microinteracciones / Botones:* Rigidez 500, Amortiguación 35, Masa 0.8 $\rightarrow$ `cubic-bezier(0.2, 0, 0, 1)`.
+  * *Módulos Bento / Despliegues:* Rigidez 300, Amortiguación 30, Masa 1.0 $\rightarrow$ `cubic-bezier(0.16, 1, 0.3, 1)`.
+* **Retroalimentación Inmediata a 60/120 fps:** Respuestas visuales activas (`:active`, `:focus-visible`) inmediatas sin retrasos ni cálculos que bloqueen el hilo principal.
+* **Curvatura Continua ($n=4$) y Radios Concéntricos:** Eliminación de bordes toscos aplicando la fórmula armónica para contenedores con elementos hijos:
+  $$R_{\text{interno}} = \max(0, \, R_{\text{externo}} - \text{Padding})$$
+* **Grillas Bento Editoriales Asimétricas:** Organización del contenido en rejillas modulares de 12 columnas con expansiones proporcionales (8 columnas para el héroe, 4 para datos de soporte), evitando tarjetas idénticas repetidas en bloque.

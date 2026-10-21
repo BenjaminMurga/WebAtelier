@@ -5,37 +5,43 @@
 [![Design: Apple Minimalist](https://img.shields.io/badge/Design-Apple%20Inspired-000000.svg)](#)
 [![Guardrail: Anti-AI Design](https://img.shields.io/badge/Guardrail-Anti--AI%20Design-FF3B30.svg)](#)
 [![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA-34C759.svg)](#)
+[![Responsive: Universal (Mobile, PC, TV)](https://img.shields.io/badge/Responsive-Universal%20(TV%2010--foot%20UI)-FF9500.svg)](#)
 
 > **Architect & Creator:** **Benjamin Murga** · [@BenjaminMurga](https://github.com/BenjaminMurga)  
 > **Repository:** [https://github.com/BenjaminMurga/WebAtelier](https://github.com/BenjaminMurga/WebAtelier)  
-> **Version:** 2.0.0  
+> **Version:** 2.1.0  
 > **Target:** Pi, Codex, Claude Code, Cursor, and Open Agent Ecosystems.
 
 ---
 
 ## English Overview 🇺🇸 / 🇬🇧
 
-**WebAtelier** is an enterprise-grade agent skill designed to conceptualize, design, develop, and audit premium digital experiences. Like an haute couture architectural atelier, it brings together the visual precision of **Apple Human Interface Guidelines**, the modern content architecture of **WordPress (Block Themes / FSE / Headless)**, interactive experiences (**GSAP, Three.js, WebGL/WebGPU**), strict **Anti-AI Design guardrails**, and cutting-edge **SEO, AEO, and GEO** optimization.
+**WebAtelier** is an enterprise-grade agent skill designed to conceptualize, design, develop, and audit premium digital experiences. Inspired by high-end architectural studios, it combines the visual precision of **Apple Human Interface Guidelines**, the contemporary architecture of **WordPress (Block Themes / FSE / Headless)**, real-time 3D interactive experiences (**Three.js, WebGL/WebGPU, R3F, Spline**), universal responsive adaptation (**Mobile, PC, and Smart TV 10-foot UI**), strict **Anti-AI Design guardrails**, and cutting-edge **SEO, AEO, and GEO** optimization.
 
 ### Core Pillars
-1. **Apple Visual Precision:** Asymmetric Bento Grids, continuous curvature ($n=4$ squircle math), spring physics for microinteractions, and solid typography.
-2. **Modern WordPress Architecture:** Native Full Site Editing (FSE), `theme.json` v3, WordPress Interactivity API, and zero template debt.
-3. **Anti-AI Design Enforcement:** Automated and CSS-level prevention of AI-slop: zero gradients in headings (H1–H6), zero neon glow, zero emojis as iconography, and zero cloned hero sections.
-4. **Interactive & 3D Performance:** GSAP ScrollTrigger, Three.js with mandatory VRAM disposal patterns (`dispose()`), and full respect for `prefers-reduced-motion`.
-5. **SEO, AEO & GEO Optimization:** Validated Schema.org JSON-LD, question-driven headers, verified executive summaries, Wikidata entity linking (`sameAs`), and strict E-E-A-T transparency.
+1. **Apple HIG Philosophy:** Clarity, Deference, Depth (*Liquid Glass*), spring physics (`cubic-bezier`), continuous curvature ($n=4$), and the 60-30-10 chromatic rule.
+2. **Anti-AI Design Guardrails:** Automated eradication of AI fingerprints (purple-blue gradients, glow effects, single italicized words, emojis in headings, badges like "AI-Powered", div soup, and builder meta-tags).
+3. **Universal Responsive Design:** True 3-dimension screen support: Mobile/Tablet (0–767px, touch targets 44×44px), PC/Laptop (1024–1440px+, dynamic CSS Grid), and Smart TV (1080p/4K at 3m / D-Pad navigation with enhanced `:focus-visible`).
+4. **Interactive 3D & Motion:** Real-time WebGL/WebGPU, Three.js with mandatory VRAM disposal (`dispose()`), and GSAP ScrollTrigger respecting `prefers-reduced-motion`.
+5. **Modern WordPress:** Full Site Editing (FSE), `theme.json` v3, Interactivity API, and strict PHP sanitization (`esc_html`, `wp_kses_post`).
+6. **SEO, AEO & GEO:** Schema.org JSON-LD, question-driven headers, verified executive summaries, and Wikidata entity linking (`sameAs`).
 
 ---
 
 ## Resumen en Español 🇨🇱 / 🇪🇸
 
-**WebAtelier** es una Skill profesional y modular diseñada para agentes de IA y equipos de ingeniería web. Inspirada en la precisión y artesanía de un taller de alta dirección de arte digital, permite concebir, diseñar, desarrollar y auditar sitios web de altísima gama combinando la precisión visual de **Apple Design**, la arquitectura moderna de **WordPress (Block Themes / FSE / Headless)**, experiencias interactivas (**GSAP, Three.js, WebGL/WebGPU**), blindaje estricto **Anti-AI Design** y optimización integral **SEO, AEO y GEO**.
+**WebAtelier** es una Skill profesional y modular diseñada para agentes de IA y equipos de ingeniería digital. Inspirada en la artesanía y rigor de un taller de alta dirección de arte, permite concebir, diseñar, desarrollar y auditar sitios web de altísima gama combinando los principios de **Apple Design**, la arquitectura moderna de **WordPress**, experiencias 3D en tiempo real (**Three.js, WebGL/WebGPU, Spline**), diseño adaptable universal (**Móvil, PC y Smart TV**), blindaje estricto **Anti-AI Design** y optimización integral **SEO, AEO y GEO**.
 
 ### Pilares Fundamentales
-1. **Precisión Visual Apple:** Grillas Bento asimétricas, curvatura continua (matemática de superelipses $n=4$), física de resortes (*springs*) para microinteracciones y tipografía sólida de alto contraste.
-2. **Arquitectura WordPress Moderna:** Full Site Editing (FSE) nativo, `theme.json` versión 3, Interactivity API y erradicación total de deuda técnica de plantillas.
-3. **Blindaje Anti-AI Design:** Bloqueo automatizado y por CSS de patrones genéricos de IA: cero degradados en titulares (H1–H6), cero brillos neón, cero emojis como iconos y cero héroes clónicos.
-4. **Rendimiento Interactivo y 3D:** GSAP ScrollTrigger, Three.js con protocolo estricto de liberación de VRAM (`dispose()`) y respeto irrenunciable a `prefers-reduced-motion`.
-5. **SEO, AEO y GEO:** Marcado Schema.org JSON-LD validado, encabezados orientados a preguntas reales, resúmenes ejecutivos verificados, vinculación de entidades con Wikidata (`sameAs`) y transparencia E-E-A-T.
+1. **Filosofía Apple HIG:** Claridad, Deferencia y Profundidad (*Liquid Glass* con `backdrop-filter: blur()`), física de resortes (*springs*), curvatura continua ($n=4$) y regla cromática 60-30-10.
+2. **Blindaje Anti-AI Design:** Erradicación automatizada de huellas digitales de IA (degradados morado-azul, halos neón, palabras en cursiva solitaria, emojis en titulares, insignias "AI-Powered", sopa de divs y metaetiquetas de constructores).
+3. **Diseño Adaptable Universal en 3 Dimensiones:**
+   * **Móviles/Tabletas (0px–767px):** Mobile-first, botones de 44×44px, cero dependencia de *hover*.
+   * **PC/Laptops (1024px–1440px+):** CSS Grid dinámico y navegación por cursor.
+   * **Smart TV (10-foot UI a 3 metros):** Navegación exclusiva por D-Pad con foco `:focus-visible` aumentado y tipografía ampliada para lectura desde el sofá.
+4. **Experiencias 3D e Interactivas:** WebGL/WebGPU, Three.js con protocolo estricto de liberación de VRAM (`dispose()`) y GSAP ScrollTrigger con `prefers-reduced-motion`.
+5. **WordPress Contemporáneo:** Block Themes nativos, `theme.json` v3, Interactivity API y saneamiento riguroso.
+6. **SEO, AEO y GEO:** Marcado Schema.org JSON-LD, encabezados en formato de pregunta, resúmenes verificados y vinculación de entidades en Wikidata (`sameAs`).
 
 ---
 
@@ -49,18 +55,19 @@ WebAtelier/
 ├── configs/
 │   └── theme.json                         # WordPress FSE v3 theme configuration
 ├── references/
-│   ├── accessibility-performance.md      # WCAG 2.2 AA, Core Web Vitals, Video Facade Pattern
+│   ├── accessibility-performance.md      # Universal Responsive (Mobile, PC, Smart TV), WCAG 2.2 AA
 │   ├── aeo-geo.md                         # Answer Engine & Generative Engine Optimization
-│   ├── anti-ai-design.md                  # Strict visual prohibitions & audit procedures
-│   ├── apple-design.md                    # Bento Grids, Squircle math, Spring Physics
-│   ├── design-system.md                   # Fluid clamp() tokens, Wikipedia-inspired reading controls
-│   ├── motion-3d.md                       # GSAP ScrollTrigger, Three.js memory leak prevention
-│   ├── quality-assurance.md               # 18-dimension rubric & CRITICAL_REJECT rules
+│   ├── anti-ai-design.md                  # Comprehensive AI fingerprints catalog & prohibitions
+│   ├── apple-design.md                    # Apple HIG, Liquid Glass, Squircle math, Spring Physics
+│   ├── design-system.md                   # Semantic token pairs, 60-30-10 rule, clamp() scales
+│   ├── motion-3d.md                       # Real-time 3D, WebGL/WebGPU, Three.js VRAM disposal
+│   ├── quality-assurance.md               # 18-dimension rubric & CRITICAL_REJECT criteria
 │   ├── seo.md                             # H1–H6 hierarchy, Schema.org JSON-LD templates
 │   ├── source-inventory.md                # 54-source empirical audit & traceability matrix
 │   └── wordpress.md                       # Block Themes, Interactivity API, PHP sanitization
 ├── scripts/
-│   └── anti-ai-dom-auditor.js             # Automated DOM auditor for AI-slop detection
+│   ├── anti-ai-dom-auditor.js             # Automated DOM auditor for AI fingerprints
+│   └── test-auditor.js                    # Automated unit test suite (npm test)
 ├── styles/
 │   └── anti-ai-reset-and-tokens.css       # CSS tokens & heading gradient lock
 ├── .gitignore
@@ -75,38 +82,39 @@ WebAtelier/
 ## Installation & Usage / Instalación y Uso
 
 ### 1. In your AI Agent Environment (Pi, Claude, Cursor)
-Clone or copy this repository directly into your local agent skills directory:
+Copy this repository into your local agent skills directory:
 
 ```bash
-# Para agentes basados en Pi / Agent Skills estándar:
 cp -r WebAtelier ~/.agents/skills/web-atelier
 ```
 
-The agent will automatically load `SKILL.md` as the entrypoint and query the `references/` directory via progressive disclosure based on the user's task.
+The agent will automatically discover **`web-atelier`** and consult the `references/` directory via progressive disclosure based on the user's task.
 
 ### 2. Local Validation / Pruebas Locales
-Verify syntax and theme configuration with the included scripts:
 
 ```bash
-# Validar sintaxis del auditor JavaScript
-npm run audit:syntax
+# Ejecutar suite de pruebas de detección Anti-AI
+npm test
 
 # Validar esquema de theme.json para WordPress
 npm run validate:theme-json
+
+# Comprobar sintaxis de scripts
+npm run audit:syntax
 ```
 
 ---
 
 ## 10-Phase Operating Workflow / Flujo Operativo de 10 Fases
 
-1. **Fase 1: Comprensión (Understanding):** Scope, audience, brand identity, constraints.
+1. **Fase 1: Comprensión (Understanding):** Scope, audience, brand identity, screen factors (Mobile, PC, TV).
 2. **Fase 2: Investigación (Research):** Query `references/source-inventory.md` and related modules.
-3. **Fase 3: Dirección de Arte (Art Direction):** Original visual identity, zero cloned templates.
-4. **Fase 4: Arquitectura (Architecture):** Semantics, content structures, FSE templates.
-5. **Fase 5: Diseño (Design System):** Bento grids, fluid typography, ergonomic reading toggles.
-6. **Fase 6: Desarrollo (Development):** Clean, secure, and maintained WordPress/Frontend code.
-7. **Fase 7: Motion & 3D:** GSAP timelines, Three.js scenes, and `prefers-reduced-motion`.
-8. **Fase 8: Optimización (Optimization):** Core Web Vitals, Schema.org, Wikidata, WCAG 2.2 AA.
+3. **Fase 3: Dirección de Arte (Art Direction):** Semantic tokens, 60-30-10 rule, original composition.
+4. **Fase 4: Arquitectura (Architecture):** HTML5 semantic markup (no div soup), FSE templates.
+5. **Fase 5: Diseño (Design System):** Bento grids, fluid typography with `clamp()`, concentric radii ($n=4$).
+6. **Fase 6: Desarrollo (Development):** Native Block Themes, Interactivity API, strict PHP escaping.
+7. **Fase 7: Motion & 3D:** GSAP timelines, Three.js scenes with VRAM disposal, `prefers-reduced-motion`.
+8. **Fase 8: Optimización (Optimization):** Schema.org, Wikidata, Core Web Vitals, D-Pad/keyboard accessibility.
 9. **Fase 9: Auditoría Anti-AI (Anti-AI Gate):** Automated DOM check with `anti-ai-dom-auditor.js`.
 10. **Fase 10: Validación y Entrega (QA & Delivery):** Evaluation against the 18-dimension rubric.
 
@@ -117,9 +125,4 @@ npm run validate:theme-json
 * **Author:** **Benjamin Murga**
 * **GitHub Profile:** [@BenjaminMurga](https://github.com/BenjaminMurga)
 * **Contact:** `benjamin.a.murga@gmail.com`
-
----
-
-## License / Licencia
-
-Distributed under the **MIT License**. See [LICENSE](LICENSE) for more information.
+* **License:** [MIT License](LICENSE)

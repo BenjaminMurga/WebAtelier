@@ -1,21 +1,23 @@
 /**
- * Auditor de Calidad y Cumplimiento Anti-AI Design
- * Detecta titulares con degradados, emojis como iconos, saltos H1-H6 y residuos de plantilla.
+ * WebAtelier - Auditor de Calidad y Cumplimiento Anti-AI Design
+ * Detecta huellas digitales de IA: degradados en titulares, emojis, sopa de divs,
+ * insignias artificiales, generadores automáticos y residuos de plantilla.
  */
 export function runAntiAiAndQualityAudit(root = document) {
   const issues = [];
   const emojiRegex = /[\p{Extended_Pictographic}\u2600-\u26FF\u2700-\u27BF]/u;
 
+  // 1. Auditoría de Encabezados (H1-H6)
   const headings = Array.from(root.querySelectorAll('h1, h2, h3, h4, h5, h6'));
   let lastLevel = 0;
 
   headings.forEach((el) => {
-    const style = window.getComputedStyle(el);
+    const style = window.getComputedStyle ? window.getComputedStyle(el) : {};
     const level = parseInt(el.tagName.replace('H', ''), 10);
-    const text = el.textContent.trim();
+    const text = el.textContent ? el.textContent.trim() : '';
 
     if (
-      style.backgroundImage.includes('gradient') ||
+      (style.backgroundImage && style.backgroundImage.includes('gradient')) ||
       style.webkitBackgroundClip === 'text' ||
       style.backgroundClip === 'text' ||
       style.webkitTextFillColor === 'transparent'
@@ -35,7 +37,7 @@ export function runAntiAiAndQualityAudit(root = document) {
         dimension: 'Anti-AI Design',
         element: el.tagName,
         snippet: text.slice(0, 60),
-        reason: 'Prohibición violada: Uso de emojis o caracteres Unicode como iconografía en titular.'
+        reason: 'Prohibición violada: Uso de emojis en titular como iconografía.'
       });
     }
 
@@ -51,6 +53,22 @@ export function runAntiAiAndQualityAudit(root = document) {
     lastLevel = level;
   });
 
+  // 2. Detección de Insignias Artificiales de IA sobre H1 ("AI-Powered", "New", etc.)
+  root.querySelectorAll('.badge, .eyebrow, span, p').forEach((badge) => {
+    const text = badge.textContent ? badge.textContent.trim().toLowerCase() : '';
+    const aiBadges = ['ai-powered', 'powered by ai', 'ai platform', 'generative ai'];
+    if (aiBadges.some((b) => text.includes(b))) {
+      issues.push({
+        severity: 'CRITICAL_REJECT',
+        dimension: 'Anti-AI Design',
+        element: badge.tagName,
+        snippet: text.slice(0, 50),
+        reason: 'Huella de IA detectada: Píldora/Badge genérico tipo "AI-Powered" sobre titular.'
+      });
+    }
+  });
+
+  // 3. Auditoría de Enlaces y Accesibilidad
   root.querySelectorAll('a').forEach((link) => {
     const href = link.getAttribute('href') || '';
     if (href.startsWith('javascript:void')) {
@@ -58,8 +76,8 @@ export function runAntiAiAndQualityAudit(root = document) {
         severity: 'HIGH',
         dimension: 'Accesibilidad',
         element: 'A',
-        snippet: link.outerHTML.slice(0, 80),
-        reason: 'Enlace vacío con javascript:void(0) detectado.'
+        snippet: link.outerHTML ? link.outerHTML.slice(0, 80) : href,
+        reason: 'Enlace vacío con javascript:void(0) detectado. Usar <button> semántico.'
       });
     }
     if (href.includes('%20')) {
@@ -73,7 +91,23 @@ export function runAntiAiAndQualityAudit(root = document) {
     }
   });
 
-  const bodyText = root.body ? root.body.innerText : '';
+  // 4. Detección de Metaetiquetas de Generadores Automáticos
+  root.querySelectorAll('meta[name="generator"]').forEach((meta) => {
+    const content = meta.getAttribute('content') || '';
+    const aiGenerators = ['framer', 'wix adi', '10web', 'durable'];
+    if (aiGenerators.some((g) => content.toLowerCase().includes(g))) {
+      issues.push({
+        severity: 'CRITICAL_REJECT',
+        dimension: 'Anti-AI Design',
+        element: 'META',
+        snippet: content,
+        reason: `Metaetiqueta de constructor automático detectada: "${content}".`
+      });
+    }
+  });
+
+  // 5. Detección de Residuos de Plantilla y AI Slop en Texto
+  const bodyText = root.body ? (root.body.innerText || root.body.textContent || '') : '';
   const templateResidues = [
     'type here...',
     'Welcome, Login to your account',
@@ -97,6 +131,7 @@ export function runAntiAiAndQualityAudit(root = document) {
   return {
     passed: !issues.some((i) => i.severity === 'CRITICAL_REJECT'),
     totalIssues: issues.length,
+    criticalCount: issues.filter((i) => i.severity === 'CRITICAL_REJECT').length,
     issues
   };
 }
