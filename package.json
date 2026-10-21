@@ -1,14 +1,14 @@
 {
-  "name": "apple-wp-premium-web-skill",
+  "name": "web-atelier",
   "version": "2.0.0",
-  "description": "Professional agent skill for premium web architecture combining Apple Design, WordPress Block Themes/FSE/Headless, Anti-AI Design Guardrails, and SEO/AEO/GEO optimization.",
+  "description": "WebAtelier: Professional digital atelier agent skill for premium web architecture combining Apple Design, WordPress Block Themes/FSE, Anti-AI Design Guardrails, and SEO/AEO/GEO optimization.",
   "type": "module",
   "author": "Benjamin Murga <benjamin.a.murga@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/BenjaminMurga/apple-wp-premium-web-skill#readme",
+  "homepage": "https://github.com/BenjaminMurga/WebAtelier#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/BenjaminMurga/apple-wp-premium-web-skill.git"
+    "url": "https://github.com/BenjaminMurga/WebAtelier.git"
   },
   "scripts": {
     "audit:syntax": "node --check scripts/anti-ai-dom-auditor.js",
@@ -16,6 +16,8 @@
     "validate:theme-json": "node -e \"const fs = require('fs'); JSON.parse(fs.readFileSync('configs/theme.json', 'utf8')); console.log('theme.json válido');\""
   },
   "keywords": [
+    "web-atelier",
+    "webatelier",
     "ai-agent-skill",
     "apple-design",
     "wordpress",
@@ -27,7 +29,6 @@
     "webgpu",
     "seo",
     "aeo",
-    "geo",
-    "creawebchile"
+    "geo"
   ]
 }

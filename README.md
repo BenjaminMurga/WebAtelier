@@ -1,4 +1,4 @@
-# Apple Design + WordPress + Anti-AI Design + SEO/AEO/GEO Skill
+# WebAtelier · Digital Studio Skill for Premium Web Architecture
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![WordPress: 6.5+](https://img.shields.io/badge/WordPress-6.5%2B%20(FSE)-21759B.svg)](https://wordpress.org)
@@ -7,6 +7,7 @@
 [![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA-34C759.svg)](#)
 
 > **Architect & Creator:** **Benjamin Murga** · [@BenjaminMurga](https://github.com/BenjaminMurga)  
+> **Repository:** [https://github.com/BenjaminMurga/WebAtelier](https://github.com/BenjaminMurga/WebAtelier)  
 > **Version:** 2.0.0  
 > **Target:** Pi, Codex, Claude Code, Cursor, and Open Agent Ecosystems.
 
@@ -14,7 +15,7 @@
 
 ## English Overview 🇺🇸 / 🇬🇧
 
-A modular, enterprise-grade agent skill designed to conceptualize, design, develop, and audit premium digital experiences. It brings together the visual precision of **Apple Human Interface Guidelines**, the modern content architecture of **WordPress (Block Themes / FSE / Headless)**, interactive experiences (**GSAP, Three.js, WebGL/WebGPU**), strict **Anti-AI Design guardrails**, and cutting-edge **SEO, AEO, and GEO** optimization.
+**WebAtelier** is an enterprise-grade agent skill designed to conceptualize, design, develop, and audit premium digital experiences. Like an haute couture architectural atelier, it brings together the visual precision of **Apple Human Interface Guidelines**, the modern content architecture of **WordPress (Block Themes / FSE / Headless)**, interactive experiences (**GSAP, Three.js, WebGL/WebGPU**), strict **Anti-AI Design guardrails**, and cutting-edge **SEO, AEO, and GEO** optimization.
 
 ### Core Pillars
 1. **Apple Visual Precision:** Asymmetric Bento Grids, continuous curvature ($n=4$ squircle math), spring physics for microinteractions, and solid typography.
@@ -27,7 +28,7 @@ A modular, enterprise-grade agent skill designed to conceptualize, design, devel
 
 ## Resumen en Español 🇨🇱 / 🇪🇸
 
-Skill profesional y modular diseñada para agentes de IA y equipos de ingeniería web. Permite concebir, diseñar, desarrollar y auditar sitios web de altísima gama combinando la precisión visual de **Apple Design**, la arquitectura moderna de **WordPress (Block Themes / FSE / Headless)**, experiencias interactivas (**GSAP, Three.js, WebGL/WebGPU**), blindaje estricto **Anti-AI Design** y optimización integral **SEO, AEO y GEO**.
+**WebAtelier** es una Skill profesional y modular diseñada para agentes de IA y equipos de ingeniería web. Inspirada en la precisión y artesanía de un taller de alta dirección de arte digital, permite concebir, diseñar, desarrollar y auditar sitios web de altísima gama combinando la precisión visual de **Apple Design**, la arquitectura moderna de **WordPress (Block Themes / FSE / Headless)**, experiencias interactivas (**GSAP, Three.js, WebGL/WebGPU**), blindaje estricto **Anti-AI Design** y optimización integral **SEO, AEO y GEO**.
 
 ### Pilares Fundamentales
 1. **Precisión Visual Apple:** Grillas Bento asimétricas, curvatura continua (matemática de superelipses $n=4$), física de resortes (*springs*) para microinteracciones y tipografía sólida de alto contraste.
@@ -41,7 +42,7 @@ Skill profesional y modular diseñada para agentes de IA y equipos de ingenierí
 ## Repository Structure / Estructura del Repositorio
 
 ```text
-apple-wp-premium-web-skill/
+WebAtelier/
 ├── .github/
 │   └── workflows/
 │       └── anti-ai-quality-gate.yml      # CI Quality Gate (GitHub Actions)
@@ -78,7 +79,7 @@ Clone or copy this repository directly into your local agent skills directory:
 
 ```bash
 # Para agentes basados en Pi / Agent Skills estándar:
-cp -r apple-wp-premium-web-skill ~/.agents/skills/apple-wp-premium-web-skill
+cp -r WebAtelier ~/.agents/skills/web-atelier
 ```
 
 The agent will automatically load `SKILL.md` as the entrypoint and query the `references/` directory via progressive disclosure based on the user's task.

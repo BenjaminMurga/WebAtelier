@@ -1,14 +1,16 @@
 ---
-name: apple-wp-premium-web-architect
+name: web-atelier
 description: >
-  Skill integral de dirección de arte digital, diseño UI/UX inspirado en Apple Design,
+  WebAtelier: Skill integral de dirección de arte digital, diseño UI/UX inspirado en Apple Design,
   desarrollo avanzado en WordPress (Block Themes, FSE, Headless), experiencias interactivas
   y 3D (GSAP, Three.js, WebGL/WebGPU), auditoría estricta Anti-AI Design y optimización
   técnica SEO, AEO y GEO.
 version: 2.0.0
 author: Benjamin Murga
-repository: https://github.com/BenjaminMurga/apple-wp-premium-web-skill
+repository: https://github.com/BenjaminMurga/WebAtelier
 triggers:
+  - web-atelier
+  - webatelier
   - diseño web premium
   - rediseño de sitio web
   - desarrollo WordPress
@@ -18,7 +20,7 @@ triggers:
   - sistema de diseño UI/UX
 ---
 
-# SKILL: Arquitecto Web Premium (Apple Design + WordPress + Anti-AI + SEO/AEO/GEO)
+# SKILL: WebAtelier (Apple Design + WordPress + Anti-AI + SEO/AEO/GEO)
 
 > **Autor y Creador:** Benjamin Murga · [@BenjaminMurga](https://github.com/BenjaminMurga)  
 > **Licencia:** MIT
