@@ -1,0 +1,28 @@
+# robots.txt para WebAtelier
+# Permite el rastreo de motores de búsqueda tradicionales y modelos generativos (GEO / LLMO)
+
+User-agent: *
+Allow: /
+
+# Rastreadores de Modelos Generativos e Inteligencia Artificial
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: bingbot
+Allow: /
+
+# Índices y Archivos para Modelos de Lenguaje
+Sitemap: https://benjaminmurga.github.io/WebAtelier/sitemap.xml
+# llms.txt: https://benjaminmurga.github.io/WebAtelier/llms.txt

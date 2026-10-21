@@ -92,20 +92,29 @@ cp -r WebAtelier ~/.agents/skills/web-atelier
 
 The agent will automatically discover **`web-atelier`** and consult the `references/` directory via progressive disclosure based on the user's task.
 
-### 2. Local Validation & Screen Audit / Pruebas Locales y Auditoría de Pantalla
+### 2. Universal Setup & Screen Audit / Instalación y Auditoría Visual
+
+Cualquier usuario que clone este repositorio puede ejecutar la suite completa con Node.js o Bun:
 
 ```bash
-# Inspección visual de pantalla en 4 factores de forma (Headless Chromium)
-bun run audit:screen
+# 1. Clonar e ingresar
+git clone https://github.com/BenjaminMurga/WebAtelier.git
+cd WebAtelier
 
-# Auditar cualquier URL externa o local en tiempo real:
-bun scripts/audit-screen.js https://sitio-de-tu-cliente.com
+# 2. Instalar dependencias opcionales de Playwright
+npm install
 
-# Ejecutar suite de pruebas de detección Anti-AI
+# 3. Descargar el motor Chromium headless (para capturas y medidas reales)
+npx playwright install chromium
+
+# 4. Auditar la pantalla en 4 factores de forma en tiempo real:
+npm run audit:screen
+
+# 5. Auditar cualquier sitio web en producción:
+node scripts/audit-screen.js https://sitio-de-tu-cliente.com
+
+# 6. Ejecutar tests del auditor Anti-AI:
 npm test
-
-# Validar esquema de theme.json para WordPress
-npm run validate:theme-json
 ```
 
 ---

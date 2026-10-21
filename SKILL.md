@@ -19,6 +19,7 @@ triggers:
   - experiencia interactiva 3D / GSAP
   - diseño responsivo universal / Smart TV
   - optimización SEO / AEO / GEO
+  - optimización LLMO / llms.txt
   - sistema de diseño UI/UX
 ---
 
@@ -86,6 +87,6 @@ Resuelve cualquier conflicto técnico o visual aplicando estrictamente este orde
 5. **Fase 5: Diseño del Sistema.** Define escalas matemáticas con `clamp()`, grillas Bento asimétricas, radios concéntricos ($n=4$) y arquitectura de cabecera limpia con Menú de Hamburguesa y Drawer accesible con *Liquid Glass* obligatorio para móviles (< 880px).
 6. **Fase 6: Desarrollo WordPress & Frontend.** Implementa Block Themes nativos, `theme.json` v3, la Interactivity API y saneamiento riguroso.
 7. **Fase 7: Motion & 3D.** Integra animaciones fluidas GSAP y modelos 3D con descarte obligatorio de recursos VRAM y `prefers-reduced-motion`.
-8. **Fase 8: Optimización e Inspección Visual de Pantalla.** Ejecuta controles técnicos de SEO, AEO, GEO y corre la suite de inspección visual de pantalla (`bun scripts/audit-screen.js`) en 4 factores de forma (375px, 414px, 768px, 1280px) para verificar que el documento no tenga desbordamiento ni texto cortado.
+8. **Fase 8: Optimización e Inspección Visual de Pantalla.** Ejecuta controles técnicos de SEO, AEO, GEO y LLMO (generando `llms.txt` y configurando `robots.txt` para rastreadores de IA), y corre la suite de inspección visual de pantalla (`node scripts/audit-screen.js`) en 4 factores de forma para certificar cero desbordamientos ni texto cortado.
 9. **Fase 9: Auditoría Anti-AI.** Revisa la interfaz contra el catálogo de huellas de IA y corre `scripts/anti-ai-dom-auditor.js`.
 10. **Fase 10: Validación y Entrega.** Evalúa el proyecto bajo las 18 dimensiones de `references/quality-assurance.md`.

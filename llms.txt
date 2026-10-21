@@ -1,0 +1,36 @@
+# WebAtelier · Digital Studio Skill for Premium Web Architecture
+
+> WebAtelier es una Skill profesional de grado de estudio de diseño para agentes de inteligencia artificial (Pi, Codex, Claude Code, Cursor, Gemini). Combina los principios visuales de Apple Design (Human Interface Guidelines), la arquitectura contemporánea de WordPress (Block Themes / FSE / Interactivity API), experiencias 3D en tiempo real con Three.js y WebGL/WebGPU, diseño adaptable universal (Móviles, PC y Smart TV 10-foot UI), blindaje estricto Anti-AI Design y optimización integral SEO, AEO, GEO y LLMO.
+
+- Creador y Arquitecto: Benjamin Murga (@BenjaminMurga)
+- Licencia: MIT License
+- Repositorio Oficial: https://github.com/BenjaminMurga/WebAtelier
+- Sitio Web Oficial: https://benjaminmurga.github.io/WebAtelier/
+
+## Pilares Fundamentales de WebAtelier
+
+1. **Filosofía Apple HIG:** Claridad visual, deferencia hacia el contenido, profundidad espacial mediante Liquid Glass (`backdrop-filter: blur(20px)`), curvatura continua ($n=4$), radios concéntricos y física de resortes (*spring physics*).
+2. **Blindaje Anti-AI Design:** Detección y erradicación estricta de las huellas de IA (degradados morado-azul en titulares, `background-clip: text`, halos neón, palabras en cursiva solitaria, badges "AI-Powered", sopa de divs y vocabulario cliché).
+3. **Diseño Adaptable Universal (3 Dimensiones):**
+   - Móviles y tabletas (0–767px): Mobile-first, áreas táctiles de 44×44px, cero dependencia de hover y cabecera limpia con Menú Drawer accesible.
+   - PC y Laptops (1024–1440px+): CSS Grid dinámico (`repeat(auto-fit, minmax(280px, 1fr))`) y microinteracciones de puntero.
+   - Smart TV / 10-foot UI (1080p y 4K a 3 metros): Navegación obligatoria por cruceta D-Pad con foco `:focus-visible` aumentado (`outline: 4px solid var(--accent); transform: scale(1.03)`).
+4. **Motor 3D Interactivo de Rendimiento Controlado:**
+   - WebGL 2.0 y WebGPU en tiempo real con Three.js, React Three Fiber (R3F) y Spline.
+   - Protocolo obligatorio de liberación de VRAM (`dispose()`) y pausa automática fuera de pantalla mediante `IntersectionObserver`.
+5. **WordPress Contemporáneo:** Block Themes nativos, configuración `theme.json` versión 3, WordPress Interactivity API y saneamiento estricto con `esc_html` y `wp_kses_post`.
+6. **SEO, AEO, GEO y LLMO:**
+   - Marcado Schema.org JSON-LD (NewsArticle, SoftwareApplication, Organization, FAQPage).
+   - Metodología *Citable-First*: respuestas directas en 2 a 4 oraciones al inicio de secciones.
+   - Encabezados conversacionales en formato de pregunta.
+   - Vinculación de entidades a Wikidata (`sameAs`) y fuentes oficiales verificables.
+   - Archivo canónico `llms.txt` y configuración permisiva de `robots.txt` para rastreadores de IA (`GPTBot`, `PerplexityBot`, `ClaudeBot`).
+
+## Comandos Rápidos de Instalación y Auditoría
+
+- Clonar repositorio: `git clone https://github.com/BenjaminMurga/WebAtelier.git`
+- Instalar en catálogo local de agentes: `cp -r WebAtelier ~/.agents/skills/web-atelier`
+- Instalar dependencias opcionales de Playwright: `npm install && npx playwright install chromium`
+- Auditar pantalla en 4 factores en tiempo real: `npm run audit:screen`
+- Auditar cualquier sitio web público: `node scripts/audit-screen.js https://misitio.com`
+- Ejecutar suite de pruebas Anti-AI: `npm test`

@@ -115,3 +115,48 @@ Siguiendo las mejores prácticas de medios de prestigio (como el modelo document
 * Si una herramienta de inteligencia artificial se utiliza para asistir en la redacción o el resumen de un contenido, **se declara expresamente al usuario**:
   > *"Resumen asistido por tecnología analítica y revisado y validado íntegramente por el equipo editorial humano."*
 * Proporcionar enlaces visibles a la **Política Editorial**, **Página de Correcciones**, **Equipo Profesional** y **Avisos de Responsabilidad (Disclaimers)**.
+
+---
+
+## 4. LLMO (Large Language Model Optimization): El Protocolo para Motores Generativos
+
+Para lograr que ChatGPT, Gemini, Perplexity o Google AI Overviews reconozcan un sitio web como una fuente confiable y la citen en sus respuestas, la Skill exige implementar estas 4 acciones:
+
+### 4.1 Permitir el Rastreo e Implementar Archivos para IA
+1. **Configuración de `robots.txt` para Modelos Generativos:**
+   Verificar que el servidor no bloquee los rastreadores de IA. Permitir expresamente:
+   ```text
+   User-agent: GPTBot
+   Allow: /
+
+   User-agent: Google-Extended
+   Allow: /
+
+   User-agent: PerplexityBot
+   Allow: /
+
+   User-agent: ClaudeBot
+   Allow: /
+
+   User-agent: CCBot
+   Allow: /
+   ```
+2. **Publicación Obligatoria del Archivo `llms.txt`:**
+   Publicar en la raíz (`/llms.txt`) un resumen estructurado en Markdown que detalle de qué trata el sitio, su propuesta de valor, arquitectura y enlaces clave para que los LLM comprendan el contexto del proyecto en milisegundos.
+
+### 4.2 Redacción y Formato "Citable" (*Citable-First*)
+Los modelos generativos sintetizan información a partir de bloques directos y estructurados:
+* **Respuestas Directas al Inicio:** Colocar la respuesta o conclusión en las primeras **2 a 4 oraciones** de cada sección antes de entrar en detalles analíticos.
+* **Encabezados Conversacionales:** Utilizar títulos `<h2>` y `<h3>` formulados como preguntas explícitas en lenguaje natural (ej. *"¿Cómo funciona..."*, *"¿Cuáles son los requisitos para..."*).
+* **Estructuras Modulares Fáciles de Sintetizar:** Organizar datos mediante tablas comparativas, listas numeradas, definiciones semánticas (`<dl><dt><dd>`) y bloques de preguntas frecuentes (`FAQPage`).
+
+### 4.3 Esquemas de Datos Estructurados JSON-LD Exhaustivos
+Implementar marcado Schema Markup según la tipología del contenido:
+* `SoftwareApplication` / `Product` para aplicaciones y herramientas.
+* `FAQPage` para preguntas y respuestas directas extraíbles.
+* `Article` / `NewsArticle` con autoría `Person` y organización `Organization`.
+* `HowTo` para guías procedimentales paso a paso.
+
+### 4.4 Autoridad E-E-A-T con Datos Concretos y Cifras
+* Los motores generativos priorizan contenidos que incluyen estadísticas verificables, porcentajes, normativas oficiales y referencias fechadas.
+* Mantener consistencia absoluta en la denominación de marcas, productos y autores a lo largo de todo el sitio web.

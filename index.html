@@ -57,6 +57,7 @@
           <li><a href="#roles" class="nav-link">Roles</a></li>
           <li><a href="#comparativa" class="nav-link">Comparativa</a></li>
           <li><a href="#bento" class="nav-link">Arquitectura</a></li>
+          <li><a href="#geo-llmo" class="nav-link">GEO &amp; LLMO</a></li>
           <li><a href="#dimensiones" class="nav-link">18 Dimensiones</a></li>
           <li><a href="#auditor-en-vivo" class="nav-link">Auditor en Vivo</a></li>
           <li><a href="#instalacion" class="nav-link">Instalación</a></li>
@@ -108,6 +109,7 @@
             <li><a href="#roles" class="mobile-nav-link">Roles del Atelier</a></li>
             <li><a href="#comparativa" class="mobile-nav-link">Comparativa IA vs WebAtelier</a></li>
             <li><a href="#bento" class="mobile-nav-link">Arquitectura &amp; Bento Grids</a></li>
+            <li><a href="#geo-llmo" class="mobile-nav-link">GEO &amp; LLMO para Motores de IA</a></li>
             <li><a href="#dimensiones" class="mobile-nav-link">Las 18 Dimensiones de QA</a></li>
             <li><a href="#auditor-en-vivo" class="mobile-nav-link">Auditor DOM en Vivo</a></li>
             <li><a href="#instalacion" class="mobile-nav-link">Guía de Instalación</a></li>
@@ -441,6 +443,85 @@
       </div>
     </section>
 
+    <!-- Sección Estrategia GEO & LLMO para Motores de Inteligencia Artificial -->
+    <section id="geo-llmo" class="section-wrapper" aria-labelledby="llmo-heading">
+      <div class="hero-kicker">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M12 16v-4"></path>
+          <path d="M12 8h.01"></path>
+        </svg>
+        Optimización para Motores Generativos (GEO / LLMO)
+      </div>
+
+      <h2 id="llmo-heading">¿Cómo lograr que ChatGPT, Gemini y Perplexity citen tu sitio web?</h2>
+      
+      <p class="hero-lead" style="margin-top: var(--space-3);">
+        A diferencia del SEO tradicional enfocado únicamente en posicionar enlaces para capturar clics, el <strong>GEO (Generative Engine Optimization)</strong> y el <strong>LLMO (Large Language Model Optimization)</strong> buscan que los modelos de lenguaje reconozcan tu contenido como una fuente confiable, modular y citable para incluirla dentro de sus respuestas en tiempo real.
+      </p>
+
+      <div class="roles-grid" style="margin-top: var(--space-6);">
+        
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+            </svg>
+          </div>
+          <h3 class="role-title">1. Archivo llms.txt &amp; robots.txt para IA</h3>
+          <p class="role-desc">
+            Publicación obligatoria del archivo estándar <code>/llms.txt</code> en la raíz en formato Markdown estructurado, junto con permisos de rastreo explícitos en <code>robots.txt</code> para bots como <code>GPTBot</code>, <code>PerplexityBot</code>, <code>ClaudeBot</code> y <code>Google-Extended</code>.
+          </p>
+          <div style="margin-top: var(--space-3);">
+            <a href="llms.txt" target="_blank" rel="noopener noreferrer" style="color: var(--accent); font-weight: 600; font-size: 0.85rem; text-decoration: underline;">
+              Ver archivo llms.txt de WebAtelier &rarr;
+            </a>
+          </div>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 18 22 12 16 6"></polyline>
+              <polyline points="8 6 2 12 8 18"></polyline>
+            </svg>
+          </div>
+          <h3 class="role-title">2. HTML5 Semántico &amp; Schema JSON-LD</h3>
+          <p class="role-desc">
+            Sustitución total de la "sopa de divs" por etiquetas semánticas reales (<code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>) y marcado Schema.org enriquecido (<code>SoftwareApplication</code>, <code>FAQPage</code>, <code>Article</code>) para facilitar el parsing a los modelos.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="role-title">3. Redacción Citable-First</h3>
+          <p class="role-desc">
+            Inclusión de la respuesta o conclusión en las primeras 2 a 4 oraciones de cada bloque temático, con subtítulos H2 y H3 en formato de preguntas explícitas en lenguaje natural (ej. <em>"¿Cómo funciona...?"</em>) y tablas comparativas extraíbles.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="role-title">4. Autoridad E-E-A-T Verificable</h3>
+          <p class="role-desc">
+            Respaldo de cada afirmación con estadísticas, fechas y fuentes primarias oficiales. Consistencia estricta en la denominación de entidades y autores mediante esquemas <code>Person</code> y <code>Organization</code> con enlaces <code>sameAs</code>.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
     <!-- Sección Matriz de las 18 Dimensiones de Calidad -->
     <section id="dimensiones" class="section-wrapper" aria-labelledby="dim-heading">
       <h2 id="dim-heading">Las 18 Dimensiones de Evaluación Verificables</h2>
@@ -515,16 +596,28 @@
           <button type="button" class="terminal-copy-btn" data-copy="git clone https://github.com/BenjaminMurga/WebAtelier.git">Copiar</button>
         </div>
 
-        <label for="cmd-install" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">2. Desplegar en tu Catálogo Local de Skills:</label>
+        <label for="cmd-install" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">2. Desplegar en tu Catálogo Local de Skills (~/.agents/skills):</label>
         <div class="terminal-block" id="cmd-install">
           <code>cp -r WebAtelier ~/.agents/skills/web-atelier</code>
           <button type="button" class="terminal-copy-btn" data-copy="cp -r WebAtelier ~/.agents/skills/web-atelier">Copiar</button>
         </div>
 
-        <label for="cmd-test" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">3. Ejecutar Suite de Validación Automatizada:</label>
+        <label for="cmd-deps" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">3. Habilitar Auditor Visual de Pantalla con Chromium (Opcional):</label>
+        <div class="terminal-block" id="cmd-deps">
+          <code>cd WebAtelier &amp;&amp; npm install &amp;&amp; npx playwright install chromium</code>
+          <button type="button" class="terminal-copy-btn" data-copy="cd WebAtelier && npm install && npx playwright install chromium">Copiar</button>
+        </div>
+
+        <label for="cmd-audit" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">4. Auditar la Pantalla en 4 Dispositivos (Móvil, PC, TV):</label>
+        <div class="terminal-block" id="cmd-audit">
+          <code>npm run audit:screen</code>
+          <button type="button" class="terminal-copy-btn" data-copy="npm run audit:screen">Copiar</button>
+        </div>
+
+        <label for="cmd-test" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">5. Ejecutar Suite de Detección Anti-AI:</label>
         <div class="terminal-block" id="cmd-test">
-          <code>cd WebAtelier &amp;&amp; npm test</code>
-          <button type="button" class="terminal-copy-btn" data-copy="cd WebAtelier && npm test">Copiar</button>
+          <code>npm test</code>
+          <button type="button" class="terminal-copy-btn" data-copy="npm test">Copiar</button>
         </div>
       </div>
     </section>
