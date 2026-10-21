@@ -541,7 +541,7 @@ p {
   gap: var(--space-2);
   background: var(--accent);
   color: var(--accent-text);
-  padding: 12px 22px;
+  padding: 12px 20px;
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 600;
@@ -549,7 +549,10 @@ p {
   border: none;
   cursor: pointer;
   min-height: 44px;
-  white-space: nowrap;
+  white-space: normal; /* Permite salto de línea en pantallas ultra estrechas */
+  text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
   transition: background-color 160ms ease, transform var(--duration-normal) var(--ease-apple-press);
 }
 
@@ -568,7 +571,7 @@ p {
   gap: var(--space-2);
   background: var(--bg-surface);
   color: var(--text-primary);
-  padding: 12px 22px;
+  padding: 12px 20px;
   border-radius: var(--radius-pill);
   text-decoration: none;
   font-weight: 600;
@@ -576,7 +579,10 @@ p {
   border: 1px solid var(--border-hairline);
   cursor: pointer;
   min-height: 44px;
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
+  box-sizing: border-box;
   transition: background-color 160ms ease, transform var(--duration-normal) var(--ease-apple-press);
 }
 
@@ -595,7 +601,8 @@ p {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: var(--space-10) var(--space-4);
+  padding: var(--space-8) var(--space-5);
+  box-sizing: border-box;
 }
 
 @media (min-width: 768px) {
@@ -679,11 +686,18 @@ p {
 
 .hero-badges-row {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--space-2);
   margin-top: var(--space-5);
   width: 100%;
   max-width: 100%;
+}
+
+@media (min-width: 480px) {
+  .hero-badges-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 }
 
 .metric-chip {
@@ -692,13 +706,14 @@ p {
   gap: 6px;
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
-  padding: 4px 10px;
+  padding: 6px 12px;
   border-radius: var(--radius-pill);
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--text-secondary);
   white-space: normal;
   max-width: 100%;
+  width: fit-content;
 }
 
 .metric-chip svg {
@@ -712,6 +727,15 @@ p {
   gap: var(--space-3);
   margin-top: var(--space-6);
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.hero-cta-group .btn-primary,
+.hero-cta-group .btn-secondary {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 @media (min-width: 640px) {
@@ -723,18 +747,6 @@ p {
     margin-top: var(--space-8);
   }
 
-  .hero-cta-group .btn-primary,
-  .hero-cta-group .btn-secondary {
-    width: auto;
-  }
-}
-
-.hero-cta-group .btn-primary,
-.hero-cta-group .btn-secondary {
-  width: 100%;
-}
-
-@media (min-width: 640px) {
   .hero-cta-group .btn-primary,
   .hero-cta-group .btn-secondary {
     width: auto;
