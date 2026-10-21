@@ -1,7 +1,7 @@
 /**
  * WebAtelier - Auditor de Calidad y Cumplimiento Anti-AI Design
  * Detecta huellas digitales de IA: degradados en titulares, emojis, sopa de divs,
- * insignias artificiales, generadores automáticos y residuos de plantilla.
+ * insignias artificiales sobre titulares, generadores automáticos y residuos de plantilla.
  */
 export function runAntiAiAndQualityAudit(root = document) {
   const issues = [];
@@ -53,18 +53,21 @@ export function runAntiAiAndQualityAudit(root = document) {
     lastLevel = level;
   });
 
-  // 2. Detección de Insignias Artificiales de IA sobre H1 ("AI-Powered", "New", etc.)
-  root.querySelectorAll('.badge, .eyebrow, span, p').forEach((badge) => {
+  // 2. Detección de Insignias Artificiales de IA sobre H1 ("AI-Powered", "Powered by AI", etc.)
+  // Aplica sobre elementos diseñados como etiquetas/badges cortos (< 40 caracteres)
+  root.querySelectorAll('.badge, .eyebrow, .kicker, .tag, [class*="badge"], [class*="eyebrow"]').forEach((badge) => {
     const text = badge.textContent ? badge.textContent.trim().toLowerCase() : '';
-    const aiBadges = ['ai-powered', 'powered by ai', 'ai platform', 'generative ai'];
-    if (aiBadges.some((b) => text.includes(b))) {
-      issues.push({
-        severity: 'CRITICAL_REJECT',
-        dimension: 'Anti-AI Design',
-        element: badge.tagName,
-        snippet: text.slice(0, 50),
-        reason: 'Huella de IA detectada: Píldora/Badge genérico tipo "AI-Powered" sobre titular.'
-      });
+    if (text.length > 0 && text.length < 45) {
+      const aiBadges = ['ai-powered', 'powered by ai', 'ai platform', 'generative ai'];
+      if (aiBadges.some((b) => text.includes(b))) {
+        issues.push({
+          severity: 'CRITICAL_REJECT',
+          dimension: 'Anti-AI Design',
+          element: badge.tagName,
+          snippet: text.slice(0, 50),
+          reason: 'Huella de IA detectada: Píldora/Badge genérico tipo "AI-Powered" sobre titular.'
+        });
+      }
     }
   });
 
@@ -106,7 +109,7 @@ export function runAntiAiAndQualityAudit(root = document) {
     }
   });
 
-  // 5. Detección de Residuos de Plantilla y AI Slop en Texto
+  // 5. Detección de Residuos de Plantilla en Texto
   const bodyText = root.body ? (root.body.innerText || root.body.textContent || '') : '';
   const templateResidues = [
     'type here...',

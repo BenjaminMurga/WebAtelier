@@ -103,9 +103,12 @@ Para garantizar que el sitio mantenga una personalidad consistente de principio 
 
 ---
 
-## 4. Controles de Preferencia de Lectura (Inspirados en Wikipedia)
+## 5. Regla de Centrado Óptico y Equilibrio en Pantallas Panorámicas (Ultra-Wide / 1440px+)
 
-Para portales de contenido extenso o documentación técnica, la interfaz debe ofrecer selectores accesibles de apariencia:
-* Selector de tamaño de texto (`small`, `standard`, `large`).
-* Selector de ancho de contenido (`standard` [68ch] vs `wide` [90ch]).
-* Selector de esquema cromático (`auto`, `light`, `dark`).
+Queda estrictamente prohibido alinear bloques de contenido estrechos (`max-width: 800px`) a la izquierda de la pantalla sin centrar (`margin: 0 auto`), provocando vacíos asimétricos o áreas vacías que desaprovechan el 50% de la pantalla en monitores panorámicos.
+
+1. **Centrado Simétrico Obligatorio:**
+   * Toda sección con contenido de ancho controlado (formularios, bloques de instalación, consolas de auditoría, tablas y FAQs) debe estar centrada ópticamente con `margin-left: auto; margin-right: auto;`.
+   * Los encabezados de sección (`H2` + párrafo introductorio) deben estar centrados (`text-align: center; margin: 0 auto;`) cuando el contenido que encabezan es simétrico o de una sola columna.
+2. **Equilibrio en el Pie de Página:**
+   * El pie de página (`footer`) debe implementar un contenedor centralizado (`max-width: 1280px; margin: 0 auto; width: 100%;`) que distribuya armónicamente los créditos y los enlaces de navegación, evitando que el contenido quede arrinconado a un lado.
