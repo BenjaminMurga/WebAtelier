@@ -12,15 +12,27 @@ export function runAntiAiAndQualityAudit(root = document) {
   let lastLevel = 0;
 
   headings.forEach((el) => {
-    const style = window.getComputedStyle ? window.getComputedStyle(el) : {};
+    let style = {};
+    try {
+      if (typeof window !== 'undefined' && window.getComputedStyle && (el instanceof window.Element)) {
+        style = window.getComputedStyle(el) || {};
+      }
+    } catch (e) {
+      style = {};
+    }
+
+    const bgImage = (style.backgroundImage || (el.style && el.style.backgroundImage) || (el.dataset && el.dataset.gradient ? 'gradient' : '') || '');
+    const bgClip = (style.webkitBackgroundClip || style.backgroundClip || (el.style && el.style.webkitBackgroundClip) || (el.dataset && el.dataset.clip) || '');
+    const textFill = (style.webkitTextFillColor || (el.style && el.style.webkitTextFillColor) || (el.dataset && el.dataset.transparent ? 'transparent' : '') || '');
+
     const level = parseInt(el.tagName.replace('H', ''), 10);
     const text = el.textContent ? el.textContent.trim() : '';
 
     if (
-      (style.backgroundImage && style.backgroundImage.includes('gradient')) ||
-      style.webkitBackgroundClip === 'text' ||
-      style.backgroundClip === 'text' ||
-      style.webkitTextFillColor === 'transparent'
+      bgImage.includes('gradient') ||
+      bgClip === 'text' ||
+      textFill === 'transparent' ||
+      textFill.includes('rgba(0, 0, 0, 0)')
     ) {
       issues.push({
         severity: 'CRITICAL_REJECT',
@@ -54,7 +66,6 @@ export function runAntiAiAndQualityAudit(root = document) {
   });
 
   // 2. Detección de Insignias Artificiales de IA sobre H1 ("AI-Powered", "Powered by AI", etc.)
-  // Aplica sobre elementos diseñados como etiquetas/badges cortos (< 40 caracteres)
   root.querySelectorAll('.badge, .eyebrow, .kicker, .tag, [class*="badge"], [class*="eyebrow"]').forEach((badge) => {
     const text = badge.textContent ? badge.textContent.trim().toLowerCase() : '';
     if (text.length > 0 && text.length < 45) {
@@ -110,7 +121,7 @@ export function runAntiAiAndQualityAudit(root = document) {
   });
 
   // 5. Detección de Residuos de Plantilla en Texto
-  const bodyText = root.body ? (root.body.innerText || root.body.textContent || '') : '';
+  const bodyText = root.body ? (root.body.innerText || root.body.textContent || '') : (root.innerText || root.textContent || '');
   const templateResidues = [
     'type here...',
     'Welcome, Login to your account',

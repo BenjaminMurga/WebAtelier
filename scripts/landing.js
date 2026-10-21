@@ -139,31 +139,34 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (consoleOutput && btnRunBad && btnRunGood) {
     btnRunBad.addEventListener('click', () => {
-      consoleOutput.innerHTML = '<div style="color:var(--text-tertiary); padding: 8px 0;">Analizando DOM simulado con patrones de IA...</div>';
+      consoleOutput.innerHTML = '<div style="color:var(--text-tertiary); padding: 8px 0;">Analizando código simulado con patrones de IA...</div>';
       setTimeout(() => {
-        const badMockDom = {
-          querySelectorAll: (selector) => {
-            if (selector.includes('h1')) {
-              return [
-                { tagName: 'H1', textContent: 'Revoluciona tu negocio con IA 🚀', dataset: { gradient: true, clip: 'text', transparent: true } },
-                { tagName: 'H4', textContent: 'Subtítulo saltando jerarquía a H4', dataset: {} }
-              ];
-            }
-            if (selector.includes('.badge')) {
-              return [{ tagName: 'SPAN', textContent: '✨ AI-Powered Platform' }];
-            }
-            if (selector === 'a') {
-              return [{ getAttribute: () => 'javascript:void(0);', outerHTML: '<a href="javascript:void(0);"></a>' }];
-            }
-            if (selector.includes('generator')) {
-              return [{ getAttribute: (attr) => attr === 'content' ? 'Framer AI v12' : null }];
-            }
-            return [];
-          },
-          body: { innerText: 'Welcome, Login to your account type here... Buscar' }
-        };
+        const oldSandbox = document.getElementById('ai-simulation-sandbox');
+        if (oldSandbox) oldSandbox.remove();
 
-        const result = runAntiAiAndQualityAudit(badMockDom);
+        const sandbox = document.createElement('div');
+        sandbox.id = 'ai-simulation-sandbox';
+        sandbox.style.position = 'absolute';
+        sandbox.style.left = '-9999px';
+        sandbox.style.top = '-9999px';
+        sandbox.style.opacity = '0';
+        sandbox.style.pointerEvents = 'none';
+
+        sandbox.innerHTML = `
+          <meta name="generator" content="Framer AI v12" />
+          <span class="badge">✨ AI-Powered Platform</span>
+          <h1 style="background-image: linear-gradient(90deg, #6366f1, #a855f7); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+            Revoluciona tu negocio con IA 🚀
+          </h1>
+          <h4>Subtítulo saltando jerarquía a H4</h4>
+          <a href="javascript:void(0);">Enlace vacío</a>
+          <p>Welcome, Login to your account type here... Buscar</p>
+        `;
+
+        document.body.appendChild(sandbox);
+        const result = runAntiAiAndQualityAudit(sandbox);
+        sandbox.remove();
+
         renderAuditOutput(result, 'Caso: Plantilla Típica Generada por IA');
       }, 150);
     });
@@ -171,6 +174,9 @@ document.addEventListener('DOMContentLoaded', () => {
     btnRunGood.addEventListener('click', () => {
       consoleOutput.innerHTML = '<div style="color:var(--text-tertiary); padding: 8px 0;">Analizando DOM vivo de WebAtelier...</div>';
       setTimeout(() => {
+        const oldSandbox = document.getElementById('ai-simulation-sandbox');
+        if (oldSandbox) oldSandbox.remove();
+
         const result = runAntiAiAndQualityAudit(document);
         renderAuditOutput(result, 'Caso: Landing Page WebAtelier (En Vivo)');
       }, 150);
