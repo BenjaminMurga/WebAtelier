@@ -1,0 +1,676 @@
+/* ==========================================================================
+   WebAtelier - Landing Page Stylesheet
+   Architecture: Apple Design (HIG) + Anti-AI Guardrails + Universal Responsive
+   ========================================================================== */
+
+:root {
+  /* 1.1 Paleta Cromática Semántica (Regla 60-30-10) */
+  --bg-main: #fbfbfd;              /* 60% Dominante: Fondo limpio */
+  --bg-surface: #f5f5f7;           /* 30% Secundario: Módulos y Bento */
+  --bg-surface-elevated: #ffffff;    /* Superficie en primer plano */
+  --bg-overlay: rgba(255, 255, 255, 0.8);
+
+  --text-primary: #1d1d1f;         /* Sólido, contraste > 12:1 */
+  --text-secondary: #515154;       /* Contraste > 5.5:1 */
+  --text-tertiary: #86868b;        /* Metadatos */
+
+  --accent: #0066cc;               /* 10% Acento: Interacción y CTAs */
+  --accent-hover: #0077ed;
+  --accent-text: #ffffff;          /* Obligatorio sobre --accent */
+  --accent-surface: rgba(0, 102, 204, 0.08);
+
+  --danger-solid: #d70015;
+  --danger-surface: rgba(215, 0, 21, 0.08);
+  --success-solid: #248a3d;
+  --success-surface: rgba(36, 138, 61, 0.08);
+
+  --border-hairline: rgba(29, 29, 31, 0.08);
+  --border-hairline-strong: rgba(29, 29, 31, 0.16);
+
+  /* 1.2 Ritmo Modular (Base 4px / 8px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+
+  /* 1.3 Tipografía Fluida con clamp() */
+  --font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
+
+  --font-display: clamp(2.5rem, 5.5vw + 1rem, 4.5rem);
+  --font-h2: clamp(1.875rem, 3.2vw + 0.75rem, 2.75rem);
+  --font-h3: clamp(1.375rem, 1.8vw + 0.75rem, 1.875rem);
+  --font-lead: clamp(1.125rem, 0.8vw + 0.9rem, 1.375rem);
+  --font-body: clamp(1rem, 0.3vw + 0.9rem, 1.0625rem);
+  --font-caption: 0.8125rem;
+
+  /* 1.4 Geometría y Radios Concéntricos (n=4) */
+  --radius-outer: 24px;
+  --radius-inner: calc(var(--radius-outer) - var(--space-4));
+  --radius-pill: 9999px;
+
+  /* 1.5 Física de Resortes (Spring Transitions) */
+  --ease-apple-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-apple-press: cubic-bezier(0.2, 0, 0, 1);
+  --duration-normal: 240ms;
+}
+
+/* Modo Oscuro Dinámico */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg-main: #000000;
+    --bg-surface: #111113;
+    --bg-surface-elevated: #1d1d1f;
+    --bg-overlay: rgba(29, 29, 31, 0.82);
+
+    --text-primary: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --text-tertiary: #6e6e73;
+
+    --accent: #2997ff;
+    --accent-hover: #47a6ff;
+    --accent-text: #ffffff;
+    --accent-surface: rgba(41, 151, 255, 0.12);
+
+    --border-hairline: rgba(245, 245, 247, 0.12);
+    --border-hairline-strong: rgba(245, 245, 247, 0.22);
+  }
+}
+
+/* Selector Manual de Tema */
+[data-theme="dark"] {
+  --bg-main: #000000;
+  --bg-surface: #111113;
+  --bg-surface-elevated: #1d1d1f;
+  --bg-overlay: rgba(29, 29, 31, 0.82);
+
+  --text-primary: #f5f5f7;
+  --text-secondary: #a1a1a6;
+  --text-tertiary: #6e6e73;
+
+  --accent: #2997ff;
+  --accent-hover: #47a6ff;
+  --accent-text: #ffffff;
+  --accent-surface: rgba(41, 151, 255, 0.12);
+
+  --border-hairline: rgba(245, 245, 247, 0.12);
+  --border-hairline-strong: rgba(245, 245, 247, 0.22);
+}
+
+[data-theme="light"] {
+  --bg-main: #fbfbfd;
+  --bg-surface: #f5f5f7;
+  --bg-surface-elevated: #ffffff;
+  --bg-overlay: rgba(255, 255, 255, 0.8);
+
+  --text-primary: #1d1d1f;
+  --text-secondary: #515154;
+  --text-tertiary: #86868b;
+
+  --accent: #0066cc;
+  --accent-hover: #0077ed;
+  --accent-text: #ffffff;
+  --accent-surface: rgba(0, 102, 204, 0.08);
+
+  --border-hairline: rgba(29, 29, 31, 0.08);
+  --border-hairline-strong: rgba(29, 29, 31, 0.16);
+}
+
+/* ==========================================================================
+   2. Reseteo y Guardarraíles Anti-AI Globales
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-family);
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+}
+
+/* Prohibición Estricta de Degradados y Recortes en Titulares */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary) !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+  text-wrap: balance;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: var(--font-display);
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: var(--font-h2);
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: var(--font-h3);
+  line-height: 1.25;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: var(--font-body);
+  max-width: 68ch;
+}
+
+/* ==========================================================================
+   3. Accesibilidad Universal y Navegación Smart TV (D-Pad)
+   ========================================================================== */
+:focus-visible {
+  outline: 4px solid var(--accent) !important;
+  outline-offset: 4px !important;
+  transform: scale(1.03);
+  transition: transform 120ms var(--ease-apple-press);
+}
+
+.skip-link {
+  position: absolute;
+  top: -120px;
+  left: var(--space-4);
+  background: var(--text-primary);
+  color: var(--bg-main);
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-inner);
+  z-index: 10000;
+  text-decoration: none;
+  font-weight: 600;
+  transition: top 180ms ease;
+}
+
+.skip-link:focus-visible {
+  top: var(--space-4);
+}
+
+/* Adaptación para Smart TV a 3 metros */
+@media (min-width: 1920px) {
+  :root {
+    font-size: 115%;
+  }
+}
+
+/* ==========================================================================
+   4. Componentes y Capas de Interfaz (Liquid Glass & Bento)
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-hairline);
+  transition: background-color var(--duration-normal) ease;
+}
+
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.brand-identity {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+}
+
+.brand-badge {
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-hairline);
+  font-weight: 500;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: var(--space-6);
+}
+
+.nav-link {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: color var(--duration-normal) ease;
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Controles de Lectura Ergonómicos */
+.reading-controls {
+  display: flex;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 2px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-hairline);
+}
+
+.btn-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  min-height: 32px;
+  min-width: 32px;
+  transition: background-color var(--duration-normal) ease, color var(--duration-normal) ease;
+}
+
+.btn-toggle.active {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+/* Botones con Física de Resortes */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--accent);
+  color: var(--accent-text);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: none;
+  cursor: pointer;
+  min-height: 44px; /* Ergonomía táctil */
+  transition: background-color 160ms ease, transform var(--duration-normal) var(--ease-apple-press);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+
+.btn-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  padding: 12px 24px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border: 1px solid var(--border-hairline);
+  cursor: pointer;
+  min-height: 44px;
+  transition: background-color 160ms ease, transform var(--duration-normal) var(--ease-apple-press);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-surface-elevated);
+}
+
+.btn-secondary:active {
+  transform: scale(0.97);
+}
+
+/* ==========================================================================
+   5. Estructura de Secciones y Bento Grids
+   ========================================================================== */
+.section-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--space-16) var(--space-6);
+}
+
+.hero-editorial {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-12);
+}
+
+.hero-content {
+  max-width: 880px;
+}
+
+.hero-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-4);
+}
+
+.hero-lead {
+  font-size: var(--font-lead);
+  color: var(--text-secondary);
+  margin-top: var(--space-6);
+  line-height: 1.45;
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+/* Grilla Bento 12 Columnas */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+.bento-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-outer);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  transition: border-color var(--duration-normal) ease, background-color var(--duration-normal) ease;
+}
+
+.bento-card:hover {
+  border-color: var(--border-hairline-strong);
+}
+
+.bento-card--span8 {
+  grid-column: span 8;
+  min-height: 380px;
+}
+
+.bento-card--span4 {
+  grid-column: span 4;
+  min-height: 380px;
+}
+
+.bento-card--span6 {
+  grid-column: span 6;
+  min-height: 320px;
+}
+
+.bento-card--span12 {
+  grid-column: span 12;
+}
+
+.bento-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-inner);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  margin-bottom: var(--space-4);
+}
+
+.bento-title {
+  font-size: 1.35rem;
+  margin-bottom: var(--space-2);
+}
+
+.bento-desc {
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   6. Auditor Interactivo en Vivo (Simulator Console)
+   ========================================================================== */
+.auditor-console {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-outer);
+  overflow: hidden;
+  margin-top: var(--space-8);
+}
+
+.console-header {
+  padding: var(--space-4) var(--space-6);
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.console-controls {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.console-body {
+  padding: var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  min-height: 260px;
+  max-height: 420px;
+  overflow-y: auto;
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+}
+
+.log-entry {
+  padding: var(--space-2) 0;
+  border-bottom: 1px solid var(--border-hairline);
+  display: flex;
+  gap: var(--space-3);
+  align-items: flex-start;
+}
+
+.badge-reject {
+  background: var(--danger-surface);
+  color: var(--danger-solid);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-success {
+  background: var(--success-surface);
+  color: var(--success-solid);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.badge-high {
+  background: rgba(255, 149, 0, 0.12);
+  color: #c95100;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ==========================================================================
+   7. Terminal y Guía de Instalación
+   ========================================================================== */
+.terminal-block {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-inner);
+  padding: var(--space-4) var(--space-6);
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-3);
+}
+
+.terminal-copy-btn {
+  background: transparent;
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  padding: 6px 12px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  font-size: 0.78rem;
+  font-weight: 600;
+  transition: all var(--duration-normal) ease;
+}
+
+.terminal-copy-btn:hover {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   8. Pie de Página Semántico
+   ========================================================================== */
+.site-footer {
+  border-top: 1px solid var(--border-hairline);
+  background: var(--bg-surface);
+  padding: var(--space-12) var(--space-6);
+  margin-top: var(--space-24);
+}
+
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-6);
+}
+
+.footer-credits {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+  list-style: none;
+}
+
+.footer-links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.88rem;
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   9. Reglas Responsive (Mobile Collapse)
+   ========================================================================== */
+@media (max-width: 960px) {
+  .bento-card--span8,
+  .bento-card--span4,
+  .bento-card--span6 {
+    grid-column: span 12;
+    min-height: auto;
+  }
+
+  .nav-links {
+    display: none; /* Simplificado para móviles; controles accesibles en header */
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary, .btn-secondary {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   10. Respeto a prefers-reduced-motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
