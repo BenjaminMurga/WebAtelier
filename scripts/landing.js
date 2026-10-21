@@ -1,12 +1,20 @@
 /**
  * WebAtelier - Landing Page Interactive Engine
- * Handles mobile hamburger drawer, appearance toggles, and live DOM auditor demo.
+ * Handles mobile hamburger drawer, appearance toggles, live DOM auditor demo,
+ * Apple-style 3D stage and Bento Perspective Tilt.
  */
 import { runAntiAiAndQualityAudit } from './anti-ai-dom-auditor.js';
+import { initApple3DExperience, initBento3DTilt } from './landing-3d.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
-  // 1. Menú de Hamburguesa Móvil y Drawer Accesible
+  // 1. Inicialización de Experiencias 3D y Microinteracciones Apple
+  // ==========================================================================
+  initApple3DExperience('hero-3d-stage');
+  initBento3DTilt();
+
+  // ==========================================================================
+  // 2. Menú de Hamburguesa Móvil y Drawer Accesible
   // ==========================================================================
   const menuToggle = document.getElementById('menu-toggle');
   const mobileDrawer = document.getElementById('mobile-drawer');
@@ -42,14 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Cerrar el drawer automáticamente al pulsar cualquier enlace de navegación
     mobileNavLinks.forEach(link => {
       link.addEventListener('click', () => {
         closeDrawer();
       });
     });
 
-    // Cerrar el drawer con la tecla Escape
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && mobileDrawer.classList.contains('is-open')) {
         closeDrawer();
@@ -58,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 2. Selectores de Tema Cromático (Desktop, Drawer y Botón Rápido Móvil)
+  // 3. Selectores de Tema Cromático (Desktop, Drawer y Botón Rápido Móvil)
   // ==========================================================================
   const themeToggles = document.querySelectorAll('[data-set-theme]');
   const mobileQuickThemeBtn = document.getElementById('mobile-theme-btn');
@@ -69,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       document.documentElement.setAttribute('data-theme', theme);
     }
-    // Sincronizar todos los botones de tema activos en desktop y drawer
     themeToggles.forEach(b => {
       if (b.getAttribute('data-set-theme') === theme) {
         b.classList.add('active');
@@ -86,7 +91,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Botón rápido en la barra móvil: alterna entre claro y oscuro
   if (mobileQuickThemeBtn) {
     mobileQuickThemeBtn.addEventListener('click', () => {
       const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -103,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 3. Selectores de Tamaño de Fuente Ergonómico
+  // 4. Selectores de Tamaño de Fuente Ergonómico
   // ==========================================================================
   const fontToggles = document.querySelectorAll('[data-set-font]');
   fontToggles.forEach(btn => {
@@ -127,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ==========================================================================
-  // 4. Demostración Interactiva del Auditor en Vivo
+  // 5. Demostración Interactiva del Auditor en Vivo
   // ==========================================================================
   const consoleOutput = document.getElementById('auditor-output');
   const btnRunBad = document.getElementById('btn-audit-bad');
@@ -211,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================================================
-  // 5. Copiar Comandos de Instalación al Portapapeles
+  // 6. Copiar Comandos de Instalación al Portapapeles
   // ==========================================================================
   document.querySelectorAll('.terminal-copy-btn').forEach(btn => {
     btn.addEventListener('click', () => {

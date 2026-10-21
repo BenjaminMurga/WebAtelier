@@ -141,4 +141,88 @@ export function initScrollNarrative(sectionSelector = '.story-section') {
     return () => tl.kill();
   });
 }
+
+---
+
+## 5. Patrón Canónico de Escenario 3D Apple Crystalline (Liquid Glass + Titanium)
+
+Para incorporar objetos 3D de alta gama que transmitan la calidad de producto de Apple sin degradar el rendimiento:
+
+```javascript
+import * as THREE from 'three';
+
+export function createApple3DStage(containerElement) {
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(42, containerElement.clientWidth / containerElement.clientHeight, 0.1, 100);
+  camera.position.z = 4.8;
+
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true, powerPreference: 'high-performance' });
+  renderer.setSize(containerElement.clientWidth, containerElement.clientHeight);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  containerElement.appendChild(renderer.domElement);
+
+  // Iluminación de estudio
+  const keyLight = new THREE.DirectionalLight(0xffffff, 2.2);
+  keyLight.position.set(4, 5, 4);
+  scene.add(keyLight);
+
+  const rimLight = new THREE.PointLight(0x2997ff, 3.5, 12);
+  rimLight.position.set(0, 3, -3);
+  scene.add(rimLight);
+
+  // Geometría compuesta: Núcleo metálico + Capa exterior Liquid Glass
+  const group = new THREE.Group();
+  scene.add(group);
+
+  const core = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(0.85, 1),
+    new THREE.MeshStandardMaterial({ color: 0x0066cc, metalness: 0.85, roughness: 0.22 })
+  );
+  group.add(core);
+
+  const glass = new THREE.Mesh(
+    new THREE.TorusKnotGeometry(1.05, 0.32, 128, 32),
+    new THREE.MeshPhysicalMaterial({
+      color: 0xffffff,
+      transmission: 0.92,
+      ior: 1.52,
+      thickness: 1.5,
+      roughness: 0.12,
+      clearcoat: 1.0
+    })
+  );
+  group.add(glass);
+
+  return { scene, camera, renderer, group, core, glass };
+}
+```
+
+---
+
+## 6. Patrón de Microinteracción 3D Perspective Tilt en Tarjetas Bento
+
+Añade tridimensionalidad física al pasar el cursor sobre las tarjetas en pantallas de escritorio con puntero:
+
+```javascript
+export function enableBentoCard3DTilt(selector = '.bento-card') {
+  if (window.matchMedia('(hover: none)').matches) return;
+
+  document.querySelectorAll(selector).forEach((card) => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -6;
+      const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * 6;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    });
+  });
+}
+```
 ```

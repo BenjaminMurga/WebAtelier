@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>WebAtelier · Dirección de Arte Digital, Apple Design & Anti-AI</title>
-  <meta name="description" content="WebAtelier: Skill profesional para agentes de IA que combina la filosofía visual de Apple Design, arquitectura WordPress moderna, experiencias 3D y blindaje estricto Anti-AI Design." />
+  <title>WebAtelier · Dirección de Arte Digital, Apple Design, 3D & Anti-AI</title>
+  <meta name="description" content="WebAtelier: Skill profesional para agentes de IA que combina la filosofía visual de Apple Design, experiencias 3D en tiempo real (Three.js), arquitectura WordPress contemporánea y blindaje estricto Anti-AI Design." />
   <link rel="canonical" href="https://github.com/BenjaminMurga/WebAtelier" />
   
   <!-- OpenGraph / Social Cards -->
-  <meta property="og:title" content="WebAtelier · Dirección de Arte Digital & Anti-AI Design" />
-  <meta property="og:description" content="Skill profesional para agentes de IA inspirada en Apple Design, Full Site Editing de WordPress y erradicación de huellas digitales de IA." />
+  <meta property="og:title" content="WebAtelier · Dirección de Arte Digital, 3D & Anti-AI Design" />
+  <meta property="og:description" content="Skill profesional para agentes de IA inspirada en Apple Design, 3D interactivo en tiempo real, WordPress FSE y erradicación de huellas de IA." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://github.com/BenjaminMurga/WebAtelier" />
 
@@ -34,7 +34,7 @@
       "name": "Benjamin Murga",
       "url": "https://github.com/BenjaminMurga"
     },
-    "description": "Professional digital atelier agent skill for premium web architecture combining Apple Design, WordPress Block Themes, and Anti-AI Design Guardrails."
+    "description": "Professional digital atelier agent skill for premium web architecture combining Apple Design, Three.js 3D, WordPress Block Themes, and Anti-AI Design Guardrails."
   }
   </script>
 </head>
@@ -48,20 +48,22 @@
     <div class="header-container">
       <a href="#main-content" class="brand-identity" aria-label="WebAtelier Inicio">
         <span>WebAtelier</span>
-        <span class="brand-badge">v2.1.0</span>
+        <span class="brand-badge">v2.2.0</span>
       </a>
 
-      <!-- Navegación Semántica de Escritorio (Visible en pantallas >= 880px) -->
+      <!-- Navegación Semántica de Escritorio (Visible >= 880px) -->
       <nav class="site-nav" aria-label="Navegación principal">
         <ul class="nav-links">
-          <li><a href="#filosofia" class="nav-link">Filosofía</a></li>
+          <li><a href="#roles" class="nav-link">Roles</a></li>
+          <li><a href="#comparativa" class="nav-link">Comparativa</a></li>
           <li><a href="#bento" class="nav-link">Arquitectura</a></li>
+          <li><a href="#dimensiones" class="nav-link">18 Dimensiones</a></li>
           <li><a href="#auditor-en-vivo" class="nav-link">Auditor en Vivo</a></li>
           <li><a href="#instalacion" class="nav-link">Instalación</a></li>
         </ul>
       </nav>
 
-      <!-- Acciones de Escritorio (Visible en pantallas >= 880px) -->
+      <!-- Acciones de Escritorio (Visible >= 880px) -->
       <div class="header-actions-desktop">
         <div class="reading-controls" role="group" aria-label="Esquema de color">
           <button type="button" class="btn-toggle active" data-set-theme="auto" title="Automático">Auto</button>
@@ -74,10 +76,10 @@
         </a>
       </div>
 
-      <!-- Acciones Móviles Compactas (Visible en pantallas < 880px) -->
+      <!-- Acciones Móviles Compactas (Visible < 880px) -->
       <div class="header-actions-mobile">
         <button type="button" class="theme-icon-btn" id="mobile-theme-btn" aria-label="Alternar modo claro u oscuro" title="Alternar tema">
-          <svg class="icon-theme" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <circle cx="12" cy="12" r="5"></circle>
             <line x1="12" y1="1" x2="12" y2="3"></line>
             <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -103,8 +105,10 @@
       <div class="drawer-inner">
         <nav class="mobile-nav" aria-label="Navegación móvil">
           <ul class="mobile-nav-links">
-            <li><a href="#filosofia" class="mobile-nav-link">Filosofía &amp; Apple HIG</a></li>
-            <li><a href="#bento" class="mobile-nav-link">Arquitectura &amp; Bento</a></li>
+            <li><a href="#roles" class="mobile-nav-link">Roles del Atelier</a></li>
+            <li><a href="#comparativa" class="mobile-nav-link">Comparativa IA vs WebAtelier</a></li>
+            <li><a href="#bento" class="mobile-nav-link">Arquitectura &amp; Bento Grids</a></li>
+            <li><a href="#dimensiones" class="mobile-nav-link">Las 18 Dimensiones de QA</a></li>
             <li><a href="#auditor-en-vivo" class="mobile-nav-link">Auditor DOM en Vivo</a></li>
             <li><a href="#instalacion" class="mobile-nav-link">Guía de Instalación</a></li>
           </ul>
@@ -145,45 +149,222 @@
   <!-- 3. Contenido Principal -->
   <main id="main-content">
 
-    <!-- Sección Hero Asimétrica Editorial -->
+    <!-- Sección Hero Cinematográfica con Escenario 3D Apple Design -->
     <section class="section-wrapper hero-editorial" aria-labelledby="hero-title">
-      <div class="hero-content">
-        <div class="hero-kicker">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          Dirección de Arte Digital &amp; Ingeniería Web
-        </div>
-
-        <h1 id="hero-title">WebAtelier: Precisión Visual, Rendimiento y Anti-AI Design</h1>
-
-        <p class="hero-lead">
-          Una Skill profesional para agentes de inteligencia artificial diseñada para concebir experiencias web que transmitan la limpieza de <strong>Apple Design</strong>, aprovechen la flexibilidad de <strong>WordPress</strong> y erradiquen de raíz cualquier huella de plantilla automática o código genérico.
-        </p>
-
-        <div class="hero-cta-group">
-          <a href="https://github.com/BenjaminMurga/WebAtelier" class="btn-primary" target="_blank" rel="noopener noreferrer">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-kicker">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
             </svg>
-            Obtener Skill en GitHub
-          </a>
+            Atelier Digital · Dirección de Arte &amp; 3D en Tiempo Real
+          </div>
 
-          <a href="#auditor-en-vivo" class="btn-secondary">
-            Probar Auditor DOM en Vivo
-          </a>
+          <h1 id="hero-title">WebAtelier: Precisión Visual, 3D Interactivo y Anti-AI Design</h1>
+
+          <p class="hero-lead">
+            Una Skill profesional para agentes de inteligencia artificial diseñada para concebir experiencias web que transmitan la limpieza de <strong>Apple Design</strong>, aprovechen la flexibilidad de <strong>WordPress</strong>, integren <strong>3D en tiempo real (Three.js)</strong> con descarte de VRAM y erradiquen de raíz cualquier huella de plantilla automática o código genérico.
+          </p>
+
+          <div class="hero-badges-row">
+            <span class="metric-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              18 Dimensiones de Calidad
+            </span>
+            <span class="metric-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              Three.js WebGL &amp; WebGPU
+            </span>
+            <span class="metric-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect><polyline points="17 2 12 7 7 2"></polyline></svg>
+              Smart TV D-Pad Focus
+            </span>
+            <span class="metric-chip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              Cero AI Slop Garantizado
+            </span>
+          </div>
+
+          <div class="hero-cta-group">
+            <a href="https://github.com/BenjaminMurga/WebAtelier" class="btn-primary" target="_blank" rel="noopener noreferrer">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+              </svg>
+              Obtener Skill en GitHub
+            </a>
+
+            <a href="#auditor-en-vivo" class="btn-secondary">
+              Probar Auditor DOM en Vivo
+            </a>
+          </div>
         </div>
+
+        <!-- Escenario 3D Interactivo Apple Crystalline -->
+        <div class="hero-3d-wrapper">
+          <div class="hero-3d-stage" id="hero-3d-stage" role="img" aria-label="Escultura 3D Liquid Glass interactiva estilo Apple">
+            <!-- Canvas renderizado dinámicamente por Three.js -->
+          </div>
+          <div class="stage-caption">Arrastra para rotar en 3D · Refracción física óptica a 60/120 fps</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección "Los 5 Roles Integrados del Atelier" -->
+    <section id="roles" class="section-wrapper" aria-labelledby="roles-heading">
+      <h2 id="roles-heading">Los 5 Roles Coordinados del Atelier</h2>
+      <p style="margin-top: var(--space-2);">
+        WebAtelier no improvisa código. Actúa simultáneamente bajo cinco especialidades de ingeniería y diseño digital:
+      </p>
+
+      <div class="roles-grid">
+        
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+          </div>
+          <h3 class="role-title">1. Director de Arte Digital</h3>
+          <p class="role-desc">
+            Define la regla cromática 60-30-10, escalas tipográficas fluidas con <code>clamp()</code>, radios concéntricos ($n=4$) y composiciones asimétricas con masa visual.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+              <line x1="8" y1="21" x2="16" y2="21"></line>
+              <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+          </div>
+          <h3 class="role-title">2. Especialista WordPress FSE</h3>
+          <p class="role-desc">
+            Construye Block Themes nativos, gestiona tokens en <code>theme.json</code> v3, implementa la <em>Interactivity API</em> y sanea variables con <code>esc_html</code> y <code>wp_kses_post</code>.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </div>
+          <h3 class="role-title">3. Ingeniero 3D &amp; Motion</h3>
+          <p class="role-desc">
+            Desarrolla escenas WebGL/WebGPU en Three.js con protocolo estricto de descarte de VRAM (<code>dispose()</code>) y ScrollTrigger respetando <code>prefers-reduced-motion</code>.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="role-title">4. Auditor Anti-AI Design</h3>
+          <p class="role-desc">
+            Detecta y erradica degradados morado-azul en titulares, halos neón, emojis en encabezados, badges genéricos tipo "AI-Powered", sopa de divs y vocabulario cliché.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+          <h3 class="role-title">5. Consultor SEO, AEO &amp; GEO</h3>
+          <p class="role-desc">
+            Estructura marcado Schema.org JSON-LD, titulares orientados a preguntas reales, resúmenes ejecutivos verificados y reconciliación de entidades con Wikidata (<code>sameAs</code>).
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
+              <polyline points="17 2 12 7 7 2"></polyline>
+            </svg>
+          </div>
+          <h3 class="role-title">6. Arquitecto Universal (Smart TV)</h3>
+          <p class="role-desc">
+            Garantiza adaptación para Móviles (touch 44px), PC (CSS Grid) y Smart TVs a 3 metros (10-foot UI) con navegación por cruceta D-Pad y foco <code>:focus-visible</code> ampliado.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Sección Tabla Comparativa Editorial (IA Genérica vs WebAtelier) -->
+    <section id="comparativa" class="section-wrapper" aria-labelledby="comp-heading">
+      <h2 id="comp-heading">Comparativa Técnica: IA Genérica vs WebAtelier</h2>
+      <p style="margin-top: var(--space-2);">
+        Por qué las webs automatizadas comunes fallan ante clientes exigentes frente a la disciplina del Atelier:
+      </p>
+
+      <div class="comparison-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th scope="col" style="width: 28%;">Dimensión de Diseño</th>
+              <th scope="col" style="width: 36%;">Diseño Típico Generado por IA</th>
+              <th scope="col" style="width: 36%;">Estándar WebAtelier (Apple HIG)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Titulares (H1–H6)</th>
+              <td class="col-ai">Degradados de morado a azul con <code>background-clip: text</code>.</td>
+              <td class="col-atelier">Color sólido de alto contraste con tracking negativo y <code>clamp()</code>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Iconografía</th>
+              <td class="col-ai">Emojis en titulares (🚀, ✨, 🔒) para disimular falta de activos.</td>
+              <td class="col-atelier">Iconos vectoriales SVG con trazo uniforme (2px) y alineación óptica.</td>
+            </tr>
+            <tr>
+              <th scope="row">Maquetación</th>
+              <td class="col-ai">Filas mecánicas de 3 tarjetas idénticas (*three icon boxes*).</td>
+              <td class="col-atelier">Grillas Bento asimétricas con jerarquía editorial (8/4 columnas).</td>
+            </tr>
+            <tr>
+              <th scope="row">Estructura del Código</th>
+              <td class="col-ai">Sopa de divs (decenas de <code>&lt;div&gt;</code> anidados sin semántica).</td>
+              <td class="col-atelier">HTML5 semántico: <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;article&gt;</code>.</td>
+            </tr>
+            <tr>
+              <th scope="row">Experiencias 3D</th>
+              <td class="col-ai">Efectos pesados sin control de VRAM que agotan la batería del móvil.</td>
+              <td class="col-atelier">Three.js WebGL/WebGPU con descarte obligatorio (<code>dispose()</code>).</td>
+            </tr>
+            <tr>
+              <th scope="row">Cabecera en Móviles</th>
+              <td class="col-ai">Barras de escritorio forzadas que se cortan hacia la derecha.</td>
+              <td class="col-atelier">Cabecera limpia con Menú Drawer accesible y Liquid Glass blur.</td>
+            </tr>
+            <tr>
+              <th scope="row">Copywriting</th>
+              <td class="col-ai">Palabras cliché (*"seamless"*, *"elevate"*, *"solución integral"*).</td>
+              <td class="col-atelier">Redacción editorial precisa con datos reales y contexto verificable.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </section>
 
     <!-- Sección Bento Grid 12 Columnas -->
     <section id="bento" class="section-wrapper" aria-labelledby="bento-heading">
       <h2 id="bento-heading">Arquitectura Multidimensional</h2>
-      <p style="margin-top: var(--space-2);">Cuatro pilares de ingeniería y estética que eliminan la improvisación técnica en los agentes de IA.</p>
+      <p style="margin-top: var(--space-2);">Módulos interactivos con efecto 3D Perspective Tilt calibrado para pantallas con puntero:</p>
 
       <div class="bento-grid">
         
-        <!-- Módulo Principal: Apple HIG + WordPress (span 8) -->
         <article class="bento-card bento-card--span8" id="filosofia">
           <div>
             <div class="bento-icon-wrapper" aria-hidden="true">
@@ -203,12 +384,11 @@
           </div>
         </article>
 
-        <!-- Módulo 2: Diseño Universal en 3 Dimensiones (span 4) -->
         <article class="bento-card bento-card--span4">
           <div>
             <div class="bento-icon-wrapper" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></polyline>
+                <rect x="2" y="7" width="20" height="15" rx="2" ry="2"></rect>
                 <polyline points="17 2 12 7 7 2"></polyline>
               </svg>
             </div>
@@ -222,7 +402,6 @@
           </div>
         </article>
 
-        <!-- Módulo 3: Experiencias 3D (span 4) -->
         <article class="bento-card bento-card--span4">
           <div>
             <div class="bento-icon-wrapper" aria-hidden="true">
@@ -242,7 +421,6 @@
           </div>
         </article>
 
-        <!-- Módulo 4: Blindaje Anti-AI Design (span 8) -->
         <article class="bento-card bento-card--span8">
           <div>
             <div class="bento-icon-wrapper" aria-hidden="true">
@@ -263,6 +441,35 @@
       </div>
     </section>
 
+    <!-- Sección Matriz de las 18 Dimensiones de Calidad -->
+    <section id="dimensiones" class="section-wrapper" aria-labelledby="dim-heading">
+      <h2 id="dim-heading">Las 18 Dimensiones de Evaluación Verificables</h2>
+      <p style="margin-top: var(--space-2);">
+        Cada desarrollo concebido con WebAtelier es auditado de forma determinista bajo esta rúbrica de aceptación:
+      </p>
+
+      <div class="dimensions-grid">
+        <div class="dim-item"><span class="dim-number">01</span><span class="dim-label">Calidad Estética y Espacio Negativo</span></div>
+        <div class="dim-item"><span class="dim-number">02</span><span class="dim-label">Identidad Visual y Originalidad</span></div>
+        <div class="dim-item"><span class="dim-number">03</span><span class="dim-label">Cumplimiento Anti-AI Design</span></div>
+        <div class="dim-item"><span class="dim-number">04</span><span class="dim-label">Tipografía y Jerarquía Sólida</span></div>
+        <div class="dim-item"><span class="dim-number">05</span><span class="dim-label">Usabilidad (UX) y Ergonomía</span></div>
+        <div class="dim-item"><span class="dim-number">06</span><span class="dim-label">Diseño Responsive en 3 Dimensiones</span></div>
+        <div class="dim-item"><span class="dim-number">07</span><span class="dim-label">Animaciones Naturales (Springs)</span></div>
+        <div class="dim-item"><span class="dim-number">08</span><span class="dim-label">Integración 3D con Descarte VRAM</span></div>
+        <div class="dim-item"><span class="dim-number">09</span><span class="dim-label">Core Web Vitals (LCP, INP, CLS)</span></div>
+        <div class="dim-item"><span class="dim-number">10</span><span class="dim-label">Accesibilidad Universal WCAG 2.2 AA</span></div>
+        <div class="dim-item"><span class="dim-number">11</span><span class="dim-label">SEO Semántico (H1–H6 Secuencial)</span></div>
+        <div class="dim-item"><span class="dim-number">12</span><span class="dim-label">AEO (Respuestas Verificadas)</span></div>
+        <div class="dim-item"><span class="dim-number">13</span><span class="dim-label">GEO (Entidades Wikidata sameAs)</span></div>
+        <div class="dim-item"><span class="dim-number">14</span><span class="dim-label">CRO (Conversión sin Fricción)</span></div>
+        <div class="dim-item"><span class="dim-number">15</span><span class="dim-label">Seguridad de Endpoints en WordPress</span></div>
+        <div class="dim-item"><span class="dim-number">16</span><span class="dim-label">Mantenibilidad y Limpieza de Código</span></div>
+        <div class="dim-item"><span class="dim-number">17</span><span class="dim-label">Compatibilidad theme.json v3 FSE</span></div>
+        <div class="dim-item"><span class="dim-number">18</span><span class="dim-label">Coherencia con Fuentes y Requisitos</span></div>
+      </div>
+    </section>
+
     <!-- Sección Demostración del Auditor en Vivo -->
     <section id="auditor-en-vivo" class="section-wrapper" aria-labelledby="auditor-heading">
       <h2 id="auditor-heading">Auditor DOM Interactivo en Tiempo Real</h2>
@@ -277,10 +484,10 @@
           </span>
 
           <div class="console-controls">
-            <button type="button" class="btn-secondary" id="btn-audit-bad" style="padding: 6px 14px; font-size: 0.82rem; min-height: 36px;">
+            <button type="button" class="btn-secondary" id="btn-audit-bad">
               Simular Código Típico de IA
             </button>
-            <button type="button" class="btn-primary" id="btn-audit-good" style="padding: 6px 14px; font-size: 0.82rem; min-height: 36px;">
+            <button type="button" class="btn-primary" id="btn-audit-good">
               Auditar WebAtelier (En Vivo)
             </button>
           </div>
@@ -330,7 +537,7 @@
       <div class="footer-credits">
         <strong>WebAtelier</strong> · Creado y Diseñado por <strong>Benjamin Murga</strong> (<a href="https://github.com/BenjaminMurga" target="_blank" rel="noopener noreferrer" style="color: var(--text-primary); text-decoration: underline;">@BenjaminMurga</a>).
         <div style="color: var(--text-tertiary); font-size: 0.8rem; margin-top: 4px;">
-          Distribuido bajo Licencia MIT · Estándares WCAG 2.2 AA · Cero AI Slop.
+          Distribuido bajo Licencia MIT · Estándares WCAG 2.2 AA · Three.js WebGL &amp; WebGPU · Cero AI Slop.
         </div>
       </div>
 
@@ -342,7 +549,7 @@
     </div>
   </footer>
 
-  <!-- 5. Motor Interactivo de la Landing Page -->
+  <!-- 5. Motor Interactivo y 3D de la Landing Page -->
   <script type="module" src="scripts/landing.js"></script>
 
 </body>

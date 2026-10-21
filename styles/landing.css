@@ -1,5 +1,5 @@
 /* ==========================================================================
-   WebAtelier - Mobile-First Architectural Stylesheet
+   WebAtelier - Mobile-First Architectural Stylesheet v2.2.0
    Standards: Apple Design (HIG) + Anti-AI Guardrails + Universal Responsive (Mobile, PC, TV)
    ========================================================================== */
 
@@ -39,16 +39,17 @@
   --space-12: 48px;
   --space-16: 64px;
   --space-20: 80px;
+  --space-24: 96px;
 
   /* 1.3 Tipografía Fluida con clamp() */
   --font-family: -apple-system, BlinkMacSystemFont, "Inter", "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, monospace;
 
-  --font-display: clamp(1.85rem, 6.5vw + 0.5rem, 4.25rem);
-  --font-h2: clamp(1.5rem, 3.8vw + 0.5rem, 2.75rem);
-  --font-h3: clamp(1.2rem, 2vw + 0.5rem, 1.75rem);
-  --font-lead: clamp(1.05rem, 1.2vw + 0.8rem, 1.35rem);
-  --font-body: clamp(0.95rem, 0.4vw + 0.85rem, 1.0625rem);
+  --font-display: clamp(1.85rem, 6vw + 0.5rem, 4.25rem);
+  --font-h2: clamp(1.45rem, 3.6vw + 0.5rem, 2.65rem);
+  --font-h3: clamp(1.18rem, 2vw + 0.5rem, 1.65rem);
+  --font-lead: clamp(1.05rem, 1vw + 0.8rem, 1.32rem);
+  --font-body: clamp(0.95rem, 0.3vw + 0.85rem, 1.0625rem);
   --font-caption: 0.8125rem;
 
   /* 1.4 Geometría y Radios Concéntricos (n=4) */
@@ -159,7 +160,6 @@ body {
   width: 100%;
 }
 
-/* Bloqueo de scroll cuando el drawer móvil está abierto */
 body.drawer-open {
   overflow: hidden;
 }
@@ -290,7 +290,6 @@ p {
   font-weight: 600;
 }
 
-/* Navegación y Acciones de Escritorio (Ocultas en pantallas < 880px) */
 .site-nav,
 .header-actions-desktop {
   display: none;
@@ -328,7 +327,6 @@ p {
   }
 }
 
-/* Acciones Móviles (Solo visibles en pantallas < 880px) */
 .header-actions-mobile {
   display: flex;
   align-items: center;
@@ -342,35 +340,11 @@ p {
   }
 }
 
-/* Botón de Cambio Rápido de Tema Móvil */
-.theme-icon-btn {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-hairline);
-  color: var(--text-primary);
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-pill);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  min-height: 44px; /* Ergonomía táctil */
-  min-width: 44px;
-  transition: background-color var(--duration-normal) ease, transform 140ms var(--ease-apple-press);
-}
-
-.theme-icon-btn:hover {
-  background: var(--bg-surface-elevated);
-}
-
-.theme-icon-btn:active {
-  transform: scale(0.92);
-}
-
-/* Botón de Menú de Hamburguesa con Animación a X */
+.theme-icon-btn,
 .menu-toggle-btn {
   background: var(--bg-surface);
   border: 1px solid var(--border-hairline);
+  color: var(--text-primary);
   width: 44px;
   height: 44px;
   border-radius: var(--radius-pill);
@@ -383,10 +357,7 @@ p {
   transition: background-color var(--duration-normal) ease, transform 140ms var(--ease-apple-press);
 }
 
-.menu-toggle-btn:hover {
-  background: var(--bg-surface-elevated);
-}
-
+.theme-icon-btn:active,
 .menu-toggle-btn:active {
   transform: scale(0.92);
 }
@@ -419,7 +390,6 @@ p {
   left: 0;
 }
 
-/* Transformación de Hamburguesa a X cuando está abierto */
 .menu-toggle-btn.is-active .hamburger-inner {
   top: 5px;
   transform: rotate(45deg);
@@ -431,11 +401,11 @@ p {
 }
 
 /* ==========================================================================
-   5. Menú Drawer Desplegable Móvil (Full-bleed Overlay)
+   5. Menú Drawer Desplegable Móvil
    ========================================================================== */
 .mobile-drawer {
   position: fixed;
-  top: 61px; /* Justo debajo del header */
+  top: 61px;
   left: 0;
   width: 100%;
   height: calc(100vh - 61px);
@@ -487,11 +457,6 @@ p {
   text-decoration: none;
   padding: 8px 0;
   border-bottom: 1px solid var(--border-hairline);
-  transition: color var(--duration-normal) ease;
-}
-
-.mobile-nav-link:active {
-  color: var(--accent);
 }
 
 .drawer-divider {
@@ -534,9 +499,6 @@ p {
   margin-top: var(--space-3);
 }
 
-/* ==========================================================================
-   6. Controles Ergonómicos de Escritorio
-   ========================================================================== */
 .reading-controls {
   display: flex;
   align-items: center;
@@ -569,7 +531,9 @@ p {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
-/* Botones Base con Ergonomía Táctil */
+/* ==========================================================================
+   6. Botones Táctiles y Controles Primarios
+   ========================================================================== */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -625,7 +589,7 @@ p {
 }
 
 /* ==========================================================================
-   7. Estructura de Secciones Mobile-First
+   7. Sección Hero Cinematográfica con Escenario 3D
    ========================================================================== */
 .section-wrapper {
   width: 100%;
@@ -647,14 +611,28 @@ p {
 
 @media (min-width: 768px) {
   .hero-editorial {
-    padding-top: var(--space-16);
-    padding-bottom: var(--space-12);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-16);
+  }
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+  width: 100%;
+}
+
+@media (min-width: 960px) {
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-10);
   }
 }
 
 .hero-content {
   width: 100%;
-  max-width: 880px;
 }
 
 .hero-kicker {
@@ -688,6 +666,30 @@ p {
   .hero-lead {
     margin-top: var(--space-6);
   }
+}
+
+.hero-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.metric-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.metric-chip svg {
+  color: var(--accent);
 }
 
 .hero-cta-group {
@@ -725,8 +727,161 @@ p {
   }
 }
 
+/* Escenario 3D Apple Design */
+.hero-3d-wrapper {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-3d-stage {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  border-radius: var(--radius-outer);
+  background: radial-gradient(circle at center, var(--bg-surface) 0%, transparent 70%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: none;
+  cursor: grab;
+}
+
+.hero-3d-stage:active {
+  cursor: grabbing;
+}
+
+@media (min-width: 768px) {
+  .hero-3d-stage {
+    height: 420px;
+  }
+}
+
+.stage-caption {
+  font-size: 0.76rem;
+  color: var(--text-tertiary);
+  margin-top: var(--space-2);
+  text-align: center;
+  font-family: var(--font-mono);
+}
+
 /* ==========================================================================
-   8. Grilla Bento Mobile-First (1 Columna en móvil -> 12 Columnas en desktop)
+   8. Sección "Los 5 Roles Integrados del Atelier"
+   ========================================================================== */
+.roles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+@media (min-width: 640px) {
+  .roles-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .roles-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.role-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-outer);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  transition: transform var(--duration-normal) var(--ease-apple-spring), border-color var(--duration-normal) ease;
+}
+
+.role-card:hover {
+  border-color: var(--border-hairline-strong);
+  transform: translateY(-2px);
+}
+
+.role-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-inner);
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hairline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+}
+
+.role-title {
+  font-size: 1.15rem;
+}
+
+.role-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ==========================================================================
+   9. Tabla Comparativa Editorial (IA Clónica vs WebAtelier)
+   ========================================================================== */
+.comparison-wrapper {
+  margin-top: var(--space-8);
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--radius-outer);
+  border: 1px solid var(--border-hairline);
+  background: var(--bg-surface-elevated);
+}
+
+.comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+  min-width: 640px;
+}
+
+.comparison-table th,
+.comparison-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-hairline);
+  vertical-align: top;
+}
+
+.comparison-table thead th {
+  background: var(--bg-surface);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-primary);
+}
+
+.comparison-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.col-ai {
+  color: var(--danger-solid);
+  font-weight: 500;
+  background: rgba(215, 0, 21, 0.02);
+}
+
+.col-atelier {
+  color: var(--text-primary);
+  font-weight: 600;
+  background: rgba(0, 102, 204, 0.02);
+}
+
+/* ==========================================================================
+   10. Grilla Bento Mobile-First con 3D Perspective Tilt
    ========================================================================== */
 .bento-grid {
   display: grid;
@@ -755,7 +910,9 @@ p {
   position: relative;
   overflow: hidden;
   width: 100%;
-  transition: border-color var(--duration-normal) ease, background-color var(--duration-normal) ease;
+  transform-style: preserve-3d;
+  transition: border-color var(--duration-normal) ease, background-color var(--duration-normal) ease, transform 120ms ease-out;
+  will-change: transform;
 }
 
 @media (min-width: 768px) {
@@ -831,7 +988,60 @@ p {
 }
 
 /* ==========================================================================
-   9. Auditor Interactivo Mobile-First
+   11. Matriz de las 18 Dimensiones de Calidad
+   ========================================================================== */
+.dimensions-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .dimensions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .dimensions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.dim-item {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-inner);
+  padding: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.dim-number {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--accent-surface);
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-pill);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dim-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   12. Auditor Interactivo Mobile-First
    ========================================================================== */
 .auditor-console {
   background: var(--bg-surface-elevated);
@@ -977,7 +1187,7 @@ p {
 }
 
 /* ==========================================================================
-   10. Terminal y Guía de Instalación Mobile-First
+   13. Terminal y Guía de Instalación Mobile-First
    ========================================================================== */
 .terminal-block {
   background: var(--bg-surface-elevated);
@@ -1045,7 +1255,7 @@ p {
 }
 
 /* ==========================================================================
-   11. Pie de Página Mobile-First
+   14. Pie de Página Mobile-First
    ========================================================================== */
 .site-footer {
   border-top: 1px solid var(--border-hairline);
@@ -1110,7 +1320,7 @@ p {
 }
 
 /* ==========================================================================
-   12. Respeto Estricto a prefers-reduced-motion
+   15. Respeto Estricto a prefers-reduced-motion
    ========================================================================== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1118,5 +1328,10 @@ p {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .bento-card {
+    transform: none !important;
+    transition: none !important;
   }
 }
