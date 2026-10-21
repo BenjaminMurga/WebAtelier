@@ -74,11 +74,10 @@ Para evitar ambigüedad en los nombres de personas, organizaciones o conceptos t
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Creawebchile",
-  "url": "https://creawebchile.cl",
+  "name": "Benjamin Murga",
+  "url": "https://github.com/BenjaminMurga",
   "sameAs": [
-    "https://www.wikidata.org/wiki/Q108754406",
-    "https://github.com/Creawebchileoficial",
+    "https://github.com/BenjaminMurga",
     "https://www.linkedin.com/company/creawebchile"
   ],
   "knowsAbout": [

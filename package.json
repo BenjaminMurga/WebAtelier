@@ -3,12 +3,12 @@
   "version": "2.0.0",
   "description": "Professional agent skill for premium web architecture combining Apple Design, WordPress Block Themes/FSE/Headless, Anti-AI Design Guardrails, and SEO/AEO/GEO optimization.",
   "type": "module",
-  "author": "Benjamín A. Murga (Creawebchile) <benjamin.a.murga@gmail.com>",
+  "author": "Benjamin Murga <benjamin.a.murga@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/Creawebchileoficial/apple-wp-premium-web-skill#readme",
+  "homepage": "https://github.com/BenjaminMurga/apple-wp-premium-web-skill#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Creawebchileoficial/apple-wp-premium-web-skill.git"
+    "url": "https://github.com/BenjaminMurga/apple-wp-premium-web-skill.git"
   },
   "scripts": {
     "audit:syntax": "node --check scripts/anti-ai-dom-auditor.js",

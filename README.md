@@ -6,7 +6,7 @@
 [![Guardrail: Anti-AI Design](https://img.shields.io/badge/Guardrail-Anti--AI%20Design-FF3B30.svg)](#)
 [![Accessibility: WCAG 2.2 AA](https://img.shields.io/badge/Accessibility-WCAG%202.2%20AA-34C759.svg)](#)
 
-> **Architect & Creator:** **Benjamín A. Murga ([Creawebchile](https://creawebchile.cl))** · [@Creawebchileoficial](https://github.com/Creawebchileoficial)  
+> **Architect & Creator:** **Benjamin Murga** · [@BenjaminMurga](https://github.com/BenjaminMurga)  
 > **Version:** 2.0.0  
 > **Target:** Pi, Codex, Claude Code, Cursor, and Open Agent Ecosystems.
 
@@ -63,7 +63,7 @@ apple-wp-premium-web-skill/
 ├── styles/
 │   └── anti-ai-reset-and-tokens.css       # CSS tokens & heading gradient lock
 ├── .gitignore
-├── LICENSE                                # MIT License (Benjamín A. Murga / Creawebchile)
+├── LICENSE                                # MIT License (Benjamin Murga)
 ├── package.json                           # Node.js project manifest & validation scripts
 ├── README.md                              # Bilingual Documentation & Credits
 └── SKILL.md                               # Agent Entrypoint & 10-Phase Workflow
@@ -113,9 +113,8 @@ npm run validate:theme-json
 
 ## Credits & Authorship / Créditos y Autoría
 
-* **Author:** **Benjamín A. Murga**
-* **Brand / Studio:** [Creawebchile](https://creawebchile.cl)
-* **GitHub Organization:** [@Creawebchileoficial](https://github.com/Creawebchileoficial)
+* **Author:** **Benjamin Murga**
+* **GitHub Profile:** [@BenjaminMurga](https://github.com/BenjaminMurga)
 * **Contact:** `benjamin.a.murga@gmail.com`
 
 ---

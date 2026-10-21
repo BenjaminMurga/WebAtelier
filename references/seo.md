@@ -39,7 +39,7 @@ Todo contenido debe incluir marcado JSON-LD nativo en la cabecera `<head>` para 
   },
   "publisher": {
     "@type": "Organization",
-    "name": "Creawebchile",
+    "name": "Benjamin Murga",
     "logo": {
       "@type": "ImageObject",
       "url": "https://ejemplo.com/assets/logo.png"
