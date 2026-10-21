@@ -163,12 +163,22 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
     const preset = MATERIAL_PRESETS[presetKey];
     if (!preset || !currentOuterMesh || !currentCoreMesh) return;
 
-    Object.assign(currentOuterMesh.material, preset.outer);
-    currentOuterMesh.material.color.setHex(preset.outer.color);
+    const { color: outerColor, ...outerProps } = preset.outer;
+    Object.assign(currentOuterMesh.material, outerProps);
+    if (currentOuterMesh.material.color && typeof currentOuterMesh.material.color.setHex === 'function') {
+      currentOuterMesh.material.color.setHex(outerColor);
+    } else {
+      currentOuterMesh.material.color = new THREE.Color(outerColor);
+    }
     currentOuterMesh.material.needsUpdate = true;
 
-    Object.assign(currentCoreMesh.material, preset.core);
-    currentCoreMesh.material.color.setHex(preset.core.color);
+    const { color: coreColor, ...coreProps } = preset.core;
+    Object.assign(currentCoreMesh.material, coreProps);
+    if (currentCoreMesh.material.color && typeof currentCoreMesh.material.color.setHex === 'function') {
+      currentCoreMesh.material.color.setHex(coreColor);
+    } else {
+      currentCoreMesh.material.color = new THREE.Color(coreColor);
+    }
     currentCoreMesh.material.needsUpdate = true;
 
     // Actualizar botones activos en la UI
