@@ -145,19 +145,25 @@ html {
   color: var(--text-primary);
   line-height: 1.5;
   scroll-behavior: smooth;
+  min-height: 100dvh;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100dvh;
   background-color: var(--bg-main);
   color: var(--text-primary);
   overflow-x: hidden;
   position: relative;
   width: 100%;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
 body.drawer-open {
@@ -534,6 +540,19 @@ p {
 /* ==========================================================================
    6. Botones Táctiles y Controles Primarios
    ========================================================================== */
+/* Botones Base con Ergonomía Táctil y Eliminación de Tap Delay */
+button,
+a,
+.btn-primary,
+.btn-secondary,
+.btn-toggle,
+.btn-material-chip,
+.terminal-copy-btn {
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -549,7 +568,7 @@ p {
   border: none;
   cursor: pointer;
   min-height: 44px;
-  white-space: normal; /* Permite salto de línea en pantallas ultra estrechas */
+  white-space: normal;
   text-align: center;
   max-width: 100%;
   box-sizing: border-box;
@@ -560,8 +579,48 @@ p {
   background: var(--accent-hover);
 }
 
-.btn-primary:active {
+/* Botón Anidado de Alta Gama (Button-in-Button Island) */
+.btn-island {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  background: var(--accent);
+  color: var(--accent-text);
+  padding: 8px 10px 8px 24px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.92rem;
+  border: none;
+  cursor: pointer;
+  min-height: 48px;
+  transition: background-color 160ms ease, transform var(--duration-normal) var(--ease-apple-press);
+  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+}
+
+.btn-island:hover {
+  background: var(--accent-hover);
+}
+
+.btn-island:active {
   transform: scale(0.97);
+}
+
+.btn-icon-bubble {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform var(--duration-normal) ease;
+}
+
+.btn-island:hover .btn-icon-bubble {
+  transform: translate(2px, -2px);
 }
 
 .btn-secondary {
@@ -1249,7 +1308,8 @@ p {
   overflow: hidden;
   width: 100%;
   transform-style: preserve-3d;
-  transition: border-color var(--duration-normal) ease, background-color var(--duration-normal) ease, transform 120ms ease-out;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03), 0 6px 16px -4px rgba(0, 0, 0, 0.05);
+  transition: border-color var(--duration-normal) ease, background-color var(--duration-normal) ease, transform 120ms ease-out, box-shadow var(--duration-normal) ease;
   will-change: transform;
 }
 

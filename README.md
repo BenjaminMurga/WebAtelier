@@ -1,6 +1,8 @@
 # WebAtelier · Digital Studio Skill for Premium Web Architecture
 
 [![Live Demo: WebAtelier](https://img.shields.io/badge/Live%20Demo-WebAtelier%20Website-0066CC.svg)](https://benjaminmurga.github.io/WebAtelier/)
+[![GitHub Release](https://img.shields.io/github/v/release/BenjaminMurga/WebAtelier?color=0066CC&label=Release)](https://github.com/BenjaminMurga/WebAtelier/releases)
+[![Anti-AI & Skill Integrity Gate](https://github.com/BenjaminMurga/WebAtelier/actions/workflows/anti-ai-quality-gate.yml/badge.svg)](https://github.com/BenjaminMurga/WebAtelier/actions/workflows/anti-ai-quality-gate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![WordPress: 6.5+](https://img.shields.io/badge/WordPress-6.5%2B%20(FSE)-21759B.svg)](https://wordpress.org)
 [![Design: Apple Minimalist](https://img.shields.io/badge/Design-Apple%20Inspired-000000.svg)](#)
@@ -10,8 +12,8 @@
 
 > **Live Website / Demo en Vivo:** **[https://benjaminmurga.github.io/WebAtelier/](https://benjaminmurga.github.io/WebAtelier/)**  
 > **Architect & Creator:** **Benjamin Murga** · [@BenjaminMurga](https://github.com/BenjaminMurga)  
+> **Version:** 2.3.0  
 > **Repository:** [https://github.com/BenjaminMurga/WebAtelier](https://github.com/BenjaminMurga/WebAtelier)  
-> **Version:** 2.1.0  
 > **Target:** Pi, Codex, Claude Code, Cursor, and Open Agent Ecosystems.
 
 ---
@@ -65,10 +67,12 @@ WebAtelier/
 │   ├── apple-design.md                    # Apple HIG, Liquid Glass, Squircle math, Spring Physics
 │   ├── design-brainstorming.md            # Creative Conception, Brand Vibe Probing & Hard Gates
 │   ├── design-system.md                   # Semantic token pairs, 60-30-10 rule, clamp() scales
+│   ├── mobile-native-touch.md             # Mobile-native feel, 100dvh, safe-areas, input zoom fix
 │   ├── motion-3d.md                       # Real-time 3D, WebGL/WebGPU, Three.js VRAM disposal
 │   ├── quality-assurance.md               # 18-dimension rubric & CRITICAL_REJECT criteria
 │   ├── seo.md                             # H1–H6 hierarchy, Schema.org JSON-LD templates
 │   ├── source-inventory.md                # 54-source empirical audit & traceability matrix
+│   ├── ui-polish-interactions.md          # Emil Kowalski UI polish, layered shadows, View Transitions
 │   └── wordpress.md                       # Block Themes, Interactivity API, PHP sanitization
 ├── scripts/
 │   ├── anti-ai-dom-auditor.js             # Automated DOM auditor for AI fingerprints

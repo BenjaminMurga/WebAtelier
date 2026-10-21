@@ -3,15 +3,21 @@ name: web-atelier
 description: >
   WebAtelier: Skill profesional de dirección de arte digital, arquitectura web premium inspirada
   en Apple Design, desarrollo en WordPress (Block Themes / FSE / Headless), experiencias 3D (Three.js,
-  WebGL/WebGPU, R3F, Spline), diseño responsivo universal (Mobile, PC y Smart TV 10-foot UI),
-  blindaje estricto Anti-AI Design (eliminación de huellas digitales de IA y AI Slop),
-  y optimización integral SEO, AEO y GEO.
-version: 2.1.0
+  WebGL/WebGPU, R3F, Spline), ingeniería de interacción y pulido de UI (filosofía Emil Kowalski,
+  sombras multi-stop, View Transitions API), diseño táctil móvil nativo (100dvh, safe-areas, cero tap flash),
+  diseño responsivo universal (Mobile, PC y Smart TV 10-foot UI), blindaje estricto Anti-AI Design,
+  y optimización integral SEO, AEO, GEO y LLMO.
+version: 2.3.0
 author: Benjamin Murga
 repository: https://github.com/BenjaminMurga/WebAtelier
 triggers:
   - web-atelier
   - webatelier
+  - mobile-native
+  - ui-polish
+  - emil-design
+  - view-transitions
+  - high-end-design
   - brainstorming
   - concepción creativa
   - ideación web
@@ -30,7 +36,7 @@ triggers:
 # SKILL: WebAtelier (Apple Design + WordPress + Anti-AI + 3D + Responsive Universal)
 
 > **Autor y Creador:** Benjamin Murga · [@BenjaminMurga](https://github.com/BenjaminMurga)  
-> **Licencia:** MIT · **Versión:** 2.1.0
+> **Licencia:** MIT · **Versión:** 2.3.0
 
 ---
 

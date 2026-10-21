@@ -16,7 +16,10 @@
    - Móviles y tabletas (0–767px): Mobile-first, áreas táctiles de 44×44px, cero dependencia de hover y cabecera limpia con Menú Drawer accesible.
    - PC y Laptops (1024–1440px+): CSS Grid dinámico (`repeat(auto-fit, minmax(280px, 1fr))`) y microinteracciones de puntero.
    - Smart TV / 10-foot UI (1080p y 4K a 3 metros): Navegación obligatoria por cruceta D-Pad con foco `:focus-visible` aumentado (`outline: 4px solid var(--accent); transform: scale(1.03)`).
-4. **Motor 3D Interactivo de Rendimiento Controlado:**
+4. **Diseño Móvil Nativo & UI Polish (Emil Kowalski Philosophy):**
+   - Altura de viewport dinámica (`100dvh`), soporte para Notch y Dynamic Island (`viewport-fit=cover`, `env(safe-area-inset-*)`), eliminación del destello gris (`-webkit-tap-highlight-color: transparent`) y prevención de zoom forzado en inputs (16px mínimo) (`references/mobile-native-touch.md`).
+   - Sombras ambientales por capas multi-stop, doble bisel concéntrico (*Double-Bezel Architecture*), arquitectura de botón anidado (*Button-in-Button Island*) y View Transitions API nativa (`references/ui-polish-interactions.md`).
+5. **Motor 3D Interactivo de Rendimiento Controlado:**
    - WebGL 2.0 y WebGPU en tiempo real con Three.js, React Three Fiber (R3F) y Spline.
    - Protocolo obligatorio de liberación de VRAM (`dispose()`) y pausa automática fuera de pantalla mediante `IntersectionObserver`.
 5. **WordPress Contemporáneo:** Block Themes nativos, configuración `theme.json` versión 3, WordPress Interactivity API y saneamiento estricto con `esc_html` y `wp_kses_post`.
