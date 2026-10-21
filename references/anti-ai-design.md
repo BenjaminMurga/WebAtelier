@@ -1,29 +1,64 @@
 # Módulo Crítico Anti-AI Design: Prohibiciones y Protocolo de Auditoría
 
 ## 1. Regla Central
-La Skill puede emplear inteligencia artificial en el flujo de trabajo, pero **el diseño resultante jamás debe parecer generado por una herramienta automática ni repetir plantillas clónicas**.
+La Skill puede emplear inteligencia artificial en el flujo de trabajo (asistencia de código, síntesis de datos, generación de borradores), pero **el diseño resultante jamás debe parecer generado por una herramienta automática ni repetir plantillas clónicas**.
 
-## 2. Prohibiciones Visuales Estrictas (Criterios de Rechazo Inmediato)
-Queda terminantemente prohibido:
-1. **Titulares con Degradados:** Crear encabezados `H1`, `H2`, `H3`, `H4`, `H5` o `H6` con degradados de color (`linear-gradient`, `radial-gradient`, `conic-gradient`).
-2. **Paleta "IA" en Textos:** Aplicar gradientes azules, violetas, rosas, cian o multicolor a textos.
-3. **Recorte de Fondo en Tipografía:** Utilizar `background-clip: text` o `-webkit-background-clip: text` con `color: transparent` para titulares.
-4. **Palabras Sueltas Coloreadas Artificialmente:** Resaltar palabras individuales dentro de un `H1` con colores eléctricos o degradados para fingir sofisticación.
-5. **Efectos Neón y Glow:** Añadir brillos neón, `text-shadow` luminosos o halos resplandecientes exagerados.
-6. **Hero Genérico de IA:** Utilizar la composición clónica de titular multicolor centrado + subtítulo genérico + dos botones brillantes simétricos sobre fondo oscuro con esferas difuminadas.
-7. **Fondos de Blobs Difuminados:** Generar esferas o manchas violetas/cian con `filter: blur()` sin justificación conceptual.
-8. **Repetición Mecánica de Tarjetas:** Abusar de grillas de 3 tarjetas idénticas y excesivamente redondeadas como solución universal para toda sección.
-9. **Glassmorphism o Neomorfismo por Defecto:** Añadir transparencias decorativas sin propósito espacial o jerárquico.
-10. **Emojis como Iconografía Profesional:** Utilizar emojis (`📊`, `✅`, `🚀`, `✨`) o símbolos Unicode (`☺`, `＠`) en lugar de iconografía vectorial diseñada a medida.
-11. **Efectos de Relleno y Animaciones sin Propósito:** Insertar partículas, brillos o movimientos perpetuos solo para llenar espacio vacío.
+El aspecto "diseñado por IA" surge de la agregación estadística hacia el promedio: composiciones centradas previsibles, ausencia de decisiones asimétricas audaces, miedo al contraste tipográfico sólido y saturación de efectos cosméticos (gradientes violeta/cian, halos neón y transparencias).
 
-## 3. Tratamiento Obligatorio de Títulos (H1–H6)
-Todo título debe construir su impacto visual mediante:
-- **Colores sólidos** coherentes con la identidad cromática de la marca (`#1D1D1F`, `#F5F5F7`, etc.).
-- **Tipografía con carácter**, escala matemática fluida, peso visual, contraste, espaciado (*kerning/tracking*), alineación, ritmo vertical y dirección de arte editorial.
+---
 
-## 4. Auditoría Anti-AI Obligatoria (Fase 9)
-Antes de entregar cualquier propuesta:
-1. Ejecuta `scripts/anti-ai-dom-auditor.js` y revisa las hojas de estilo contra `styles/anti-ai-reset-and-tokens.css`.
-2. Evalúa las señales de diseño genérico (composiciones predecibles, microcopy vacío, falta de identidad de marca) como indicadores de baja calidad de dirección de arte que deben corregirse de inmediato.
-3. Si cualquier sección recuerda a una plantilla automática de IA, rediséñala por completo antes de entregar.
+## 2. Catálogo de Prohibiciones Visuales y Alternativas Profesionales
+
+| Antipatrón Típico de IA | Motivo del Rechazo Inmediato | Alternativa Profesional Obligatoria |
+| :--- | :--- | :--- |
+| **1. Titulares con degradados** (`linear-gradient`, `radial-gradient` en texto) | Es la señal número uno de diseño automatizado superficial. Destruye la legibilidad y la seriedad editorial. | Color sólido de alto contraste (`#1D1D1F` sobre claro, `#F5F5F7` sobre oscuro) con *tracking* negativo ajustado (`-0.03em`). |
+| **2. Recorte de fondo en texto** (`background-clip: text` + `transparent`) | Falso intento de sofisticación que falla en modos de alto contraste y resta autoridad. | Construir impacto mediante tamaño, peso visual (*font-weight: 600–700*) y escala matemática fluida con `clamp()`. |
+| **3. Palabras individuales coloreadas en neón** | Patrón publicitario gastado para forzar atención artificial en una sola palabra. | Uso de cursiva tipográfica de contraste, cambio de peso o encuadre conceptual en el texto. |
+| **4. Hero centrado clónico** (Título central + subtítulo genérico + 2 botones brillantes) | Estructura repetida mecánicamente por generadores de landing pages sin considerar la marca. | Composición asimétrica inspirada en diseño editorial: texto alineado a la izquierda con masa visual, elementos interactivos tangibles y espacio negativo. |
+| **5. Fondos con esferas o blobs difuminados** (`filter: blur(80px)`) | Efecto de relleno barato para disimular la falta de dirección de arte o contenido visual de calidad. | Fondos limpios estructurados con jerarquía tonal de superficies (`#FBFBFD` vs `#F5F5F7`) y bordes *hairline* de 1px. |
+| **6. Repetición mecánica de 3 tarjetas idénticas** | Solución comodín que trata información de distinta jerarquía como si tuviera idéntica relevancia. | Bento Grids asimétricos donde la tarjeta principal ocupa 8 columnas y las secundarias 4 o 6 columnas según su valor. |
+| **7. Emojis como iconografía** (`🚀`, `✨`, `💡`, `✅`) | Empobrece la interfaz y le da apariencia de mensaje informal o borrador no profesional. | Set coherente de iconos vectoriales SVG inline diseñados con grosor de trazo uniforme (1.5px / 2px). |
+| **8. Glassmorphism indiscriminado** (`backdrop-filter` en todas partes sin motivo) | Sobrecarga de composición y rendimiento sin propósito espacial o jerárquico. | Reservar materiales translúcidos exclusivamente para capas flotantes de navegación o diálogos modales. |
+| **9. Microcopy genérico de IA** (*"Revoluciona tu flujo con IA"* o *"Impulsa tu negocio"*) | Frases vacías de significado que no comunican la propuesta de valor real del cliente. | Redacción editorial precisa, concreta y respaldada por datos cuantitativos verificables. |
+
+---
+
+## 3. Especificación Técnica de Guardarraíles CSS
+
+Para garantizar que ningún titular o bloque Gutenberg viole estas reglas de forma accidental o mediante plugins de terceros, se inyectan las siguientes reglas de blindaje en `styles/anti-ai-reset-and-tokens.css`:
+
+```css
+/* Blindaje estricto contra estéticas de IA en titulares */
+h1, h2, h3, h4, h5, h6,
+.wp-block-heading,
+.editorial-heading {
+  color: var(--ink-primary);
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  background-clip: initial !important;
+  -webkit-text-fill-color: currentColor !important;
+  text-shadow: none !important;
+  text-wrap: balance;
+  letter-spacing: -0.025em;
+}
+
+/* Supresión de efectos glow y resplandores artificiales */
+*, *::before, *::after {
+  box-shadow: none; /* Las sombras deben ser declaradas intencionalmente con tokens específicos */
+}
+```
+
+---
+
+## 4. Protocolo de Auditoría Anti-AI (Fase 9 del Flujo Operativo)
+
+Antes de entregar cualquier diseño, maquetación o desarrollo, la Skill debe ejecutar obligatoriamente esta lista de verificación:
+
+1. **Revisión Automatizada del DOM:**
+   Ejecutar `scripts/anti-ai-dom-auditor.js` sobre el documento renderizado para detectar cualquier infracción bloqueante (`CRITICAL_REJECT`).
+2. **Prueba del Espejo de Plantilla:**
+   Preguntarse de forma crítica: *¿Podría este diseño pertenecer a una plantilla predeterminada de Framer, Webflow o un generador automático de landing pages?* Si la respuesta es afirmativa, rediseñar inmediatamente la composición y la dirección de arte.
+3. **Comprobación de Jerarquía Tipográfica Sólida:**
+   Verificar que cada titular comunique autoridad mediante su escala y peso, sin depender de trucos cromáticos ni degradados.
+4. **Verificación de Iconografía Profesional:**
+   Confirmar que el 100% de los elementos visuales de apoyo sean iconos vectoriales SVG limpios y consistentes.

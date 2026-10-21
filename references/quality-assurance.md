@@ -1,31 +1,43 @@
 # Sistema de Evaluación de Calidad (18 Dimensiones) y Rechazo Automático
 
-## 1. Honestidad en la Validación (Comparación Virtual vs. Real)
-Siguiendo el protocolo de auditoría donde se contrasta el registro del sistema virtual contra la revisión física real para detectar discrepancias, **nunca inventes puntuaciones de Lighthouse ni métricas de rendimiento no medidas**. Documenta qué validaciones se comprobaron estáticamente en el código y cuáles requieren medición en el servidor de destino.
+## 1. Metodología de Validación Real vs. Virtual
+Inspirado en el protocolo de control de calidad donde se contrasta el registro virtual contra la evidencia física real para detectar discrepancias:
+* **Prohibición de Inventar Métricas:** Queda prohibido inventar puntuaciones de Lighthouse, tiempos de milisegundos o porcentajes de aprobación no medidos.
+* **Separación de Estados:** La Skill debe clasificar sus resultados en dos columnas:
+  1. *Validaciones Estáticas Comprobadas:* Sintaxis, reglas CSS, ausencia de degradados, DOM semántico, enlaces válidos y esquemas JSON-LD.
+  2. *Mediciones Pendientes en Servidor Real:* LCP en red real, métricas con CDN activa y auditoría de rastreo en Google Search Console.
 
-## 2. Las 18 Dimensiones Verificables
-1. **Calidad estética y dirección de arte:** Uso intencionado del espacio negativo y equilibrio visual.
-2. **Identidad visual y originalidad:** Personalidad propia diferenciada de competidores homogéneos.
-3. **Cumplimiento Anti-AI Design:** Cero degradados en titulares, cero efectos neón, cero blobs y cero emojis como iconografía.
-4. **Tipografía y jerarquía:** Escala fluida, colores sólidos y legibilidad editorial.
-5. **Usabilidad (UX):** Interacciones naturales sin pedir "doble clic" y 100% de textos en el idioma del sitio sin cadenas residuales en inglés.
-6. **Diseño responsive:** Adaptación perfecta sin duplicar menús en el DOM.
-7. **Calidad de animaciones e interacciones:** Fluidez a 60fps y respeto a `prefers-reduced-motion`.
-8. **Integración de experiencias 3D:** Carga diferida, control de memoria VRAM y *fallback* estático.
-9. **Rendimiento:** Activos optimizados y ausencia de iframes rotos o bloqueantes.
-10. **Accesibilidad:** Cumplimiento WCAG 2.2 AA, enlace `Ir al contenido` y cero enlaces `javascript:void(0)` vacíos.
-11. **SEO:** Jerarquía H1–H6 sin saltos y taxonomías sin etiquetas duplicadas.
-12. **AEO:** Titulares en formato de pregunta, resúmenes ejecutivos y tablas comparativas claras.
-13. **GEO:** Entidades enlazadas con Wikidata, referencias oficiales numeradas y sellos de transparencia editorial.
-14. **Conversiones (CRO):** Llamados a la acción claros y formularios sin fricción.
-15. **Seguridad:** Ocultación de rutas `/wp-login.php` expuestas y sanitización de salidas.
-16. **Mantenibilidad:** Ausencia de tokens PHP sin procesar (`%d`) o líneas de `ads.txt` impresas en el layout.
-17. **Compatibilidad con WordPress:** Uso correcto de `theme.json` y edición limpia por bloques.
-18. **Coherencia con las fuentes y requisitos:** Resolución simultánea de todas las dimensiones del proyecto.
+---
 
-## 3. Criterios de Rechazo Automático
-Rechazar y rediseñar inmediatamente cualquier entrega que:
-- Utilice degradados o `background-clip: text` en titulares `H1–H6`.
-- Aplique efectos neón, fondos de blobs difuminados o emojis como iconografía.
-- Presente menús duplicados en el DOM, textos de plantilla en otro idioma (`Welcome, Login to your account`, `type here...`, `No Result`) o tokens residuales (`%d`, `ads.txt` en el body).
-- Incumpla la jerarquía H1–H6, la accesibilidad por teclado o los requisitos explícitos del usuario.
+## 2. Rúbrica Detallada de las 18 Dimensiones
+
+| Dimensión | Criterio de Aprobación | Nivel de Riesgo si Falla |
+| :--- | :--- | :---: |
+| **1. Calidad Estética** | Espacio negativo calibrado, ausencia de ruidos y proporciones armónicas. | MEDIO |
+| **2. Originalidad de Marca** | Identidad visual única; no parece clon de otra empresa o plantilla comercial. | ALTO |
+| **3. Cumplimiento Anti-AI** | Cero degradados en H1–H6, cero neón/glow, cero blobs y cero emojis como iconos. | **CRITICAL_REJECT** |
+| **4. Tipografía y Jerarquía** | Escala fluida con `clamp()`, colores sólidos y legibilidad editorial impecable. | ALTO |
+| **5. Usabilidad (UX)** | Interacciones naturales (cero "doble clic") y 100% de textos localizados en español. | ALTO |
+| **6. Diseño Responsive** | Cero scroll horizontal no deseado y menú único sin duplicar listas en el DOM. | ALTO |
+| **7. Calidad de Animaciones** | Movimiento fluido a 60fps y respeto irrenunciable a `prefers-reduced-motion`. | ALTO |
+| **8. Integración 3D** | Liberación de memoria VRAM implementada (`dispose`), pausa fuera de pantalla y fallback estático. | ALTO |
+| **9. Rendimiento** | Cero iframes de vídeo rotos, uso de fachadas (*facade pattern*) y compresión WebP/AVIF. | ALTO |
+| **10. Accesibilidad** | Cumplimiento WCAG 2.2 AA, enlace de salto `skip-link` y cero enlaces `javascript:void(0)`. | **CRITICAL_REJECT** |
+| **11. SEO Semántico** | Jerarquía secuencial H1–H6 sin saltos, URLs canónicas y metadatos completos. | ALTO |
+| **12. AEO** | Encabezados en formato de pregunta, resumen ejecutivo verificado y tablas comparativas. | MEDIO |
+| **13. GEO** | Entidades enlazadas con Wikidata (`sameAs`), bibliografía con enlaces oficiales y autoría clara. | MEDIO |
+| **14. Conversiones (CRO)** | Formularios claros, botones de acción visibles y ausencia de popups agresivos con cuenta atrás. | MEDIO |
+| **15. Seguridad** | Rutas `/wp-login.php` ocultas en enlaces públicos y sanitización de salidas. | ALTO |
+| **16. Mantenibilidad** | Código limpio, cero tokens PHP sin procesar (`%d`) y cero líneas de `ads.txt` en el DOM. | ALTO |
+| **17. Compatibilidad WordPress** | Bloques compatibles con FSE, `theme.json` v3 y componentes desacoplados. | ALTO |
+| **18. Coherencia con Requisitos** | Cumplimiento estricto de todas las directivas dadas por el usuario. | **CRITICAL_REJECT** |
+
+---
+
+## 3. Criterios Bloqueantes de Rechazo Automático (CRITICAL_REJECT)
+
+Cualquier entrega que incurra en uno de los siguientes fallos **no será aprobada ni entregada** hasta su corrección total:
+1. **Presencia de Degradados en Titulares:** Uso de `background-clip: text` o gradientes cromáticos en `H1`, `H2`, `H3`, `H4`, `H5` o `H6`.
+2. **Uso de Emojis como Iconografía:** Reemplazar iconos vectoriales por emojis (`📊`, `🚀`, `✨`) en titulares o tarjetas principales.
+3. **Bloqueo de Accesibilidad:** Carencia de navegación por teclado, ausencia de foco visible o uso de enlaces vacíos `javascript:void(0)`.
+4. **Residuos Críticos de Plantilla:** Menús duplicados en el DOM, cadenas de idioma mezcladas o tokens de formateo PHP impresos en pantalla.

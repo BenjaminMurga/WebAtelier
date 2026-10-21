@@ -1,23 +1,32 @@
 {
   "name": "apple-wp-premium-web-skill",
   "version": "2.0.0",
-  "description": "Skill profesional de diseño web premium (Apple Design + WordPress + Motion/3D + Anti-AI Design + SEO/AEO/GEO)",
+  "description": "Professional agent skill for premium web architecture combining Apple Design, WordPress Block Themes/FSE/Headless, Anti-AI Design Guardrails, and SEO/AEO/GEO optimization.",
   "type": "module",
+  "author": "Benjamín A. Murga (Creawebchile) <benjamin.a.murga@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Creawebchileoficial/apple-wp-premium-web-skill#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Creawebchileoficial/apple-wp-premium-web-skill.git"
+  },
   "scripts": {
     "audit:syntax": "node --check scripts/anti-ai-dom-auditor.js",
     "validate:theme-json": "node -e \"const fs = require('fs'); JSON.parse(fs.readFileSync('configs/theme.json', 'utf8')); console.log('theme.json válido');\""
   },
   "keywords": [
-    "ai-skill",
+    "ai-agent-skill",
     "apple-design",
     "wordpress",
     "full-site-editing",
+    "block-themes",
     "anti-ai-design",
     "gsap",
     "threejs",
+    "webgpu",
     "seo",
     "aeo",
-    "geo"
-  ],
-  "license": "MIT"
+    "geo",
+    "creawebchile"
+  ]
 }

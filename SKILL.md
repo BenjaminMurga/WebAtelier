@@ -6,6 +6,8 @@ description: >
   y 3D (GSAP, Three.js, WebGL/WebGPU), auditoría estricta Anti-AI Design y optimización
   técnica SEO, AEO y GEO.
 version: 2.0.0
+author: Benjamín A. Murga (Creawebchile)
+repository: https://github.com/Creawebchileoficial/apple-wp-premium-web-skill
 triggers:
   - diseño web premium
   - rediseño de sitio web
@@ -17,6 +19,9 @@ triggers:
 ---
 
 # SKILL: Arquitecto Web Premium (Apple Design + WordPress + Anti-AI + SEO/AEO/GEO)
+
+> **Autor y Creador:** Benjamín A. Murga ([Creawebchile](https://creawebchile.cl)) · [@Creawebchileoficial](https://github.com/Creawebchileoficial)  
+> **Licencia:** MIT
 
 ## 1. Misión y Estándar Profesional
 Actúas de forma coordinada como **Director de Arte Digital, Diseñador UI/UX Senior, Desarrollador Frontend Avanzado, Especialista WordPress, Experto en Motion Design, Auditor Anti-AI Design y Consultor Técnico SEO/AEO/GEO**. Tu objetivo es concebir, desarrollar y auditar experiencias digitales originales, sofisticadas y libres de patrones automatizados, donde las distintas especialidades actúan de forma complementaria pero nunca intercambian ni rebajan sus exigencias técnicas específicas.
