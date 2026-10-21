@@ -2,14 +2,82 @@
  * WebAtelier - Engine 3D Interactivo Estilo Apple (Three.js WebGL)
  * Incorpora renderizado físico de materiales Liquid Glass, iluminación de estudio,
  * interacción por puntero/táctil, pausa por visibilidad y efecto 3D Tilt en tarjetas Bento.
+ * Incluye configurador de materiales de producto en tiempo real.
  */
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js';
+
+let currentSceneGroup = null;
+let currentOuterMesh = null;
+let currentCoreMesh = null;
+
+// Presets de Materiales para el Configurador 3D de Producto
+const MATERIAL_PRESETS = {
+  glass: {
+    name: 'Cristal Óptico (Liquid Glass)',
+    outer: {
+      color: 0xffffff,
+      metalness: 0.08,
+      roughness: 0.08,
+      transmission: 0.94,
+      ior: 1.52,
+      thickness: 1.6,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.06,
+      transparent: true,
+      opacity: 0.95
+    },
+    core: {
+      color: 0x0066cc,
+      metalness: 0.9,
+      roughness: 0.2
+    }
+  },
+  titanium: {
+    name: 'Titanio Aeroespacial Pulido',
+    outer: {
+      color: 0x8a929b,
+      metalness: 0.96,
+      roughness: 0.22,
+      transmission: 0,
+      ior: 1.0,
+      thickness: 0,
+      clearcoat: 0.6,
+      clearcoatRoughness: 0.15,
+      transparent: false,
+      opacity: 1.0
+    },
+    core: {
+      color: 0x1d1d1f,
+      metalness: 0.95,
+      roughness: 0.3
+    }
+  },
+  ceramic: {
+    name: 'Cerámica Blanca Pulida',
+    outer: {
+      color: 0xf5f5f7,
+      metalness: 0.05,
+      roughness: 0.06,
+      transmission: 0,
+      ior: 1.0,
+      thickness: 0,
+      clearcoat: 1.0,
+      clearcoatRoughness: 0.04,
+      transparent: false,
+      opacity: 1.0
+    },
+    core: {
+      color: 0x0066cc,
+      metalness: 0.8,
+      roughness: 0.15
+    }
+  }
+};
 
 export function initApple3DExperience(containerId = 'hero-3d-stage') {
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  // 1. Configuración de la Escena, Cámara y Renderizador WebGL
   const width = container.clientWidth || 360;
   const height = container.clientHeight || 360;
 
@@ -25,7 +93,7 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
       powerPreference: 'high-performance'
     });
   } catch (e) {
-    console.warn('WebGL no disponible en este dispositivo, aplicando fallback estático.');
+    console.warn('WebGL no disponible, aplicando fallback estático.');
     container.classList.add('fallback-static');
     return;
   }
@@ -40,7 +108,7 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
   container.innerHTML = '';
   container.appendChild(renderer.domElement);
 
-  // 2. Iluminación de Estudio Cinemática (Apple Style Studio Lighting)
+  // Iluminación de Estudio Cinemática
   const ambientLight = new THREE.AmbientLight(0xffffff, 0.85);
   scene.add(ambientLight);
 
@@ -56,67 +124,75 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
   rimLight.position.set(0, 3, -3);
   scene.add(rimLight);
 
-  // 3. Geometría y Material Físico Crystalline Liquid Glass
+  // Geometría y Material Físico
   const group = new THREE.Group();
   scene.add(group);
+  currentSceneGroup = group;
 
-  // Núcleo Interior Metálico Apple Titanium
+  // Núcleo Interior Metálico
   const coreGeometry = new THREE.IcosahedronGeometry(0.85, 1);
   const coreMaterial = new THREE.MeshStandardMaterial({
     color: 0x0066cc,
     metalness: 0.85,
-    roughness: 0.22,
-    wireframe: false
+    roughness: 0.22
   });
   const coreMesh = new THREE.Mesh(coreGeometry, coreMaterial);
   group.add(coreMesh);
+  currentCoreMesh = coreMesh;
 
-  // Capa Exterior Translúcida (Liquid Glass con Refracción Óptica)
+  // Capa Exterior Translúcida (Liquid Glass inicial)
   const outerGeometry = new THREE.TorusKnotGeometry(1.05, 0.32, 128, 32);
   const outerMaterial = new THREE.MeshPhysicalMaterial({
     color: 0xffffff,
-    metalness: 0.1,
-    roughness: 0.12,
-    transmission: 0.92, // Translucidez real
-    ior: 1.52,          // Índice de refracción del cristal óptico
-    thickness: 1.5,
+    metalness: 0.08,
+    roughness: 0.08,
+    transmission: 0.94,
+    ior: 1.52,
+    thickness: 1.6,
     clearcoat: 1.0,
-    clearcoatRoughness: 0.08,
+    clearcoatRoughness: 0.06,
     transparent: true,
     opacity: 0.95
   });
   const outerMesh = new THREE.Mesh(outerGeometry, outerMaterial);
   group.add(outerMesh);
+  currentOuterMesh = outerMesh;
 
-  // Actualizar color del núcleo según tema
-  function updateThemeColors() {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark' ||
-      (!document.documentElement.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    
-    if (isDark) {
-      coreMaterial.color.setHex(0x2997ff);
-      outerMaterial.color.setHex(0xf5f5f7);
-      rimLight.color.setHex(0x2997ff);
-    } else {
-      coreMaterial.color.setHex(0x0066cc);
-      outerMaterial.color.setHex(0xffffff);
-      rimLight.color.setHex(0x0077ed);
+  // Método de Cambio de Material en Tiempo Real (Configurador de Producto)
+  window.change3DProductMaterial = function (presetKey) {
+    const preset = MATERIAL_PRESETS[presetKey];
+    if (!preset || !currentOuterMesh || !currentCoreMesh) return;
+
+    Object.assign(currentOuterMesh.material, preset.outer);
+    currentOuterMesh.material.color.setHex(preset.outer.color);
+    currentOuterMesh.material.needsUpdate = true;
+
+    Object.assign(currentCoreMesh.material, preset.core);
+    currentCoreMesh.material.color.setHex(preset.core.color);
+    currentCoreMesh.material.needsUpdate = true;
+
+    // Actualizar botones activos en la UI
+    document.querySelectorAll('[data-3d-material]').forEach(btn => {
+      if (btn.getAttribute('data-3d-material') === presetKey) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    const captionEl = document.getElementById('stage-material-name');
+    if (captionEl) {
+      captionEl.textContent = preset.name;
     }
-  }
-  updateThemeColors();
+  };
 
-  // Observador de mutación de tema
-  const themeObserver = new MutationObserver(() => updateThemeColors());
-  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
-
-  // 4. Interacción Táctil y Puntero con Inercia (Lerp)
+  // Interacción Táctil y Puntero
   let targetRotationX = 0;
   let targetRotationY = 0;
   let isDragging = false;
   let previousTouchX = 0;
   let previousTouchY = 0;
 
-  // Interacción por movimiento del ratón en escritorio
   window.addEventListener('mousemove', (e) => {
     if (isDragging) return;
     const normX = (e.clientX / window.innerWidth) * 2 - 1;
@@ -125,7 +201,6 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
     targetRotationX = -normY * 0.7;
   }, { passive: true });
 
-  // Interacción táctil en dispositivos móviles
   container.addEventListener('touchstart', (e) => {
     if (e.touches.length === 1) {
       isDragging = true;
@@ -148,7 +223,7 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
     isDragging = false;
   }, { passive: true });
 
-  // 5. Adaptación Responsive con ResizeObserver
+  // Adaptación Responsive
   const resizeObserver = new ResizeObserver((entries) => {
     for (const entry of entries) {
       const newWidth = entry.contentRect.width;
@@ -162,7 +237,7 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
   });
   resizeObserver.observe(container);
 
-  // 6. Optimización y Control de Recursos (Pausa Fuera de Pantalla)
+  // Pausa Automática Fuera de Pantalla
   let isVisible = true;
   const visibilityObserver = new IntersectionObserver(([entry]) => {
     isVisible = entry.isIntersecting;
@@ -171,12 +246,12 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // 7. Bucle Principal de Renderizado a 60/120 fps
+  // Bucle de Renderizado
   let animationFrameId;
   function animate() {
     animationFrameId = requestAnimationFrame(animate);
 
-    if (!isVisible) return; // Cero consumo de GPU/CPU cuando no es visible
+    if (!isVisible) return;
 
     if (!prefersReducedMotion && !isDragging) {
       group.rotation.y += 0.005;
@@ -184,7 +259,6 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
       coreMesh.rotation.y -= 0.008;
     }
 
-    // Suavizado cinemático con inercia (Spring / Lerp)
     group.rotation.y += (targetRotationY - group.rotation.y) * 0.06;
     group.rotation.x += (targetRotationX - group.rotation.x) * 0.06;
 
@@ -192,10 +266,16 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
   }
   animate();
 
-  // 8. Protocolo de Liberación de Memoria VRAM (Dispose Pattern)
+  // Enlazar botones del configurador en el DOM
+  document.querySelectorAll('[data-3d-material]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const mat = btn.getAttribute('data-3d-material');
+      window.change3DProductMaterial(mat);
+    });
+  });
+
   return function cleanup() {
     cancelAnimationFrame(animationFrameId);
-    themeObserver.disconnect();
     resizeObserver.disconnect();
     visibilityObserver.disconnect();
 
@@ -209,10 +289,10 @@ export function initApple3DExperience(containerId = 'hero-3d-stage') {
 }
 
 /**
- * 3D Perspective Tilt para Tarjetas Bento en Pantallas Grandes
+ * 3D Perspective Tilt para Tarjetas Bento
  */
 export function initBento3DTilt() {
-  if (window.matchMedia('(hover: none)').matches) return; // Solo en dispositivos con puntero real
+  if (window.matchMedia('(hover: none)').matches) return;
 
   const cards = document.querySelectorAll('.bento-card');
   cards.forEach((card) => {
@@ -224,7 +304,7 @@ export function initBento3DTilt() {
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      const rotateX = ((y - centerY) / centerY) * -6; // Máximo 6 grados de inclinación sutil
+      const rotateX = ((y - centerY) / centerY) * -6;
       const rotateY = ((x - centerX) / centerX) * 6;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;

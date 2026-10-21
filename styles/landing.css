@@ -824,6 +824,205 @@ p {
   }
 }
 
+/* ==========================================================================
+   Controles del Configurador 3D de Producto
+   ========================================================================== */
+.configurator-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-top: var(--space-3);
+  width: 100%;
+}
+
+.btn-material-chip {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--duration-normal) ease;
+}
+
+.btn-material-chip:hover {
+  background: var(--bg-surface-elevated);
+  color: var(--text-primary);
+  border-color: var(--border-hairline-strong);
+}
+
+.btn-material-chip.active {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}
+
+/* ==========================================================================
+   Sección Benchmarking Visual: Con Skill vs Sin Skill
+   ========================================================================== */
+.benchmark-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+  width: 100%;
+  max-width: 1080px;
+}
+
+.benchmark-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-outer);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+@media (min-width: 768px) {
+  .benchmark-card {
+    padding: var(--space-8);
+  }
+}
+
+.benchmark-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.benchmark-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.benchmark-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-tertiary);
+}
+
+.comparison-bars-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.bar-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bar-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.bar-label-bad {
+  color: var(--danger-solid);
+}
+
+.bar-label-good {
+  color: var(--success-solid);
+}
+
+.progress-track {
+  width: 100%;
+  height: 10px;
+  background: var(--bg-surface);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill-bad {
+  height: 100%;
+  background: var(--danger-solid);
+  border-radius: var(--radius-pill);
+  transition: width 1s ease-out;
+}
+
+.progress-fill-good {
+  height: 100%;
+  background: var(--success-solid);
+  border-radius: var(--radius-pill);
+  transition: width 1s ease-out;
+}
+
+/* Tarjetas KPI de Impacto Directo */
+.kpi-cards-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+  width: 100%;
+  max-width: 1080px;
+}
+
+@media (min-width: 640px) {
+  .kpi-cards-row {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.kpi-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-hairline);
+  border-radius: var(--radius-inner);
+  padding: var(--space-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.kpi-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--text-primary);
+  font-family: var(--font-family);
+  letter-spacing: -0.03em;
+}
+
+.kpi-value.accent {
+  color: var(--accent);
+}
+
+.kpi-value.success {
+  color: var(--success-solid);
+}
+
+.kpi-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.hero-3d-stage:active {
+  cursor: grabbing;
+}
+
+@media (min-width: 768px) {
+  .hero-3d-stage {
+    height: 420px;
+  }
+}
+
 .stage-caption {
   font-size: 0.76rem;
   color: var(--text-tertiary);
