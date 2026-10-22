@@ -142,18 +142,58 @@ Copy and paste these exact prompts into **Pi, Cursor, Claude Code, or Codex** to
 
 ---
 
+## Trust & Auditability / Confianza y Auditoría Previa
+
+> *"Being able to read the skill before it touches a project is the part that matters for trust."*  
+> — **[@PublicAI_](https://x.com/PublicAI_)** on X
+
+### English 🇺🇸 / 🇬🇧
+WebAtelier is engineered around a **100% transparent, inspect-first architecture**:
+* **Zero Black Boxes:** Everything the agent executes is governed by plain Markdown files (`SKILL.md` and the 13 reference modules in `references/`). No compiled binaries, no obfuscated telemetry, and no hidden prompt injections.
+* **Deterministic Guardrails:** Prohibitions (e.g. banning purple gradients, single italic words, or missing mobile touch targets) are codified as verifiable criteria and open-source scripts (`scripts/anti-ai-dom-auditor.js`).
+* **Non-Destructive by Default:** WebAtelier prioritizes read-only analysis and creative brainstorming (Phase 1) with explicit human confirmation gates before modifying or writing code in your workspace.
+
+### Resumen en Español 🇨🇱 / 🇪🇸
+WebAtelier está diseñada bajo una **arquitectura 100% transparente y auditable**:
+* **Cero Cajas Negras:** Todo lo que ejecuta el agente está gobernado por archivos Markdown legibles (`SKILL.md` y los 13 módulos de referencia en `references/`). Sin binarios compilados, sin telemetría opaca y sin inyecciones de prompts ocultas.
+* **Límites Deterministas:** Las prohibiciones (ej. degradados morados en titulares, cursivas aisladas o elementos táctiles inferiores a 44px) están codificadas en criterios verificables y scripts de código abierto (`scripts/anti-ai-dom-auditor.js`).
+* **No Destructivo por Defecto:** WebAtelier prioriza el análisis de sólo lectura y la concepción creativa (Fase 1) con filtros obligatorios de aprobación humana antes de modificar o crear código en el espacio de trabajo.
+
+---
+
 ## Installation & Usage / Instalación y Uso
 
-### 1. In your AI Agent Environment (Pi, Claude, Cursor)
-Copy this repository into your local agent skills directory:
+### 1. Claude Code
+Instala WebAtelier en tu entorno global o por proyecto / Install into your workspace or global environment:
+
+**Global (disponible en todos tus proyectos / across all projects):**
+```bash
+git clone https://github.com/BenjaminMurga/WebAtelier.git ~/.claude/skills/web-atelier
+# or via the shared agent skills directory / o vía directorio compartido de agentes:
+git clone https://github.com/BenjaminMurga/WebAtelier.git ~/.agents/skills/web-atelier
+```
+
+**Por Proyecto / Per Project (workspace-local):**
+```bash
+# Dentro de la raíz de tu proyecto / Inside your project root:
+git clone https://github.com/BenjaminMurga/WebAtelier.git .claude/skills/web-atelier
+```
+
+### 2. Pi, Codex, Cursor & Open Agent Ecosystems
+Para Pi, Codex, Cursor o cualquier arnés compatible con Agent Skills / For any harness supporting Agent Skills:
 
 ```bash
+# Clonar directamente en el directorio estándar de skills / Clone to standard skills dir:
+git clone https://github.com/BenjaminMurga/WebAtelier.git ~/.agents/skills/web-atelier
+
+# O copiar desde un clon local / Or copy from a local clone:
 cp -r WebAtelier ~/.agents/skills/web-atelier
 ```
 
-The agent will automatically discover **`web-atelier`** and consult the `references/` directory via progressive disclosure based on the user's task.
+The agent will automatically discover **`web-atelier`** and consult the `references/` directory via progressive disclosure based on the user's task.  
+*(El agente detectará automáticamente **`web-atelier`** y consultará los módulos en `references/` mediante divulgación progresiva).*
 
-### 2. Universal Setup & Screen Audit / Instalación y Auditoría Visual
+### 3. Universal Setup & Screen Audit / Instalación y Auditoría Visual
 
 Cualquier usuario que clone este repositorio puede ejecutar la suite completa con Node.js o Bun:
 
@@ -202,7 +242,8 @@ git pull origin main
 
 ## Credits & Authorship / Créditos y Autoría
 
-* **Author:** **Benjamin Murga**
-* **GitHub Profile:** [@BenjaminMurga](https://github.com/BenjaminMurga)
-* **Contact:** `benjamin.a.murga@gmail.com`
-* **License:** [MIT License](LICENSE)
+* **Author / Autor:** **Benjamin Murga**
+* **GitHub Profile / Perfil de GitHub:** [@BenjaminMurga](https://github.com/BenjaminMurga)
+* **Contact / Contacto:** `benjamin.a.murga@gmail.com`
+* **Community Recognition / Reconocimiento Comunitario:** Special thanks to [@PublicAI_](https://x.com/PublicAI_) on X for insightful feedback regarding skill transparency and auditability. *(Agradecimiento especial a @PublicAI_ por su valiosa retroalimentación sobre transparencia y auditabilidad).*
+* **License / Licencia:** [MIT License](LICENSE)
