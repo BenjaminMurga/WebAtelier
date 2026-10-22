@@ -61,6 +61,7 @@
           <li><a href="#prompts" class="nav-link">Prompts</a></li>
           <li><a href="#geo-llmo" class="nav-link">GEO / LLMO</a></li>
           <li><a href="#auditor-en-vivo" class="nav-link">Auditor</a></li>
+          <li><a href="#confianza" class="nav-link">Confianza</a></li>
           <li><a href="#instalacion" class="nav-link">Instalar</a></li>
         </ul>
       </nav>
@@ -116,6 +117,7 @@
             <li><a href="#geo-llmo" class="mobile-nav-link">GEO &amp; LLMO para Motores de IA</a></li>
             <li><a href="#dimensiones" class="mobile-nav-link">Las 18 Dimensiones de QA</a></li>
             <li><a href="#auditor-en-vivo" class="mobile-nav-link">Auditor DOM en Vivo</a></li>
+            <li><a href="#confianza" class="mobile-nav-link">Confianza &amp; Cero Cajas Negras</a></li>
             <li><a href="#instalacion" class="mobile-nav-link">Guía de Instalación</a></li>
           </ul>
         </nav>
@@ -1049,41 +1051,103 @@
       </div>
     </section>
 
+    <!-- Sección Trust & Auditability / Confianza y Auditoría Previa -->
+    <section id="confianza" class="section-wrapper section-centered" aria-labelledby="trust-heading">
+      <div class="section-header-centered">
+        <h2 id="trust-heading">Trust &amp; Auditability · Cero Cajas Negras</h2>
+        <p class="section-lead-centered">
+          <em>"Being able to read the skill before it touches a project is the foundation of trust."</em><br>
+          WebAtelier está diseñada bajo una arquitectura abierta basada en Markdown plano: cada regla, prohibición y cálculo matemático es 100% auditable antes de que el agente modifique código en tu proyecto.
+        </p>
+      </div>
+
+      <div class="roles-grid" style="margin-top: var(--space-8);">
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="role-title">100% Markdown · Zero Black Boxes</h3>
+          <p class="role-desc">
+            Todo el comportamiento del agente se rige por <code>SKILL.md</code> y 13 módulos en <code>references/</code>. Sin binarios compilados, sin telemetría opaca y sin inyecciones de prompts ocultas.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <path d="m9 12 2 2 4-4"></path>
+            </svg>
+          </div>
+          <h3 class="role-title">Deterministic Guardrails · Reglas Verificables</h3>
+          <p class="role-desc">
+            Las 19 prohibiciones anti-slop (degradados en titulares, cursivas aisladas o elementos táctiles pequeños) están codificadas en reglas matemáticas y scripts de auditoría abiertos.
+          </p>
+        </article>
+
+        <article class="role-card">
+          <div class="role-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </div>
+          <h3 class="role-title">Inspect-First · No Destructivo por Defecto</h3>
+          <p class="role-desc">
+            Prioriza el análisis de sólo lectura y la concepción creativa (Fase 1). Requiere confirmación humana explícita antes de mutar o sobreescribir archivos en el workspace.
+          </p>
+        </article>
+      </div>
+    </section>
+
     <!-- Sección Guía de Instalación Rápida -->
     <section id="instalacion" class="section-wrapper section-centered" aria-labelledby="install-heading">
       <div class="section-header-centered">
-        <h2 id="install-heading">Instalación en tu Entorno de Agentes</h2>
+        <h2 id="install-heading">Instalación en tu Entorno de Agentes · Quick Setup</h2>
         <p class="section-lead-centered">
-          WebAtelier es compatible con Pi, Codex, Claude Code, Cursor y cualquier asistente que soporte el estándar abierto de Agent Skills.
+          WebAtelier es compatible con Claude Code, Pi, Codex, Cursor y cualquier asistente que soporte el estándar abierto de Agent Skills.
         </p>
       </div>
 
       <div class="install-container">
-        <label for="cmd-clone" style="font-weight: 600; font-size: 0.9rem;">1. Clonar el Repositorio Oficial:</label>
-        <div class="terminal-block" id="cmd-clone">
-          <code>git clone https://github.com/BenjaminMurga/WebAtelier.git</code>
-          <button type="button" class="terminal-copy-btn" data-copy="git clone https://github.com/BenjaminMurga/WebAtelier.git">Copiar</button>
+        <label for="cmd-claude-global" style="font-weight: 600; font-size: 0.9rem;">1. Claude Code (Instalación Global para Todos los Proyectos):</label>
+        <div class="terminal-block" id="cmd-claude-global">
+          <code>git clone https://github.com/BenjaminMurga/WebAtelier.git ~/.claude/skills/web-atelier</code>
+          <button type="button" class="terminal-copy-btn" data-copy="git clone https://github.com/BenjaminMurga/WebAtelier.git ~/.claude/skills/web-atelier">Copiar</button>
         </div>
 
-        <label for="cmd-install" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">2. Desplegar en tu Catálogo Local de Skills (~/.agents/skills):</label>
+        <label for="cmd-claude-local" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">2. Claude Code (Instalación Local por Proyecto):</label>
+        <div class="terminal-block" id="cmd-claude-local">
+          <code>git clone https://github.com/BenjaminMurga/WebAtelier.git .claude/skills/web-atelier</code>
+          <button type="button" class="terminal-copy-btn" data-copy="git clone https://github.com/BenjaminMurga/WebAtelier.git .claude/skills/web-atelier">Copiar</button>
+        </div>
+
+        <label for="cmd-install" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">3. Pi, Codex, Cursor &amp; Open Ecosystems (~/.agents/skills):</label>
         <div class="terminal-block" id="cmd-install">
-          <code>cp -r WebAtelier ~/.agents/skills/web-atelier</code>
-          <button type="button" class="terminal-copy-btn" data-copy="cp -r WebAtelier ~/.agents/skills/web-atelier">Copiar</button>
+          <code>git clone https://github.com/BenjaminMurga/WebAtelier.git ~/.agents/skills/web-atelier</code>
+          <button type="button" class="terminal-copy-btn" data-copy="git clone https://github.com/BenjaminMurga/WebAtelier.git ~/.agents/skills/web-atelier">Copiar</button>
         </div>
 
-        <label for="cmd-deps" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">3. Habilitar Auditor Visual de Pantalla con Chromium (Opcional):</label>
+        <label for="cmd-deps" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">4. Habilitar Auditor Visual de Pantalla con Chromium (Opcional):</label>
         <div class="terminal-block" id="cmd-deps">
           <code>cd WebAtelier &amp;&amp; npm install &amp;&amp; npx playwright install chromium</code>
           <button type="button" class="terminal-copy-btn" data-copy="cd WebAtelier && npm install && npx playwright install chromium">Copiar</button>
         </div>
 
-        <label for="cmd-audit" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">4. Auditar la Pantalla en 4 Dispositivos (Móvil, PC, TV):</label>
+        <label for="cmd-audit" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">5. Auditar Pantalla en 4 Dispositivos (Móvil, PC, TV):</label>
         <div class="terminal-block" id="cmd-audit">
           <code>npm run audit:screen</code>
           <button type="button" class="terminal-copy-btn" data-copy="npm run audit:screen">Copiar</button>
         </div>
 
-        <label for="cmd-test" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">5. Ejecutar Suite de Detección Anti-AI:</label>
+        <label for="cmd-test" style="font-weight: 600; font-size: 0.9rem; display: block; margin-top: var(--space-6);">6. Ejecutar Suite de Detección Anti-AI:</label>
         <div class="terminal-block" id="cmd-test">
           <code>npm test</code>
           <button type="button" class="terminal-copy-btn" data-copy="npm test">Copiar</button>
