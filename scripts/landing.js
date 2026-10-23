@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnToggleGood.classList.add('active', 'is-good');
       btnToggleBad.classList.remove('active', 'is-bad');
       if (previewNotes) {
-        previewNotes.innerHTML = '<span style="color: var(--success-solid); font-weight: 700;">Estándar WebAtelier (v2.4.0):</span> El diseño y distribución hablan por sí solos (cero etiquetas secundarias innecesarias), tipografía sólida con alto contraste, tracking negativo e iconografía SVG limpia.';
+        previewNotes.innerHTML = '<span style="color: var(--success-solid); font-weight: 700;">Estándar WebAtelier (v2.5.0):</span> El diseño y distribución hablan por sí solos (cero etiquetas secundarias innecesarias), tipografía sólida con alto contraste, tracking negativo e iconografía SVG limpia.';
       }
     });
   }

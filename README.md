@@ -12,7 +12,7 @@
 
 > **Live Website / Demo en Vivo:** **[https://benjaminmurga.github.io/WebAtelier/](https://benjaminmurga.github.io/WebAtelier/)**  
 > **Architect & Creator:** **Benjamin Murga** · [@BenjaminMurga](https://github.com/BenjaminMurga)  
-> **Version:** 2.4.0  
+> **Version:** 2.5.0  
 > **Repository:** [https://github.com/BenjaminMurga/WebAtelier](https://github.com/BenjaminMurga/WebAtelier)  
 > **Target:** Pi, Codex, Claude Code, Cursor, and Open Agent Ecosystems.
 
@@ -142,9 +142,9 @@ Copy and paste these exact prompts into **Pi, Cursor, Claude Code, or Codex** to
 
 ---
 
-## Engineering Work Style & UI/UX Principles (v2.4.0) / Estilo de Trabajo y Principios UI/UX
+## Engineering Work Style & UI/UX Principles (v2.5.0) / Estilo de Trabajo y Principios UI/UX
 
-WebAtelier v2.4.0 codifica un contrato riguroso de ingeniería y diseño para que los agentes razonen con criterio arquitectónico:
+WebAtelier v2.5.0 codifica un contrato riguroso de ingeniería y diseño para que los agentes razonen con criterio arquitectónico:
 
 ### 🛠️ Estilo de Trabajo (Engineering Mindset)
 * **Principios Fundamentales Primero:** Confirma el objetivo real, las restricciones técnicas y los criterios de éxito antes de empezar cualquier desarrollo.

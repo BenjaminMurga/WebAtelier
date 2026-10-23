@@ -7,7 +7,7 @@ description: >
   sombras multi-stop, View Transitions API), diseño táctil móvil nativo (100dvh, safe-areas, cero tap flash),
   diseño responsivo universal (Mobile, PC y Smart TV 10-foot UI), blindaje estricto Anti-AI Design,
   y optimización integral SEO, AEO, GEO y LLMO.
-version: 2.4.0
+version: 2.5.0
 author: Benjamin Murga
 repository: https://github.com/BenjaminMurga/WebAtelier
 triggers:
@@ -36,7 +36,7 @@ triggers:
 # SKILL: WebAtelier (Apple Design + WordPress + Anti-AI + 3D + Responsive Universal)
 
 > **Autor y Creador:** Benjamin Murga · [@BenjaminMurga](https://github.com/BenjaminMurga)  
-> **Licencia:** MIT · **Versión:** 2.4.0
+> **Licencia:** MIT · **Versión:** 2.5.0
 
 ---
 
