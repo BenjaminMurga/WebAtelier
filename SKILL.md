@@ -7,7 +7,7 @@ description: >
   sombras multi-stop, View Transitions API), diseño táctil móvil nativo (100dvh, safe-areas, cero tap flash),
   diseño responsivo universal (Mobile, PC y Smart TV 10-foot UI), blindaje estricto Anti-AI Design,
   y optimización integral SEO, AEO, GEO y LLMO.
-version: 2.3.0
+version: 2.4.0
 author: Benjamin Murga
 repository: https://github.com/BenjaminMurga/WebAtelier
 triggers:
@@ -36,7 +36,7 @@ triggers:
 # SKILL: WebAtelier (Apple Design + WordPress + Anti-AI + 3D + Responsive Universal)
 
 > **Autor y Creador:** Benjamin Murga · [@BenjaminMurga](https://github.com/BenjaminMurga)  
-> **Licencia:** MIT · **Versión:** 2.3.0
+> **Licencia:** MIT · **Versión:** 2.4.0
 
 ---
 
@@ -47,7 +47,15 @@ Las distintas especialidades (diseño visual, desarrollo, accesibilidad, CRO y S
 
 ---
 
-## 2. Los Cuatro Pilares Fundamentales de WebAtelier
+## 2. Estilo de Trabajo y Principios de Ingeniería
+* **Pensamiento desde Principios Fundamentales:** Confirma el objetivo real, las restricciones técnicas y los criterios de éxito antes de comenzar cualquier desarrollo.
+* **Corrección de Raíz:** Soluciona las anomalías desde su causa origen; nunca apliques parches superficiales que solo oculten los síntomas.
+* **Trazabilidad en HANDOFF.md:** Registra incidentes, bloqueos y aprendizajes en `HANDOFF.md`, y léelo obligatoriamente antes de iniciar cada nueva tarea.
+* **Presupuesto de Rendimiento:** En trabajos destinados a producción, evalúa y controla el costo de rendimiento (VRAM, CPU, peso del DOM, transferencias) tanto en la fase de diseño como en los criterios de aceptación.
+
+---
+
+## 3. Los Cuatro Pilares Fundamentales de WebAtelier
 
 ### Pilar 1: Filosofía Apple Design (HIG)
 * **Claridad (Clarity):** Texto perfectamente legible, iconografía inequívoca y eliminación de decoración innecesaria. El contenido es el protagonista.
@@ -55,8 +63,12 @@ Las distintas especialidades (diseño visual, desarrollo, accesibilidad, CRO y S
 * **Profundidad (Depth):** Capas translúcidas coherentes (*Liquid Glass* con `backdrop-filter: blur()`), elevación calculada y bordes ultra-finos (*hairline* de 1px).
 * **Color Semántico y Regla 60-30-10:** Fondos neutros dominantes (60%), superficies y estructuras (30%), y color de acento único reservado estrictamente para interactividad (10%).
 
-### Pilar 2: Erradicación Activa de Huellas de IA (Anti-AI Design)
+### Pilar 2: Erradicación Activa de Huellas de IA (Anti-AI Design & UI/UX Purity)
 Detección, prevención y eliminación sistemática de los vicios visuales, estructurales y textuales típicos de herramientas generativas:
+* **El diseño habla por sí solo:** Evita las etiquetas secundarias y las descripciones innecesarias. Deja que el diseño y la distribución de los elementos hablen por sí solos. Erradica subtítulos obvios y microcopy explicativo redundante.
+* **Propósito estricto por elemento:** Cada elemento debe cumplir una función clara para el usuario: evita eslóganes, elementos decorativos superfluos, tarjetas anidadas e información repetida.
+* **Divulgación Progresiva (*Progressive Disclosure*):** Muestra explicaciones solo para situaciones anormales o acciones obligatorias. Coloca los detalles secundarios detrás de mecanismos de divulgación progresiva (muéstralos únicamente cuando sean necesarios).
+* **Coherencia y Contención:** Mantén la coherencia con las pantallas existentes. Prioriza eliminar o simplificar elementos antes que agregar otros nuevos. No rediseñes toda la página para modificar una sola parte.
 * Cero degradados de morado a azul o titulares con `background-clip: text`.
 * Cero palabras solitarias en cursiva/serif para fingir sofisticación.
 * Cero emojis como iconografía en encabezados (🚀, ✨, 🔒).
@@ -78,7 +90,7 @@ El código debe adaptarse nativamente a tres factores de forma y métodos de ent
 
 ---
 
-## 3. Jerarquía de Prioridades para la Toma de Decisiones
+## 4. Jerarquía de Prioridades para la Toma de Decisiones
 Resuelve cualquier conflicto técnico o visual aplicando estrictamente este orden de prioridad:
 1. **Primera prioridad:** Requisitos explícitos del proyecto y reglas no negociables (incluyendo las prohibiciones de `references/anti-ai-design.md`).
 2. **Segunda prioridad:** Calidad de experiencia de usuario, accesibilidad (WCAG 2.2 AA) y compatibilidad universal (Móvil, PC y Smart TV).
@@ -89,7 +101,7 @@ Resuelve cualquier conflicto técnico o visual aplicando estrictamente este orde
 
 ---
 
-## 4. Flujo Operativo Obligatorio (10 Fases)
+## 5. Flujo Operativo Obligatorio (10 Fases)
 1. **Fase 1: Comprensión & Brainstorming de Atelier (`references/design-brainstorming.md`).**
    - Aplica el protocolo de concepción creativa: preguntas de calibración (una por mensaje), exploración del universo visual (Apple Minimalist, Swiss, Nordic, Luxury), nivel de interactividad 3D y factores de forma.
    - Aplica el **Desafío Anti-Cliché** para evitar estructuras genéricas de IA (ej. cambiar 3 cajitas iguales por Bento Grids asimétricos).

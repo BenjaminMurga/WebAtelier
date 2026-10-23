@@ -47,6 +47,9 @@ Si el cliente o usuario pide una estructura repetitiva común (ej. *"quiero un h
 
 > *"Antes de adoptar 3 tarjetas idénticas: ¿tu propuesta de valor realmente se divide en 3 partes de igual peso, o existe una funcionalidad protagonista que merezca el 75% del espacio visual en una grilla Bento asimétrica (8 columnas para el héroe y 4 para soporte)? En interfaces de alta gama, la jerarquía asimétrica comunica mucha mayor autoridad que una fila de cajas repetidas."*
 
+Asimismo, aplica el **Desafío de Concisión y Pureza Visual**:
+> *"Antes de añadir subtítulos explicativos o etiquetas secundarias bajo cada titular o tarjeta: evita las etiquetas secundarias y las descripciones innecesarias. Deja que el diseño y la distribución de los elementos hablen por sí solos. Cada elemento debe cumplir una función clara para el usuario, eliminando eslóganes, adornos superfluos, tarjetas anidadas e información repetida. Muestra explicaciones solo para situaciones anormales o acciones obligatorias mediante divulgación progresiva."*
+
 ---
 
 ## 4. Los Tres Caminos de Ejecución del Atelier
@@ -67,6 +70,7 @@ Clasificación de la Tarea:
 ### Camino 2: Bounded (Sección o Rediseño Acotado)
 * **Propósito:** Modificar o crear una sección específica dentro de una web existente.
 * **Flujo:** Explora el contexto actual $\rightarrow$ Haz las preguntas indispensables de dirección de arte $\rightarrow$ Presenta una propuesta concisa en el chat (enfoque, tokens usados, adaptación móvil) $\rightarrow$ **DETENTE y espera el visto bueno explícito** $\rightarrow$ Implementa la solución con pruebas de pantalla.
+* **Principio de Contención y Coherencia:** Mantén la coherencia estricta con las pantallas existentes. Prioriza eliminar o simplificar elementos antes que agregar otros nuevos. **No rediseñes toda la página para modificar una sola parte.**
 
 ### Camino 3: Architectural (Proyecto Web Completo)
 * **Propósito:** Crear una web, landing page o tema de WordPress nuevo desde cero.
@@ -94,3 +98,5 @@ Antes de pedir la aprobación del usuario en el Camino Architectural, verifica m
 3. **Experiencia Móvil:** ¿La cabecera móvil está planificada con menú de hamburguesa y drawer, o se intentó meter la barra de escritorio en el teléfono?
 4. **Control de Recursos 3D:** Si incluye Three.js, ¿está previsto el descarte de VRAM (`dispose()`) y la pausa fuera de pantalla?
 5. **Ambigüedades:** ¿Hay textos tipo "TBD" o "Lorem Ipsum" en la especificación? Remplázalos por propuestas editoriales concretas.
+6. **Pureza de Elementos y Cero Etiquetas Secundarias:** ¿Cada elemento cumple una función clara para el usuario? ¿Se han erradicado etiquetas secundarias, descripciones redundantes, eslóganes y tarjetas anidadas permitiendo que la distribución hable por sí sola? ¿Se reserva la explicación solo para casos obligatorios u operacionales mediante divulgación progresiva?
+7. **Costo de Rendimiento y Principios Fundamentales:** ¿Se confirma el objetivo real y se considera el costo de rendimiento en producción dentro de los criterios de aceptación?

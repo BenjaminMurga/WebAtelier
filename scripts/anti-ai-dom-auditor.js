@@ -142,6 +142,17 @@ export function runAntiAiAndQualityAudit(root = document) {
     }
   });
 
+  // 6. Detección de Tarjetas Anidadas Redundantes (Cards inside Cards)
+  root.querySelectorAll('.card .card, .bento-item .bento-item, .bento-item .card').forEach((nested) => {
+    issues.push({
+      severity: 'HIGH',
+      dimension: 'Anti-AI Design / Jerarquía UX',
+      element: nested.tagName || 'DIV',
+      snippet: (nested.textContent || '').trim().slice(0, 50),
+      reason: 'Huella de sobre-envoltorio: Tarjetas anidadas detectadas. Cada elemento debe cumplir una función clara sin empaquetados redundantes.'
+    });
+  });
+
   return {
     passed: !issues.some((i) => i.severity === 'CRITICAL_REJECT'),
     totalIssues: issues.length,

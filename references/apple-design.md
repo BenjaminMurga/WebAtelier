@@ -18,6 +18,9 @@ Apple basa la arquitectura de sus interfaces en tres principios rectores:
   * `H3`: `-0.015em`
   * `Cuerpo`: `0em` a `+0.01em`
 * **Redacción Concisa y Directiva:** Microcopy breve, directo y estructurado en torno a acciones que el usuario comprende de inmediato, empleando verbos claros y evitando oraciones subordinadas innecesarias.
+* **El Diseño Habla por Sí Solo (Cero Etiquetas Secundarias):** Evita las etiquetas secundarias y las descripciones innecesarias. Deja que el diseño y la distribución de los elementos hablen por sí solos. La tipografía, el espaciado y la composición espacial deben bastar para comunicar la intención. Cada elemento debe cumplir una función clara para el usuario: erradica eslóganes vacíos, tarjetas anidadas, elementos decorativos superfluos e información repetida.
+* **Divulgación Progresiva (*Progressive Disclosure*):** Muestra explicaciones y advertencias solo para situaciones anormales o acciones obligatorias. Coloca los detalles secundarios detrás de mecanismos de divulgación progresiva, haciéndolos visibles únicamente cuando el usuario los requiera.
+* **Coherencia y Contención Visual:** Mantén la coherencia con las pantallas existentes. Prioriza eliminar o simplificar elementos antes que agregar otros nuevos. No rediseñes toda la página para modificar una sola parte.
 
 ---
 

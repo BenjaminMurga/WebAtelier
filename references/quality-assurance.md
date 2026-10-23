@@ -15,9 +15,9 @@ Inspirado en el protocolo de control de calidad donde se contrasta el registro v
 | :--- | :--- | :---: |
 | **1. Calidad Estética** | Espacio negativo calibrado, ausencia de ruidos y proporciones armónicas. | MEDIO |
 | **2. Originalidad de Marca** | Identidad visual única; no parece clon de otra empresa o plantilla comercial. | ALTO |
-| **3. Cumplimiento Anti-AI** | Cero degradados en H1–H6, cero neón/glow, cero blobs y cero emojis como iconos. | **CRITICAL_REJECT** |
+| **3. Cumplimiento Anti-AI** | Cero degradados en H1–H6, cero neón/glow, cero emojis como iconos, y cero etiquetas secundarias o descripciones innecesarias (el diseño habla por sí solo). | **CRITICAL_REJECT** |
 | **4. Tipografía y Jerarquía** | Escala fluida con `clamp()`, colores sólidos y legibilidad editorial impecable. | ALTO |
-| **5. Usabilidad (UX)** | Interacciones naturales (cero "doble clic") y 100% de textos localizados en español. | ALTO |
+| **5. Usabilidad (UX)** | Interacciones naturales, divulgación progresiva para detalles secundarios, cero tarjetas anidadas sin función y 100% de textos localizados en español. | ALTO |
 | **6. Diseño Responsive** | Cero scroll horizontal no deseado y menú único sin duplicar listas en el DOM. | ALTO |
 | **7. Calidad de Animaciones** | Movimiento fluido a 60fps y respeto irrenunciable a `prefers-reduced-motion`. | ALTO |
 | **8. Integración 3D** | Liberación de memoria VRAM implementada (`dispose`), pausa fuera de pantalla y fallback estático. | ALTO |
@@ -30,7 +30,7 @@ Inspirado en el protocolo de control de calidad donde se contrasta el registro v
 | **15. Seguridad** | Rutas `/wp-login.php` ocultas en enlaces públicos y sanitización de salidas. | ALTO |
 | **16. Mantenibilidad** | Código limpio, cero tokens PHP sin procesar (`%d`) y cero líneas de `ads.txt` en el DOM. | ALTO |
 | **17. Compatibilidad WordPress** | Bloques compatibles con FSE, `theme.json` v3 y componentes desacoplados. | ALTO |
-| **18. Coherencia con Requisitos** | Cumplimiento estricto de todas las directivas dadas por el usuario. | **CRITICAL_REJECT** |
+| **18. Coherencia con Requisitos & Estilo de Trabajo** | Cumplimiento estricto de directivas del usuario, análisis desde principios fundamentales, corrección de raíz, registro en `HANDOFF.md` y presupuesto de rendimiento en producción. | **CRITICAL_REJECT** |
 
 ---
 
@@ -42,3 +42,4 @@ Cualquier entrega que incurra en uno de los siguientes fallos **no será aprobad
 3. **Bloqueo de Accesibilidad:** Carencia de navegación por teclado, ausencia de foco visible o uso de enlaces vacíos `javascript:void(0)`.
 4. **Residuos Críticos de Plantilla:** Menús duplicados en el DOM, cadenas de idioma mezcladas o tokens de formateo PHP impresos en pantalla.
 5. **Desbordamiento o Cabecera Cortada en Móviles:** Cualquier diseño cuya barra superior se corte horizontalmente en pantallas móviles (< 880px) por falta de un menú de hamburguesa con panel drawer accesible.
+6. **Parches Sintomáticos o Rediseño Invasivo Injustificado:** Aplicar parches superficiales que ocultan los síntomas en vez de resolver la causa raíz, o alterar pantallas preexistentes completas cuando solo se requería modificar una sección de forma coherente y contenida.

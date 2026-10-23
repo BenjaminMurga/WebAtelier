@@ -12,7 +12,7 @@
 
 > **Live Website / Demo en Vivo:** **[https://benjaminmurga.github.io/WebAtelier/](https://benjaminmurga.github.io/WebAtelier/)**  
 > **Architect & Creator:** **Benjamin Murga** · [@BenjaminMurga](https://github.com/BenjaminMurga)  
-> **Version:** 2.3.0  
+> **Version:** 2.4.0  
 > **Repository:** [https://github.com/BenjaminMurga/WebAtelier](https://github.com/BenjaminMurga/WebAtelier)  
 > **Target:** Pi, Codex, Claude Code, Cursor, and Open Agent Ecosystems.
 
@@ -25,7 +25,7 @@
 ### Core Pillars
 1. **Brainstorming & Creative Conception:** Guided discovery of visual vibe (Apple Minimalist, Swiss Typography, Nordic Organic, Warm Luxury), anti-cliché challenge, 3 execution paths (Spike, Bounded, Architectural), and strict hard-gates before implementation.
 2. **Apple HIG Philosophy:** Clarity, Deference, Depth (*Liquid Glass*), spring physics (`cubic-bezier`), continuous curvature ($n=4$), and the 60-30-10 chromatic rule.
-3. **Anti-AI Design Guardrails:** Automated eradication of AI fingerprints (purple-blue gradients, glow effects, single italicized words, emojis in headings, badges like "AI-Powered", div soup, and builder meta-tags).
+3. **Anti-AI Design Guardrails & UI Purity:** Automated eradication of AI fingerprints (purple-blue gradients, glow effects, single italicized words, emojis in headings, badges like "AI-Powered", div soup, and builder meta-tags). **Elimination of secondary labels and unnecessary descriptions: let the layout and spatial distribution speak for themselves.** Ban on nested card soup, empty slogans, and unneeded decorative clutter. Strict **Progressive Disclosure** (secondary details revealed only on demand) and **Design Containment** (maintain existing UI coherence without destructive full-page rewrites).
 4. **Universal Responsive Design:** True 3-dimension screen support: Mobile/Tablet (0–767px, touch targets 44×44px, clean drawer menu), PC/Laptop (1024–1440px+, dynamic CSS Grid), and Smart TV (1080p/4K at 3m / D-Pad navigation with enhanced `:focus-visible`).
 5. **Interactive 3D & Motion:** Real-time WebGL/WebGPU, Three.js with 360° product material configurator, mandatory VRAM disposal (`dispose()`), and GSAP ScrollTrigger respecting `prefers-reduced-motion`.
 6. **Modern WordPress:** Full Site Editing (FSE), `theme.json` v3, Interactivity API, and strict PHP sanitization (`esc_html`, `wp_kses_post`).
@@ -40,7 +40,7 @@
 ### Pilares Fundamentales
 1. **Brainstorming y Concepción Creativa de Atelier:** Calibración de identidad visual (Apple Minimalist, Editorial Suizo, Nordic Organic, Lujo Cálido), desafío anti-clichés de IA, clasificación en 3 caminos (Spike, Bounded, Architectural) y aprobación humana obligatoria (*Hard Gate*) antes de programar.
 2. **Filosofía Apple HIG:** Claridad, Deferencia y Profundidad (*Liquid Glass* con `backdrop-filter: blur()`), física de resortes (*springs*), curvatura continua ($n=4$) y regla cromática 60-30-10.
-3. **Blindaje Anti-AI Design:** Erradicación automatizada de huellas digitales de IA (degradados morado-azul, halos neón, palabras en cursiva solitaria, emojis en titulares, insignias "AI-Powered", sopa de divs y metaetiquetas de constructores).
+3. **Blindaje Anti-AI Design y Pureza UI/UX:** Erradicación automatizada de huellas digitales de IA (degradados morado-azul, halos neón, palabras en cursiva solitaria, emojis en titulares, insignias "AI-Powered", sopa de divs y metaetiquetas de constructores). **Erradicación de etiquetas secundarias y descripciones innecesarias: deja que el diseño y la distribución de los elementos hablen por sí solos.** Prohibición de tarjetas anidadas superfluas (*card-in-card*), eslóganes vacíos y adornos sin propósito. **Divulgación progresiva estricta** (mostrar detalles secundarios solo bajo demanda) y **principio de contención** (priorizar eliminar o simplificar sin rediseñar páginas completas para cambios puntuales).
 4. **Diseño Adaptable Universal en 3 Dimensiones:**
    * **Móviles/Tabletas (0px–767px):** Mobile-first, botones de 44×44px, cabecera limpia con Menú Drawer y cero dependencia de *hover*.
    * **PC/Laptops (1024px–1440px+):** CSS Grid dinámico, centrado óptico simétrico y navegación por cursor.
@@ -139,6 +139,24 @@ Copy and paste these exact prompts into **Pi, Cursor, Claude Code, or Codex** to
 
 ### 4. Optimizar una Web para Motores de IA (GEO & LLMO)
 > *"Aplica las directrices GEO/LLMO de WebAtelier a mi sitio web: genera el archivo `llms.txt` canónico en Markdown, configura las reglas de `robots.txt` para GPTBot y PerplexityBot, estructura el contenido con la regla Citable-First y añade marcado JSON-LD con Wikidata sameAs."*
+
+---
+
+## Engineering Work Style & UI/UX Principles (v2.4.0) / Estilo de Trabajo y Principios UI/UX
+
+WebAtelier v2.4.0 codifica un contrato riguroso de ingeniería y diseño para que los agentes razonen con criterio arquitectónico:
+
+### 🛠️ Estilo de Trabajo (Engineering Mindset)
+* **Principios Fundamentales Primero:** Confirma el objetivo real, las restricciones técnicas y los criterios de éxito antes de empezar cualquier desarrollo.
+* **Corrección de Raíz:** Soluciona las anomalías desde su causa origen; nunca apliques parches superficiales que solo oculten los síntomas.
+* **Trazabilidad en `HANDOFF.md`:** Registra errores, incidentes y aprendizajes en `HANDOFF.md` y consúltalo antes de comenzar cada nueva tarea.
+* **Presupuesto de Rendimiento:** En desarrollos para producción, evalúa y controla el costo de rendimiento (VRAM, CPU, peso del DOM, transferencias) tanto en la fase de diseño como en los criterios de aceptación.
+
+### 🎨 UI/UX — Pureza Visual y Erradicación de Clichés de IA
+* **El diseño habla por sí solo:** Evita las etiquetas secundarias y las descripciones innecesarias. Deja que el diseño y la distribución de los elementos hablen por sí solos.
+* **Función clara por elemento:** Cada elemento debe cumplir una función clara para el usuario: evita eslóganes vacíos, elementos decorativos superfluos, tarjetas anidadas (*cards-inside-cards*) e información repetida.
+* **Divulgación Progresiva (*Progressive Disclosure*):** Muestra explicaciones solo para situaciones anormales o acciones obligatorias. Coloca los detalles secundarios detrás de mecanismos de divulgación progresiva (muéstralos únicamente cuando sean necesarios).
+* **Coherencia y Contención:** Mantén la coherencia con las pantallas existentes. Prioriza eliminar o simplificar elementos antes que agregar otros nuevos. No rediseñes toda la página para modificar una sola parte.
 
 ---
 

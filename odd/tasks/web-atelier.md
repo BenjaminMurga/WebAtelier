@@ -11,3 +11,9 @@ Status: completed
 5. [x] Crear los 10 archivos de documentación en references/
 6. [x] Ejecutar auditoría de sintaxis y validación de theme.json
 7. [x] Inicializar repositorio Git y registrar commit inicial
+
+## Upgrade v2.3.1: Anti-AI UI/UX & Redundancy Eradication Directives
+8. [x] Incorporar directiva en AGENTS.md (Estilo de trabajo y UI/UX sin etiquetas secundarias redundantes)
+9. [x] Actualizar SKILL.md de WebAtelier a v2.3.1 integrando estilo de ingeniería y reglas de pureza UI/UX
+10. [x] Expandir módulos en references/ (anti-ai-design, apple-design, design-brainstorming, quality-assurance)
+11. [x] Agregar comprobación de anidación superflua en scripts/anti-ai-dom-auditor.js y validar test suite

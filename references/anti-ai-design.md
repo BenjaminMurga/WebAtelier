@@ -23,24 +23,29 @@ El aspecto "hecho con IA" no se debe a un único elemento, sino a la acumulació
 ### C. Componentes y Maquetación Clónica (*SaaS-Card Kit*)
 8. **Filas Mecánicas de Tres Tarjetas Idénticas (*Three Icon Boxes*):** Filas de exactamente tres cajas cuadradas idénticas con un icono, un titular y dos líneas de texto. La información real rara vez tiene la misma jerarquía; se deben usar Bento Grids asimétricos con proporciones 8/4 o 6/6.
 9. **Insignias o Píldoras Artificiales sobre el H1 (*Eyebrows/Badges*):** Pequeñas píldoras con textos como *"AI-Powered"*, *"New Feature"* o etiquetas en mayúsculas forzadas directamente encima del titular principal.
-10. **Cristal Esmerilado Indiscriminado (*Frosted Glass*):** Contenedores con bordes hiper-redondeados, transparencias y sombras grises genéricas aplicadas a todas las secciones sin criterio espacial.
-11. **Muestras de Dashboards Falsos:** Paneles de control simulados con barras y bloques de colores primarios simples sin datos reales ni utilidad demostrable.
+10. **Tarjetas Anidadas y Redundancia Estructural:** Cajas dentro de cajas (*cards inside cards*) que duplican información o añaden capas de envoltorios visuales sin propósito. Cada elemento debe cumplir una función clara para el usuario; erradicar la anidación superflua de tarjetas.
+11. **Cristal Esmerilado Indiscriminado (*Frosted Glass*):** Contenedores con bordes hiper-redondeados, transparencias y sombras grises genéricas aplicadas a todas las secciones sin criterio espacial.
+12. **Muestras de Dashboards Falsos:** Paneles de control simulados con barras y bloques de colores primarios simples sin datos reales ni utilidad demostrable.
 
-### D. Copywriting y Contenido Cliché (*AI Slop*)
-12. **Vocabulario Relleno de IA:** Prohibición estricta de palabras y frases gastadas:
+### D. Copywriting, Sobrecarga Textual y Vicios de Contenido (*AI Slop*)
+13. **Etiquetas Secundarias y Descripciones Innecesarias:** Tendencia sistemática de la IA a sobre-explicar la interfaz colocando subtítulos, pies de foto y textos descriptivos obvios bajo cada titular o tarjeta (*"Dashboard: administra tus métricas aquí"*). **Evita las etiquetas secundarias y las descripciones innecesarias. Deja que el diseño y la distribución de los elementos hablen por sí solos.** La jerarquía visual, el espaciado y la distribución espacial deben comunicar el contexto sin requerir muletas textuales.
+14. **Eslóganes Vacíos, Adornos e Información Repetida:** Textos publicitarios sin sustancia (*"Tu solución definitiva"*, *"Innovación sin límites"*), elementos puramente decorativos que distraen de la tarea, e información reiterada en múltiples tarjetas adyacentes. Todo texto y elemento debe tener un propósito directo para el usuario.
+15. **Ausencia de Divulgación Progresiva (*Progressive Disclosure*):** Desplegar bloques de texto explicativo para operaciones normales u obvias. Muestra explicaciones solo para situaciones anormales, estados de advertencia o acciones obligatorias. Coloca los detalles secundarios detrás de mecanismos de divulgación progresiva (paneles colapsables, drawers o vistas secundarias bajo demanda).
+16. **Vocabulario Relleno de IA:** Prohibición estricta de palabras y frases gastadas:
     * *Inglés:* *"seamless"*, *"robust"*, *"elevate"*, *"empower"*, *"cutting-edge"*, *"game-changer"*, *"delve"*, *"testament"*.
     * *Español:* *"solución integral"*, *"revoluciona tu flujo"*, *"lleva tu negocio al siguiente nivel"*, *"diseño de vanguardia"*.
-13. **Textos Abstractos sin Contexto:** Mensajes que no explican con precisión técnica qué hace el producto, cómo funciona, ni aportan datos cuantitativos o contexto específico de la empresa.
+17. **Textos Abstractos sin Contexto:** Mensajes que no explican con precisión técnica qué hace el producto, cómo funciona, ni aportan datos cuantitativos o contexto específico de la empresa.
 
 ### E. Interacciones y Animaciones Artificiales
-14. **Efectos que Persiguen al Cursor:** Luces, destellos o partículas que siguen el puntero del ratón por la pantalla, distrayendo la atención del contenido y penalizando la CPU.
-15. **Animaciones de Scroll y *Fade-ins* Injustificados:** Elementos que se desvanecen o botones que flotan constantemente sin aportar valor funcional ni narrativo.
+18. **Efectos que Persiguen al Cursor:** Luces, destellos o partículas que siguen el puntero del ratón por la pantalla, distrayendo la atención del contenido y penalizando la CPU.
+19. **Animaciones de Scroll y *Fade-ins* Injustificados:** Elementos que se desvanecen o botones que flotan constantemente sin aportar valor funcional ni narrativo.
 
-### F. Estructura Técnica y Código
-16. **Espaciados Inconsistentes y Desiguales:** Márgenes arbitrarios (ej. 24px, 28px, 32px en la misma página). Toda separación debe derivar de un ritmo modular fijo (base 4px/8px: `--space-1` a `--space-16`).
-17. **Sopa de Divs (*Div Soup*):** Ausencia de etiquetas semánticas HTML5 reales, anidando docenas de `<div>` sin `<header>`, `<nav>`, `<main>`, `<section>`, `<article>` ni `<footer>`.
-18. **Metaetiquetas de Constructores Automáticos:** Huellas en el `<head>` que delatan plataformas automáticas (`<meta name="generator" content="Framer / Wix / 10Web / Durable">`).
-19. **Cabeceras Móviles Saturadas y Desbordamiento:** Forzar barras de navegación de escritorio, múltiples botones de texto o selectores horizontales en pantallas móviles (< 880px) provocando que se corten los botones hacia la derecha. Toda cabecera móvil debe usar obligatoriamente un menú de hamburguesa limpio con panel drawer accesible.
+### F. Estructura Técnica, Coherencia y Código
+20. **Ruptura de Coherencia y Rediseños Invasivos:** Rediseñar la página completa o alterar el lenguaje visual preexistente cuando solo se requería modificar una parte. Mantén la coherencia con las pantallas existentes; prioriza eliminar o simplificar elementos antes que agregar otros nuevos.
+21. **Espaciados Inconsistentes y Desiguales:** Márgenes arbitrarios (ej. 24px, 28px, 32px en la misma página). Toda separación debe derivar de un ritmo modular fijo (base 4px/8px: `--space-1` a `--space-16`).
+22. **Sopa de Divs (*Div Soup*):** Ausencia de etiquetas semánticas HTML5 reales, anidando docenas de `<div>` sin `<header>`, `<nav>`, `<main>`, `<section>`, `<article>` ni `<footer>`.
+23. **Metaetiquetas de Constructores Automáticos:** Huellas en el `<head>` que delatan plataformas automáticas (`<meta name="generator" content="Framer / Wix / 10Web / Durable">`).
+24. **Cabeceras Móviles Saturadas y Desbordamiento:** Forzar barras de navegación de escritorio, múltiples botones de texto o selectores horizontales en pantallas móviles (< 880px) provocando que se corten los botones hacia la derecha. Toda cabecera móvil debe usar obligatoriamente un menú de hamburguesa limpio con panel drawer accesible.
 
 ---
 

@@ -270,7 +270,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnToggleBad.classList.add('active', 'is-bad');
       btnToggleGood.classList.remove('active', 'is-good');
       if (previewNotes) {
-        previewNotes.innerHTML = '<span style="color: var(--danger-solid); font-weight: 700;">Huellas de IA Detectadas:</span> Degradado violeta/rosa en titular, sombra de brillo neón artificial, emoji en titular y botón brillante sin contraste.';
+        previewNotes.innerHTML = '<span style="color: var(--danger-solid); font-weight: 700;">Huellas de IA Detectadas:</span> Subtítulos redundantes, etiquetas secundarias innecesarias, degradado violeta en titular, sombra neón artificial, emojis y sobrecarga decorativa.';
       }
     });
 
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
       btnToggleGood.classList.add('active', 'is-good');
       btnToggleBad.classList.remove('active', 'is-bad');
       if (previewNotes) {
-        previewNotes.innerHTML = '<span style="color: var(--success-solid); font-weight: 700;">Estándar WebAtelier:</span> Tipografía sólida con color de alto contraste, tracking negativo calibrado, iconografía vectorial SVG limpia y sombras por capas.';
+        previewNotes.innerHTML = '<span style="color: var(--success-solid); font-weight: 700;">Estándar WebAtelier (v2.4.0):</span> El diseño y distribución hablan por sí solos (cero etiquetas secundarias innecesarias), tipografía sólida con alto contraste, tracking negativo e iconografía SVG limpia.';
       }
     });
   }
