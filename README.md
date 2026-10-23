@@ -2,6 +2,7 @@
 
 [![Live Demo: WebAtelier](https://img.shields.io/badge/Live%20Demo-WebAtelier%20Website-0066CC.svg)](https://benjaminmurga.github.io/WebAtelier/)
 [![GitHub Release](https://img.shields.io/github/v/release/BenjaminMurga/WebAtelier?color=0066CC&label=Release)](https://github.com/BenjaminMurga/WebAtelier/releases)
+[![AgentShield Security](https://merx.help/badge/A+.svg)](https://merx.help/shield)
 [![Anti-AI & Skill Integrity Gate](https://github.com/BenjaminMurga/WebAtelier/actions/workflows/anti-ai-quality-gate.yml/badge.svg)](https://github.com/BenjaminMurga/WebAtelier/actions/workflows/anti-ai-quality-gate.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![WordPress: 6.5+](https://img.shields.io/badge/WordPress-6.5%2B%20(FSE)-21759B.svg)](https://wordpress.org)
@@ -200,12 +201,14 @@ WebAtelier v2.5.0 codifica un contrato riguroso de ingeniería y diseño para qu
 ### English 🇺🇸 / 🇬🇧
 WebAtelier is engineered around a **100% transparent, inspect-first architecture**:
 * **Zero Black Boxes:** Everything the agent executes is governed by plain Markdown files (`SKILL.md` and the 13 reference modules in `references/`). No compiled binaries, no obfuscated telemetry, and no hidden prompt injections.
+* **Independent Security Audit (Grade: A+ Verified Safe):** Audited by AgentShield against the Cloudflare Security Audit Specification (AI & LLM) and OWASP LLM Top 10 — certified 0 prompt injections, 0 tool-argument sink injections, 0 credential leak vectors, and verified MCP trust boundaries.
 * **Deterministic Guardrails:** Prohibitions (e.g. banning purple gradients, single italic words, or missing mobile touch targets) are codified as verifiable criteria and open-source scripts (`scripts/anti-ai-dom-auditor.js`).
 * **Non-Destructive by Default:** WebAtelier prioritizes read-only analysis and creative brainstorming (Phase 1) with explicit human confirmation gates before modifying or writing code in your workspace.
 
 ### Resumen en Español 🇨🇱 / 🇪🇸
 WebAtelier está diseñada bajo una **arquitectura 100% transparente y auditable**:
 * **Cero Cajas Negras:** Todo lo que ejecuta el agente está gobernado por archivos Markdown legibles (`SKILL.md` y los 13 módulos de referencia en `references/`). Sin binarios compilados, sin telemetría opaca y sin inyecciones de prompts ocultas.
+* **Auditoría de Seguridad Independiente (Calificación A+ Verificada):** Auditada por AgentShield contra las especificaciones de seguridad Cloudflare AI y el OWASP LLM Top 10 — certificando 0 inyecciones de prompts, 0 sumideros de ejecución insegura, 0 vectores de fuga de credenciales y fronteras de confianza verificadas.
 * **Límites Deterministas:** Las prohibiciones (ej. degradados morados en titulares, cursivas aisladas o elementos táctiles inferiores a 44px) están codificadas en criterios verificables y scripts de código abierto (`scripts/anti-ai-dom-auditor.js`).
 * **No Destructivo por Defecto:** WebAtelier prioriza el análisis de sólo lectura y la concepción creativa (Fase 1) con filtros obligatorios de aprobación humana antes de modificar o crear código en el espacio de trabajo.
 
