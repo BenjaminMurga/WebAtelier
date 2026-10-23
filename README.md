@@ -16,6 +16,12 @@
 > **Repository:** [https://github.com/BenjaminMurga/WebAtelier](https://github.com/BenjaminMurga/WebAtelier)  
 > **Target:** Pi, Codex, Claude Code, Cursor, and Open Agent Ecosystems.
 
+<p align="center">
+  <a href="https://benjaminmurga.github.io/WebAtelier/">
+    <img src="screenshots/01-hero-desktop.png" alt="WebAtelier Digital Atelier Showcase" width="100%" style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.12);" />
+  </a>
+</p>
+
 ---
 
 ## English Overview 🇺🇸 / 🇬🇧
@@ -85,6 +91,32 @@ WebAtelier/
 ├── README.md                              # Bilingual Documentation & Credits
 └── SKILL.md                               # Agent Entrypoint & 10-Phase Workflow
 ```
+
+---
+
+## Visual Showcase & Anti-AI Benchmark / Galería Visual
+
+### 1. El Impacto Visual: Clichés de IA vs. Estándar WebAtelier
+Compara la diferencia inmediata entre la maquetación predecible de un generador común y la disciplina de alta dirección de arte de WebAtelier:
+
+| ❌ Simulación con Clichés de IA (*AI Slop*) | ✅ Curado con WebAtelier (Apple HIG) |
+| :---: | :---: |
+| <img src="screenshots/04-playground-cliche-ia.png" alt="Clichés de IA" width="460" /> | <img src="screenshots/05-playground-webatelier-puro.png" alt="Curado con WebAtelier" width="460" /> |
+| *Degradado violeta, sombra neón artificial, emojis en titulares y microcopy redundante.* | *Tipografía sólida de alto contraste, espaciado armónico y el diseño habla por sí solo.* |
+
+### 2. Arquitectura de Grillas Bento Asimétricas y 3D
+Estructuración en proporciones 8/4 con radios concéntricos matemáticos y material *Liquid Glass* (`backdrop-filter: blur`), erradicando filas monótonas de 3 cajitas iguales:
+
+<p align="center">
+  <img src="screenshots/03-bento-grid-arquitectura.png" alt="Bento Grids Asimétricos y 3D" width="100%" style="border-radius: 12px;" />
+</p>
+
+### 3. Adaptabilidad Universal (Móviles y Escritorio)
+Diseño concebido para navegación táctil ergonómica sin desbordamientos y menús drawer accesibles:
+
+| Comparativa Técnica en Pantalla | Menú Drawer Móvil con Liquid Glass |
+| :---: | :---: |
+| <img src="screenshots/02-comparativa-tecnica.png" alt="Tabla Comparativa Técnica" width="620" /> | <img src="screenshots/08-menu-drawer-movil.png" alt="Menú Drawer Móvil" width="280" /> |
 
 ---
 
